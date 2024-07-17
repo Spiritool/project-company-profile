@@ -1,0 +1,125 @@
+:root{
+    --dark-blue-color:#025589;
+    --light-green-color:#8AC441;
+}
+.navbar-top {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #025589; /* Warna latar belakang navbar top */
+    color: white; /* Warna teks navbar top */
+    padding: 10px; /* Padding navbar top */
+}
+
+.navbar-top span {
+    margin-left: auto; /* Menempatkan teks di paling kanan */
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 30px;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 15px; /* Memberikan jarak antar item navigasi */
+    
+}
+
+.navbar-brand img {
+    height: 40px; /* Atur tinggi logo sesuai kebutuhan */
+    
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-brand {
+    margin-left: 0; /* Menghilangkan margin kiri */
+    padding-left: 0; /* Menghilangkan padding kiri */
+}
+
+.d-flex{
+    padding-right: 50px;
+}
+
+.btn-login {
+    background-color: #025589;
+    color: white;
+    border-radius: 15px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px;
+    padding-right: 100px;
+}
+
+.content img {
+    max-width: 65%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.form-container {
+    max-width: 30%;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+    color: #025589;
+}
+
+.form-container .btn-primary {
+    background-color: #025589;
+    border: none;
+    width: 100%;
+}
+
+.container-fluid-serve{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.card-serve{
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+    background-color: #f8f9fa;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body{
+    padding: 50px;
+}
+
+.img-fluid {
+    border-radius: 0px 50px 50px 0px;
+  }
+
+.card-title{
+    color: #025589;
+}
+
+.card-dokter{
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+}
+
+.card-img-top{
+    width: 250px; /* Sesuaikan ukuran gambar */
+    height: 250px; /* Sesuaikan ukuran gambar */
+    object-fit: cover; /* Jaga aspek ratio dan potong jika perlu */
+    border-radius: 100%; /* Membuat gambar menjadi lingkaran */
+    margin: auto; /* Menyamakan margin di semua sisi */
+    display: block; /* Memastikan gambar berada di tengah */
+    padding-top: 20px;
+}
