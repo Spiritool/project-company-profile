@@ -14,18 +14,16 @@
         <h1 class="text-center">Data Dokter</h1>
         <div class="row">
             <div class="col">
-                <a href="/menu/create" class="btn btn-sm btn-success mb-3">Tambah</a>
+                <a href="/dokter/create" class="btn btn-sm btn-success mb-3">Tambah</a>
                 <table class="table text-center">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Gambar</th>
-                            <th scope="col">nama dokter</th>
-                            <th scope="col">Kategori</th>
-                            <th scope="col">Komposisi</th>
-                            <th scope="col">Nama Outlet</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Stock</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">No. Telp</th>
+                            <th scope="col">Spesialisasi</th>
                             <th colspan="2" scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -36,29 +34,23 @@
                                 <%= (i+1) %>
                             </th>
                             <td>
-                                <img src="/images/menu/<%= data[i].gambar_menu %>" height="100" width="150">
+                                <img src="/images/dokter/<%= data[i].gambar_dokter %>" height="100" width="150">
                             </td>
                             <td>
-                                <%= data[i].nama_menu %>
+                                <%= data[i].nama_dokter %>
                             </td>
                             <td>
-                                <%= data[i].nama_kategori %>
+                                <%= data[i].alamat_dokter %>
                             </td>
                             <td>
-                                <%= data[i].komposisi_menu %>
+                                <%= data[i].no_hp %>
                             </td>
                             <td>
-                                <%= data[i].nama_outlet %>
+                                <%= data[i].id_keahlian %>
                             </td>
                             <td>
-                                <%= data[i].harga_menu %>
-                            </td>
-                            <td>
-                                <%= data[i].stock %>
-                            </td>
-                            <td>
-                                <a href="/menu/edit/<%= data[i].id_menu %>" class="btn btn-sm btn-warning">Edit</a>
-                                <a href="/menu/delete/<%= data[i].id_menu %>" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="/dokter/edit/<%= data[i].id_dokter %>" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/dokter/delete/<%= data[i].id_dokter %>" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
                         <% } %>

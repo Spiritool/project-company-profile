@@ -1,15 +1,14 @@
 const connection = require('../config/database');
 
-class Model_Dokter {
+class Model_Keahlian {
 
     static async getAll(){
         return new Promise((resolve, reject) => {
-            connection.query('select * from dokter order by id_dokter desc', (err, rows) => {
+            connection.query('select * from keahlian order by id_keahlian desc', (err, rows) => {
                 if(err){
                     reject(err);
                 } else {
                     resolve(rows);
-                    console.log(rows);
                 }
             });
         });
@@ -20,11 +19,8 @@ class Model_Dokter {
             connection.query('insert into dokter set ?', Data, function(err, result){
                 if(err){
                     reject(err);
-                    console.log(Data)
-                    console.log(err)
                 } else {
                     resolve(result);
-                    console.log(Data)
                 }
             })
         });
@@ -32,9 +28,7 @@ class Model_Dokter {
 
     static async getId(id){
         return new Promise((resolve, reject) => {
-            connection.query(`select a.*, b.keahlian from dokter as a
-                join keahlian as b on a.id_keahlian=b.id_keahlian
-                where id_dokter = ` + id, (err,rows) => {
+            connection.query('select * from dokter where id_dokter = ' + id, (err,rows) => {
                 if(err) {
                     reject(err);
                 } else {
@@ -52,7 +46,6 @@ class Model_Dokter {
                     console.log(err);
                 } else {
                     resolve(result);
-                    console.log(Data);
                 }
             })
         });
@@ -73,4 +66,4 @@ class Model_Dokter {
 }
 
 
-module.exports = Model_Dokter;
+module.exports = Model_Keahlian;
