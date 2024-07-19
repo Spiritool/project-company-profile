@@ -115,11 +115,73 @@
 }
 
 .card-img-top{
-    width: 250px; /* Sesuaikan ukuran gambar */
-    height: 250px; /* Sesuaikan ukuran gambar */
+    width: 90%; /* Sesuaikan ukuran gambar */
+    height: 90%; /* Sesuaikan ukuran gambar */
     object-fit: cover; /* Jaga aspek ratio dan potong jika perlu */
     border-radius: 100%; /* Membuat gambar menjadi lingkaran */
     margin: auto; /* Menyamakan margin di semua sisi */
     display: block; /* Memastikan gambar berada di tengah */
     padding-top: 20px;
+}
+
+.layanan {
+    background-color: #D8D8D8;
+}
+
+.card-layanan {
+    width: 90%; /* Mengubah lebar gambar menjadi 100% untuk menyesuaikan dengan kolom */
+    margin-left: 50px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.card-body {
+    padding-top: 10px;
+}
+
+.list-layanan {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column; /* Menyusun list layanan secara vertikal pada layar kecil */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.grid-container .btn {
+    width: 100%; /* Mengubah lebar tombol menjadi 100% untuk menyesuaikan dengan grid */
+    height: 100%;
+    background-color: #025589;
+    border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .list-layanan {
+        margin-left: 0; /* Mengatur margin ke 0 pada layar kecil */
+        margin-top: 20px; /* Menambahkan sedikit margin atas untuk pemisahan */
+    }
+
+    .col-md-6 {
+        max-width: 100%; /* Memastikan kolom mengisi seluruh lebar layar pada layar kecil */
+        flex: 0 0 100%;
+    }
+}
+
+
+.card mitra{
+    width: 500px;
+    height: 300px;
 }

@@ -14,139 +14,214 @@
 
 <body>
 
-  <header>
-    <div class="wrapper">
-      <div class="navbar-top">
-        <span>Contact us: 082332632929 - rsi_garam@yahoo.co.id</span>
-      </div>
 
-      <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="../images/logo-rsi.png" alt="Logo" class="d-inline-block align-text-top" style="height: 50px;">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">BERANDA</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">MOTTO</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">LAYANAN</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">DOKTER</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">TENTANG KAMI</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <button class="btn btn-login" type="submit">LOGIN</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-
-
+  <div class="wrapper sticky-top">
+    <div class="navbar-top ">
+      <span>Contact us: 082332632929 - rsi_garam@yahoo.co.id</span>
     </div>
-  </header>
+
+    <nav class="navbar navbar-expand-lg bg-white">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../images/logo-rsi.png" alt="Logo" class="d-inline-block align-text-top" style="height: 50px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#beranda">BERANDA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#motto">MOTTO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#dokter">DOKTER</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">LAYANAN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">TENTANG KAMI</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <a class="btn btn-login" href="#" role="button">Login</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+  </div>
+
 
   <main>
-
-    <div class="container-fluid content">
-      <img src="../images/awal.png" alt="Hospital Image">
-      <div class="form-container ">
-        <div class="text-center">
-          <h3><b>Cari Jadwal Dokter</b></h3>
-          <p class="text-success">Temukan jadwal dokter, booking atau buat janji dengan dokter ahli, spesialis atau umum
-            yang berpengalaman</p>
+    <div id="beranda" class="beranda">
+      <div class="container-fluid content">
+        <img src="../images/awal.png" alt="Hospital Image">
+        <div class="form-container ">
+          <div class="text-center">
+            <h3><b>Cari Jadwal Dokter</b></h3>
+            <p class="text-success">Temukan jadwal dokter, booking atau buat janji dengan dokter ahli, spesialis atau
+              umum
+              yang berpengalaman</p>
+          </div>
+          <form>
+            <div class="cari-dokter">
+              <div class="mb-3">
+                <label for="hari" class="form-label">Pilih Hari</label>
+                <input type="text" class="form-control" id="hari" required>
+              </div>
+              <div class="mb-3">
+                <label for="service" class="form-label">Pilih Layanan</label>
+                <input type="text" class="form-control" id="service" required>
+              </div>
+              <div class="mb-3">
+                <label for="doctor" class="form-label">Pilih Dokter</label>
+                <input type="text" class="form-control" id="doctor" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Cari</button>
+            </div>
+          </form>
         </div>
-        <form>
-          <div class="mb-3">
-            <label for="hari" class="form-label">Pilih Hari</label>
-            <input type="text" class="form-control" id="hari" required>
-          </div>
-          <div class="mb-3">
-            <label for="service" class="form-label">Pilih Layanan</label>
-            <input type="text" class="form-control" id="service" required>
-          </div>
-          <div class="mb-3">
-            <label for="doctor" class="form-label">Pilih Dokter</label>
-            <input type="text" class="form-control" id="doctor" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Cari</button>
-        </form>
       </div>
     </div>
 
-    <div class="container-fluid-serve">
-      <div class="card-serve mb-3 mx-auto">
-        <div class="row g-0">
+    <div id="motto" class="motto">
+      <div class="container-fluid-serve">
+        <div class="card-serve mb-3 mx-auto">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img src="../images/serve.jpg" class="img-fluid " alt="Placeholder image">
+            </div>
+            <div class="col-md-6">
+              <div class="card-body text-center">
+                <h3 class="card-title"><b>Serve With Smile</b></h3>
+                <br>
+                <p class="card-text">Menyandang status sebagai satu-satunya RS BUMN di Kota Surabaya, kami memiliki
+                  komitmen memberikan pelayanan dengan motto F.A.C.E with Smile (Fast-Accurate-Convenient-Effective &
+                  Efficient). Saat ini kami memiliki >115 Dokter Umum, Spesialis dan Subspesialis, 320 Perawat dan Bidan
+                  serta telah melayani 1,5 juta pasien setiap tahunnya.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dokter" class="dokter">
+      <div class="row row-cols-1 row-cols-md-4 g-4 mb-5 px-5">
+        <div class="col">
+          <div class="card-dokter">
+            <h5 class="card-title">Dokter Spesialis</h5>
+            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Mohammad Shobri</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-dokter">
+            <h5 class="card-title">Dokter Spesialis</h5>
+            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Mohammad Shobri</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-dokter">
+            <h5 class="card-title">Dokter Spesialis</h5>
+            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Mohammad Shobri</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card-dokter">
+            <h5 class="card-title">Dokter Spesialis</h5>
+            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Mohammad Shobri</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="layanan" class="layanan px-5 py-5">
+      <div class="row g-5">
           <div class="col-md-6">
-            <img src="../images/serve.jpg" class="img-fluid " alt="Placeholder image">
+              <div class="card layanan" style=" border: none;">
+                  <img src="../images/layanan.jpg" class="card-layanan" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-text">Rumah Sakit Islam selalu berkomitmen menghadirkan inovasi layanan untuk pasien. Didukung oleh Dokter, Perawat, Paramedis dan Staf yang profesional dan ramah melayani pasien. Serta didukung dengan peralatan medis modern dan terbaru, kami yakin Rumah Sakit JIH akan selalu menjadi pilihan Anda dan Keluarga</h5>
+                  </div>
+              </div>
           </div>
           <div class="col-md-6">
-            <div class="card-body text-center">
-              <h3 class="card-title"><b>Serve With Smile</b></h3>
-              <br>
-              <p class="card-text">Menyandang status sebagai satu-satunya RS BUMN di Kota Surabaya, kami memiliki
-                komitmen memberikan pelayanan dengan motto F.A.C.E with Smile (Fast-Accurate-Convenient-Effective &
-                Efficient). Saat ini kami memiliki >115 Dokter Umum, Spesialis dan Subspesialis, 320 Perawat dan Bidan
-                serta telah melayani 1,5 juta pasien setiap tahunnya.</p>
-            </div>
+            <p>TEMUKAN LAYANAN YANG ANDA INGINKAN</p>
+            <h3>Layanan Yang Tersedia</h3>
+              <div class="list-layanan ml-4 mt-5">
+                  <div class="grid-container">
+                      <a class="btn btn-primary" href="#" role="button">Rawat Jalan</a>
+                      <a class="btn btn-primary" href="#" role="button">Rawat Inap</a>
+                      <a class="btn btn-primary" href="#" role="button">Laboratorium</a>
+                      <a class="btn btn-primary" href="#" role="button">Radiologi</a>
+                      <a class="btn btn-primary" href="#" role="button">IGD 24 Jam</a>
+                      <a class="btn btn-primary" href="#" role="button">Instalasi Farmasi</a>
+                      <a class="btn btn-primary" href="#" role="button">Kamar Operasi</a>
+                      <a class="btn btn-primary" href="#" role="button">Kamar Bersalin</a>
+                      <a class="btn btn-primary" href="#" role="button">NICU</a>
+                      <a class="btn btn-primary" href="#" role="button">Ambulance</a>
+                      <a class="btn btn-primary" href="#" role="button">Homecare</a>
+                      <a class="btn btn-primary" href="#" role="button">Lainnya</a>
+                  </div>
+              </div>
           </div>
-        </div>
+      </div>
+  </div>
+  
+<div id="mitra" class="mitra">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 px-5">
+    <div class="col">
+      <div class="card mitra">
+        <img src="../images/mitra-ptgaram.png" class="mitra-img" alt="...">
       </div>
     </div>
+    <div class="col">
+      <div class="card mitra">
+        <img src="../images/mitra-bpjs.png" class="mitra-img" alt="...">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mitra">
+        <img src="../images/mitra-gardamedika.jpg" class="mitra-img" alt="...">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mitra">
+        <img src="../images/mitra-imcare.jpg" class="mitra-img" alt="...">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mitra">
+        <img src="../images/mitra-bumi.png" class="mitra-img" alt="...">
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mitra">
+        <img src="../images/mitra-adira.png" class="mitra-img" alt="...">
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div class="list-dokter">
-      <div class="row row-cols-1 row-cols-md-4 g-4 ">
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
