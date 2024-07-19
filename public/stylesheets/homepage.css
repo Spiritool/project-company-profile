@@ -2,6 +2,16 @@
     --dark-blue-color:#025589;
     --light-green-color:#8AC441;
 }
+
+.btn-primary{
+    background-color: #025589;
+}
+
+.text-primary {
+    color: #025589 !important;
+}
+
+
 .navbar-top {
     display: flex;
     justify-content: flex-end;
@@ -50,23 +60,26 @@
     border-radius: 15px;
 }
 
-.content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 20px;
-    padding-right: 100px;
+.container-fluid-beranda{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-.content img {
-    max-width: 65%;
-    height: 60%;
-    border-radius: 10px;
+.card-beranda{
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+    background-color: #f8f9fa;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-container {
-    max-width: 30%;
-    padding: 20px;
+    max-width: 100%;
+    padding-top: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
     background: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -81,6 +94,8 @@
     border: none;
     width: 100%;
 }
+
+
 
 .container-fluid-serve{
     padding-top: 50px;
@@ -180,13 +195,46 @@
     }
 }
 
-
-.mitra{
-    width: 400px;
-    height: 200px;
+.logo-align {
+    display: inline-block;
+    margin-left: -185px; /* Sesuaikan nilai ini untuk memposisikan gambar lebih ke kiri */
 }
 
-.card-mitra{
-    width: 500px;
-    height: 300px;
+.btn-floating {
+    margin-top: 15px; /* Sesuaikan nilai ini jika diperlukan untuk menjaga keselarasan vertikal */
 }
+
+.penghargaan {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #025589;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+ .item {
+    text-align: center;
+    background-color: #025589;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 30px 70px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+ .item:hover {
+    background-color:#8AC441 ;
+  }
+
+ .item h2 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+  }
+
+ .item p {
+    font-size: 1rem;
+  }
