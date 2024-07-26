@@ -150,11 +150,8 @@ router.get('/users', async function (req, res, next) {
     try {
         // let level_users = req.session.level;
         let id = req.session.userId;
-        let Data = await Model_Users.getId(id);
         let rows = await Model_Dokter.getAll();
         res.render('dokter/users/index', {
-            data: rows,
-            email: Data[0].email
         })
     } catch (error) {
         console.error("Error:", error);

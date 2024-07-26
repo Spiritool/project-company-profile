@@ -75,6 +75,12 @@ p{
     padding-right: 30px;
 }
 
+.nav-link.active {
+    background-color: #025589; /* Primary color */
+    color: white !important;
+    border-radius: 1rem;
+  }
+
 .navbar-nav .nav-item {
     margin: 0 15px; /* Memberikan jarak antar item navigasi */
     
@@ -99,10 +105,10 @@ p{
     padding-right: 50px;
 }
 
-.btn-login {
+.btn-daftar {
     background-color: #025589;
     color: white;
-    border-radius: 15px;
+    border-radius: 0.5rem;
 }
 
 .container-fluid-beranda{
