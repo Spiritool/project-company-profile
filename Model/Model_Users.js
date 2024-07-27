@@ -1,14 +1,14 @@
 const connection = require('../config/database');
 
-class Model_Keahlian {
-
+class Model_Users {
     static async getAll(){
         return new Promise((resolve, reject) => {
-            connection.query('select * from keahlian order by id_keahlian desc', (err, rows) => {
+            connection.query('select * from users order by id_users desc', (err, rows) => {
                 if(err){
                     reject(err);
                 } else {
                     resolve(rows);
+                    console.log(rows);
                 }
             });
         });
@@ -16,31 +16,7 @@ class Model_Keahlian {
 
     static async Store(Data){
         return new Promise((resolve, reject) => {
-            connection.query('insert into keahlian set ?', Data, function(err, result){
-                if(err){
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            })
-        });
-    }
-
-    static async getId(id){
-        return new Promise((resolve, reject) => {
-            connection.query('select * from keahlian where id_keahlian = ' + id, (err,rows) => {
-                if(err) {
-                    reject(err);
-                } else {
-                    resolve(rows);
-                }
-            })
-        })
-    }
-
-    static async Update(id, Data) {
-        return new Promise((resolve, reject) => {
-            connection.query('update keahlian set ? where id_keahlian =' + id, Data, function(err, result){
+            connection.query('insert into users set ?', Data, function(err, result){
                 if(err){
                     reject(err);
                     console.log(err);
@@ -51,9 +27,48 @@ class Model_Keahlian {
         });
     }
 
+    static async Login(email) {
+        return new Promise((resolve, reject) => {
+            connection.query('select * from users where email_users = ?', [email], function(err, result){
+                if (err) {
+                    reject(err);m
+                } else {
+                    resolve(result);
+                }
+            })
+        })
+    }
+
+    static async getId(id){
+        return new Promise((resolve, reject) => {
+            connection.query('select * from users where id_users = ' + id, (err,rows) => {
+                if(err) {
+                    reject(err);
+                } else {
+                    resolve(rows);
+                    console.log(rows);
+                }
+            })
+        })
+    }
+
+    static async Update(id, Data) {
+        return new Promise((resolve, reject) => {
+            connection.query('update users set ? where id_users =' + id, Data, function(err, result){
+                if(err){
+                    reject(err);
+                    console.log(err);
+                } else {
+                    resolve(result);
+                    console.log(result);
+                }
+            })
+        });
+    }
+
     static async Delete(id) {
         return new Promise((resolve, reject) => {
-            connection.query('delete from keahlian where id_keahlian =' + id, function(err,result){
+            connection.query('delete from users where id_users =' + id, function(err,result){
                 if(err) {
                     reject(err);
                 } else {
@@ -63,7 +78,7 @@ class Model_Keahlian {
         });
     }
 
+
 }
 
-
-module.exports = Model_Keahlian;
+module.exports = Model_Users;

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Model_Dokter = require('../model/Model_Dokter.js');
 const Model_Keahlian = require('../model/Model_Keahlian.js');
+const Model_Users = require('../model/Model_Users.js');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
@@ -53,12 +54,7 @@ router.get('/create', async function (req, res, next) {
 
 router.post('/store', upload.single("gambar_dokter"), async function (req, res, next) {
     try {
-        let {
-            nama_dokter,
-            alamat_dokter,
-            no_hp,
-            id_keahlian,
-        } = req.body;
+        let {nama_dokter, alamat_dokter, no_hp, id_keahlian} = req.body;
         let Data = {
             nama_dokter,
             alamat_dokter,
@@ -150,11 +146,9 @@ router.get('/users', async function (req, res, next) {
     try {
         // let level_users = req.session.level;
         let id = req.session.userId;
-        let Data = await Model_Users.getId(id);
         let rows = await Model_Dokter.getAll();
         res.render('dokter/users/index', {
-            data: rows,
-            email: Data[0].email
+            
         })
     } catch (error) {
         console.error("Error:", error);

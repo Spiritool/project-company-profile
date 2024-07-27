@@ -11,19 +11,15 @@
 
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Data Dokter</h1>
+        <h1 class="text-center">Data Keahlian</h1>
         <div class="row">
             <div class="col">
-                <a href="/dokter/create" class="btn btn-sm btn-success mb-3">Tambah</a>
+                <a href="/keahlian/create" class="btn btn-sm btn-success mb-3">Tambah</a>
                 <table class="table text-center">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Gambar</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">No. Telp</th>
-                            <th scope="col">Spesialisasi</th>
+                            <th scope="col">Keahlian</th>
                             <th colspan="2" scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -34,23 +30,11 @@
                                 <%= (i+1) %>
                             </th>
                             <td>
-                                <img src="/images/dokter/<%= data[i].gambar_dokter %>" height="100" width="150">
-                            </td>
-                            <td>
-                                <%= data[i].nama_dokter %>
-                            </td>
-                            <td>
-                                <%= data[i].alamat_dokter %>
-                            </td>
-                            <td>
-                                <%= data[i].no_hp %>
-                            </td>
-                            <td>
                                 <%= data[i].keahlian %>
                             </td>
                             <td>
-                                <a href="/dokter/edit/<%= data[i].id_dokter %>" class="btn btn-sm btn-warning">Edit</a>
-                                <a href="/dokter/delete/<%= data[i].id_dokter %>" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="/keahlian/edit/<%= data[i].id_keahlian %>" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/keahlian/delete/<%= data[i].id_keahlian %>" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
                         <% } %>

@@ -10,6 +10,8 @@ const MemoryStore = require('session-memory-store')(session);
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dokterRouter = require('./routes/dokter');
+var keahlianRouter = require('./routes/keahlian');
+var jadwalRouter = require('./routes/jadwal');
 
 //var pemesananRouter = require('./routes/pemesanan');
 
@@ -43,6 +45,8 @@ app.use(flash())
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/dokter', dokterRouter);
+app.use('/keahlian', keahlianRouter);
+app.use('/jadwal', jadwalRouter);
 
 
 
