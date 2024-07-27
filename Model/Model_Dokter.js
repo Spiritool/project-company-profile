@@ -4,7 +4,9 @@ class Model_Dokter {
 
     static async getAll(){
         return new Promise((resolve, reject) => {
-            connection.query('select * from dokter order by id_dokter desc', (err, rows) => {
+            connection.query(`select a.*, b.keahlian from dokter as a
+                join keahlian as b on a.id_keahlian=b.id_keahlian
+                order by id_dokter DESC`, (err, rows) => {
                 if(err){
                     reject(err);
                 } else {

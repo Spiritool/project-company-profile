@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-    <h1 class="text-center mb-5">Input Data Dokter</h1>
+    <h1 class="text-center mb-5">Edit Data Dokter</h1>
     <form action="/dokter/update/<%= id %>" method="POST" enctype="multipart/form-data">
     <!-- <form action="/dokter/store" method="POST" enctype="multipart/form-data"> -->
         <div class="mb-3">
@@ -24,7 +24,7 @@
             <input type="text" class="form-control" name="nama_dokter" value="<%= data.nama_dokter %>" required>
         </div>
         <div class="mb-3">
-            <label for="nama" class="form-label">Komposisi</label>
+            <label for="nama" class="form-label">Alamat</label>
             <input type="text" class="form-control" name="alamat_dokter"  value="<%= data.alamat_dokter %>" required>
         </div>
         <div class="mb-3">
