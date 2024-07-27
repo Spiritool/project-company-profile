@@ -130,6 +130,11 @@ p{
     /* background-color: #025589; */
     
 }
+@media (max-width: 768px) {
+    .card-text {
+        display: none;
+    }
+}
 
 .form-container {
     max-width: 100%;

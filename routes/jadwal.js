@@ -95,4 +95,19 @@ router.get('/delete/(:id)', async function (req, res) {
     res.redirect('/jadwal');
 })
 
+router.get('/users', async function (req, res, next) {
+    try {
+        // let level_users = req.session.level;
+        let id = req.session.userId;
+        let rows = await Model_Jadwal.getAll();
+        res.render('jadwal/users/index', {
+        })
+    } catch (error) {
+        console.error("Error:", error);
+        req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
+        res.redirect('/login');
+    }
+
+});
+
 module.exports = router;
