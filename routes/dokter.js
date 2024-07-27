@@ -148,7 +148,6 @@ router.get('/users', async function (req, res, next) {
         let id = req.session.userId;
         let rows = await Model_Dokter.getAll();
         res.render('dokter/users/index', {
-            
         })
     } catch (error) {
         console.error("Error:", error);
