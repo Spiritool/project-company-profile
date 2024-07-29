@@ -48,7 +48,7 @@ router.post('/saveusers', upload.single("gambar_users"), async (req, res) => {
     };
     await Model_Users.Store(Data);
     req.flash('success', 'Berhasil Register');
-    res.redirect('/');
+    res.redirect('/login');
   } catch (error) {
     console.log(error);
     req.flash('error', 'Registration failed. Please try again.');
@@ -64,21 +64,21 @@ router.post('/log', async (req,res) => {
       let enkripsi = Data[0].password_users;
       let cek = await bcrypt.compare(password_users, enkripsi);
       if(cek) {
-        // req.session.userId = Data[0].id_users;
-        // req.session.level = Data[0].level_users;
+        req.session.userId = Data[0].id_users;
+        req.session.level = Data[0].level_users;
         // req.session.foto = Data[0].foto;
         // req.session.nama = Data[0].nama;
         // req.session.alamat = Data[0].alamat;
         // req.session.no_telp = Data[0].no_telp;
         // req.session.email = Data[0].email;
-        //tambahkan kondisi pengecekan level pada user yang login
+        // tambahkan kondisi pengecekan level pada user yang login
         if(Data[0].level_users == 1){
           req.flash('success','Berhasil login');
-          res.redirect('/users');
+          res.redirect('/superusers');
           //console.log(Data[0]);
         }else if(Data[0].level_users == 2){
           req.flash('success', 'Berhasil login');
-          res.redirect('/superusers');
+          res.redirect('/users');
         }else{
           res.redirect('/login');
           console.log(Data[0]);
