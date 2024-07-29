@@ -13,6 +13,8 @@ var superusersRouter = require('./routes/superusers');
 var dokterRouter = require('./routes/dokter');
 var keahlianRouter = require('./routes/keahlian');
 var jadwalRouter = require('./routes/jadwal');
+var tentang_kamiRouter = require('./routes/tentang_kami');
+
 
 //var pemesananRouter = require('./routes/pemesanan');
 
@@ -49,6 +51,8 @@ app.use('/superusers', superusersRouter);
 app.use('/dokter', dokterRouter);
 app.use('/keahlian', keahlianRouter);
 app.use('/jadwal', jadwalRouter);
+app.use('/tentang_kami', tentang_kamiRouter);
+
 
 
 
