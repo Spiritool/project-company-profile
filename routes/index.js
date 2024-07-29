@@ -6,7 +6,7 @@ const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
 
-var Model_Users = require('../model/Model_Users');
+var Model_Users = require('../model/Model_Users.js');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
