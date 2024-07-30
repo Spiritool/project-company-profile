@@ -16,6 +16,31 @@
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
   <link rel="stylesheet" href="../../stylesheets/dokter.css" />
+
+  <style>
+    .facility-card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      display: none;
+    }
+
+    .facility-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .facility-details {
+      padding-left: 20px;
+    }
+
+    .card-layanan,
+    .facility-card {
+      border: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,10 +64,10 @@
               <a class="nav-link " aria-current="page" href="/">BERANDA</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">DOKTER</a>
+              <a class="nav-link " aria-current="page" href="/">DOKTER</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="/">LAYANAN</a>
+              <a class="nav-link active" aria-current="page" href="/">LAYANAN</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " aria-current="page" href="#">TENTANG KAMI</a>
@@ -64,126 +89,269 @@
         <div class="card text-bg-dark mb-3">
           <img src="../../images/home.png" class="card-img" alt="...">
           <div class="card-img-overlay text-center">
-            <h3 class="card-title text-white mb-5">Selamat Datang di
-              RSI Garam Kalianget</h3>
-            <p class="card-text-desc">Kami dengan hangat menyambut Anda di RSI Garam Kalianget, tempat di mana kesehatan dan
-              kesejahteraan Anda menjadi prioritas utama kami. Di sini, kami berkomitmen untuk memberikan pelayanan
-              medis terbaik dengan standar profesionalisme yang tinggi.</p>
+            <h3 class="card-title text-white mb-5">Layanan Rumah Sakit</h3>
+            <p class="card-text-desc">RSI GARAM KALIANGET selalu berkomitmen menghadirkan inovasi layanan untuk pasien.
+              Didukung oleh Dokter, Perawat, Paramedis dan Staf yang profesional dan ramah melayani pasien. Serta
+              didukung dengan peralatan medis modern dan terbaru, kami yakin RSI GARAM KALIANGET akan selalu menjadi
+              pilihan Anda dan Keluarga</p>
           </div>
-        </div>
-        <div class="card-body">
-          <div class="text-center text-primary mb-3">
-            <h3><b>Cari Jadwal Dokter</b></h3>
-
-          </div>
-          <form>
-            <div class="cari-dokter px-5">
-              <div class="row">
-                <div class="col-sm-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Pilih Hari" aria-label="Pilih Hari">
-                </div>
-                <div class="col-sm-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Pilih Layanan kesehatan"
-                    aria-label="Pilih Layanan kesehatan">
-                </div>
-                <div class="col-sm-11 mb-5">
-                  <input type="text" class="form-control" placeholder="Pilih Dokter" aria-label="Pilih Dokter">
-                </div>
-                <div class="col-sm mb-5">
-                  <button type="submit" class="btn btn-primary">Cari</button>
-                </div>
-              </div>
-
-            </div>
-          </form>
         </div>
       </div>
     </div>
 
-
-
-    <footer class="text-primary text-center text-lg-start  mt-5">
-        <!-- Grid container -->
-        <div class="container p-4">
-          <!--Grid row-->
-          <div class="row mb-5">
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-              <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
-    
-    
-              <div class="mt-4">
-                <!-- Facebook -->
-                <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-facebook-f"></i></a>
-                <!-- Dribbble -->
-                <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-dribbble"></i></a>
-                <!-- Twitter -->
-                <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-twitter"></i></a>
-                <!-- Google + -->
-                <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-google-plus-g"></i></a>
-                <!-- Linkedin -->
+    <div class="container">
+      <!-- Row 1 -->
+      <div class="row g-4">
+        <!-- Column 1 -->
+        <div class="col-md-6">
+          <div class="card-layanan">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">1. Instalansi Gawat Darurat (IGD)</h5>
+                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard1')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                  </svg>
+                </button>
               </div>
             </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-              
-    
-              
-    
-              <ul class="fa-ul" style="margin-left: 1.65em;">
-              <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
-    
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan (08233263292)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance (085334367221)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran (085257098307)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-headphones"></i></span><span class="ms-2">Humas/Customer Service (082332632929)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2" href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
-                </li>
-              </ul>
-            </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
-              <p>SIANG : JAM 10.00 WIB s/d 12.00 WIB</p>
-              <p>SORE  : JAM 14.00 WIB s/d 18.00 WIB</p>
-            </div>
-            <!--Grid column-->
           </div>
-          <!--Grid row-->
+          <div class="facility-card" id="facilityCard1">
+            <div class="row">
+              <div class="col-md-6">
+                <p>IGD 24 Jam</p>
+                <img src="../../images/igd.png" alt="Kamar Marwah" class="facility-image">
+              </div>
+              <div class="col-md-6 facility-details">
+
+                <ul>
+                  <li>Instalasi Gawat Darurat (IGD) RSI Garam Kalianget dilengkapi dengan tenaga medis yang handal dan
+                    siap selama 24 jam untuk menangani kasus gawat darurat.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Grid container -->
-    
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2024 Copyright:
-          <a class="text-primary" href="https://rsi_garam@yahoo.co.id/">RSI GARAM KALIANGET</a>
+        <!-- Column 2 -->
+        <div class="col-md-6">
+          <div class="card-layanan">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">2. Rawat Jalan</h5>
+                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard2')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="facility-card" id="facilityCard2">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Poli</p>
+                <img src="../../images/rawat_jalan.jpg" alt="Kamar Safa" class="facility-image">
+              </div>
+              <div class="col-md-6 facility-details">
+                <p>Fasilitas</p>
+                <ul>
+                  <li>Poli Umum</li>
+                  <li>Poli Gigi</li>
+                  <li>Poli Konsultasi Gizi</li>
+                  <li>Poli Spesialis Obsgyn</li>
+                  <li>Poli Spesialis Bedah</li>
+                  <li>Poli Spesialis Syaraf</li>
+                  <li>Poli Spesialis Penyakit Dalam</li>
+                  <li>Poli Rehabilitasi Medik</li>
+                  <li>Poli Spesialis Radiologi</li>
+                  <li>Poli Spesialis Kedokteran Jiwa</li>
+                  <li>Poli Spesialis Mata</li>
+                  <li>Poli Spesialis Paru</li>
+                  <li>Poli Fisioterapi</li>
+                  <li>Poli KIA</li>
+                  <li>Poli Kesehatan Tradisional</li>
+                  <li>Poli Mom & Baby Spa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Copyright -->
-      </footer>
-  
-    </main>
-  
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-      </script>
-  
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript" src="js/script.js"></script>
-  </body>
-  
-  </html>
+      </div>
+      <!-- Row 2 -->
+      <div class="row g-4 mt-3">
+        <!-- Column 1 -->
+        <div class="col-md-6">
+          <div class="card-layanan">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">3. Rawat Inap</h5>
+                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard3')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="facility-card" id="facilityCard3">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Kamar Marwah</p>
+                <img src="../../images/rawat_inap.jpg" alt="Kamar Mina" class="facility-image">
+              </div>
+              <div class="col-md-6 facility-details">
+                <p>Fasilitas</p>
+                <ul>
+                  <li>Bed Pasien 1 buah</li>
+                  <li>Kursi</li>
+                  <li>Lemari Obat</li>
+                  <li>AC</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Column 2 -->
+        <div class="col-md-6">
+          <div class="card-layanan">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">4. Radiologi</h5>
+                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard4')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="facility-card" id="facilityCard4">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Ruang Radiologi</p>
+                <img src="../../images/radiologi.jpeg" alt="Kamar Arafah" class="facility-image">
+              </div>
+              <div class="col-md-6 facility-details">
+                <p>Fasilitas</p>
+                <ul>
+                  <li>Foto Rontgen</li>
+                  <li>Fluoroskopi </li>
+                  <li>Ultrasonografi (USG)</li>
+                  <li>Magnetic Resonance Imaging (MRI) Scan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-primary text-center text-lg-start  mt-5">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
+        <div class="row mb-5">
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+            <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
+
+
+            <div class="mt-4">
+              <!-- Facebook -->
+              <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-facebook-f"></i></a>
+              <!-- Dribbble -->
+              <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-dribbble"></i></a>
+              <!-- Twitter -->
+              <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-twitter"></i></a>
+              <!-- Google + -->
+              <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-google-plus-g"></i></a>
+              <!-- Linkedin -->
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+
+
+
+
+            <ul class="fa-ul" style="margin-left: 1.65em;">
+              <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
+
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan
+                  (08233263292)</span>
+              </li>
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance
+                  (085334367221)</span>
+              </li>
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran
+                  (085257098307)</span>
+              </li>
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-headphones"></i></span><span class="ms-2">Humas/Customer Service
+                  (082332632929)</span>
+              </li>
+              <li class="mb-3">
+                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2"
+                  href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
+            <p>SIANG : JAM 10.00 WIB s/d 12.00 WIB</p>
+            <p>SORE  : JAM 14.00 WIB s/d 18.00 WIB</p>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-primary" href="https://rsi_garam@yahoo.co.id/">RSI GARAM KALIANGET</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript" src="js/script.js"></script>
+
+  <script>
+    function toggleFacilityCard(cardId) {
+      var card = document.getElementById(cardId);
+      if (card.style.display === "none") {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>
