@@ -1,0 +1,170 @@
+h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+    h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+    h3{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+    h4{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    }
+    
+    h5{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+    a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+    p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+    .btn-primary{
+    background-color: #025589;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+    
+    .btn-primary-disabled{
+        background-color: #025589;
+        border-radius: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        }
+    
+    .text-primary {
+    color: #025589 !important;
+    }
+    
+    .bg-primary{
+        background-color: #025589;
+    }
+    
+    .text-success{
+    color:#8AC441 !important;
+    }
+    
+    .navbar-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #025589; /* Warna latar belakang navbar top */
+        color: white; /* Warna teks navbar top */
+        padding: 20px; /* Padding navbar top */
+    }
+    
+    .navbar-top .nav-link {
+        color: white; /* Warna teks untuk link di navbar top */
+        margin-right: 15px; /* Spasi antara link dan tepi kanan */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    
+    .navbar-brand img {
+        height: 50px; /* Sesuaikan tinggi logo */
+    }
+    
+    .navbar-nav {
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 0;
+    }
+    
+    .title {
+        color: #025589 !important;
+    }
+    
+    .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    }
+    
+    .navbar-brand {
+    margin-left: 0; /* Menghilangkan margin kiri */
+    padding-left: 0; /* Menghilangkan padding kiri */
+    }
+    
+    .d-flex{
+    padding-right: 50px;
+    }
+    
+    .btn-light{
+        color: #025589;
+    }
+    
+   .card-body-daftar{
+    background-color: #025589;
+    padding-left: 80px;
+    padding-right: 80px;
+   }
+
+   
+
+    
+/* footer */
+.logo-align {
+    display: inline-block;
+    margin-left: -185px; /* Sesuaikan nilai ini untuk memposisikan gambar lebih ke kiri */
+}
+
+.btn-floating {
+    margin-top: 15px; /* Sesuaikan nilai ini jika diperlukan untuk menjaga keselarasan vertikal */
+}
+
+.penghargaan {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #025589;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+ .item {
+    text-align: center;
+    background-color: #025589;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 30px 70px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+ .item:hover {
+    background-color:#8AC441 ;
+  }
+
+ .item h2 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+  }
+
+ .item p {
+    font-size: 1rem;
+  }
