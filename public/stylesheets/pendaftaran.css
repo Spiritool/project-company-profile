@@ -115,13 +115,33 @@ h1{
         color: #025589;
     }
     
+.card-pendaftaran{
+    background-color: #025589;
+}
+
    .card-body-daftar{
     background-color: #025589;
     padding-left: 80px;
     padding-right: 80px;
    }
 
-   
+   .card {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card:hover {
+    background-color: #025589;
+    color: #fff;
+}
+
+.card:hover .card-body {
+    color: #fff;
+}
+
+.card:hover svg path {
+    fill: #fff;
+}
+
 
     
 /* footer */
