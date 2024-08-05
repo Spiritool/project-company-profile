@@ -1,55 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
-
+<%- include('../partials/__head.ejs') %>
 <body>
-
-<div class="container">
-    <h1 class="text-center mb-5">Input Data Dokter</h1>
-    <form action="/dokter/store" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="nama" class="form-label">Foto Menu</label>
-            <input type="file" class="form-control" name="gambar_dokter" required>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <%- include('../partials/__nav.ejs') %>
+    <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Input Data Dokter</h4>
+                        <p class="card-description">
+                            Basic form layout
+                        </p>
+                        <form action="/dokter/store" method="POST" enctype="multipart/form-data" class="forms-sample">
+                            <div class="form-group">
+                                <label for="gambar_dokter">Foto Menu</label>
+                                <input type="file" class="form-control" id="gambar_dokter" name="gambar_dokter" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_dokter">Nama</label>
+                                <input type="text" class="form-control" id="nama_dokter" name="nama_dokter" placeholder="Nama" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat_dokter">Alamat</label>
+                                <input type="text" class="form-control" id="alamat_dokter" name="alamat_dokter" placeholder="Alamat" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="no_hp">No. Hp</label>
+                                <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="No. Hp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">Default select</label>
+                                <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
+                                    <option selected>Pilih Keahlian</option>
+                                    <% for(var i=0; i < data.length; i++){ %>
+                                        <option value="<%= data[i].id_keahlian %>"><%= data[i].keahlian %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" class="btn btn-light" onclick="history.back()" >Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama</label>
-            <input type="text" class="form-control" name="nama_dokter" required>
-        </div>
-        <div class="mb-3">
-            <label for="nama" class="form-label">Alamat</label>
-            <input type="text" class="form-control" name="alamat_dokter" required>
-        </div>
-        <div class="mb-3">
-            <label for="nama" class="form-label">No. Hp</label>
-            <input type="text" class="form-control" name="no_hp" required>
-        </div>
-        <div class="mb-3">
-            <label for="nama" class="form-label">Spesialisasi</label>
-            <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_keahlian" required>
-                <option selected>Pilih Keahlian</option>
-                <% for(var i=0; i < data.length; i++){ %>
-                    <option value="<%= data[i].id_keahlian %>"><%= data[i].keahlian %></option>
-                <% } %>
-            </select>
-        </div>
-        
-        
-        <div class="mb-3">
-            <button type="submit" class="btn btn-sm btn-success">Simpan</button>
-        </div>
-    </form>
-</div>    
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
+    </div>
+    <!-- content-wrapper ends -->
+</div>
+<!-- container-scroller ends -->
+<%- include('../partials/__foot.ejs') %>
 </body>
-
-</html>

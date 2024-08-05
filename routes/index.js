@@ -7,6 +7,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 var Model_Users = require('../model/Model_Users.js');
+var Model_Dokter = require('../model/Model_Dokter.js');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -21,10 +22,18 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', async function (req, res, next) {
+  try {
+      let rows = await Model_Dokter.getAll();
+      res.render('index', {
+          data: rows
+      });
+  } catch (error) {
+      console.error("Error:", error);
+      req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
+      res.redirect('/login');
+  }
 });
-
 router.get('/register', function(req, res, next) {
   res.render('auth/register');
 })

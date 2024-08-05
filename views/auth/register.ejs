@@ -1,4 +1,15 @@
 <%- include('../partials/__head.ejs') %>
+<style>
+  :root {
+    --dark-blue-color: #025589;
+  }
+
+  .btn-primary {
+    background-color: var(--dark-blue-color);
+    border-color: var(--dark-blue-color);
+  }
+
+</style>
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -7,9 +18,9 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../skydash/images/logo.svg" alt="logo">
+                <img src="../../images/logo-rsi.png" alt="logo" class="large-logo" style="width: 360px; height: auto;">
               </div>
-              <h4>New here?</h4>
+              <h4>Baru Ingin Mendaftar?</h4>
               <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
               <%- include('../partials/__messagess.ejs') %>
               <form action="/saveusers" method="POST" enctype="multipart/form-data" class="pt-3">
@@ -44,19 +55,9 @@
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  Already have an account? <a href="login" class="text-primary">Login</a>
                 </div>
               </form>
-              <hr>
-              <div class="text-center">
-                <a class="btn btn-google btn-user btn-block" href="index.html">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a class="btn btn-facebook btn-user btn-block" href="index.html">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>
-              </div>
-              <hr>
               <div class="text-center">
                 <a class="small" href="forgot-password.html">Forgot Password?</a>
               </div>

@@ -32,6 +32,20 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+router.get('/users', async function (req, res, next) {
+    try {
+        let rows = await Model_Dokter.getAll();
+        res.render('dokter/users/index', {
+            data: rows
+        });
+    } catch (error) {
+        console.error("Error:", error);
+        req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
+        res.redirect('/login');
+    }
+});
+    
+
 router.get('/create', async function (req, res, next) {
     try {
         let level_users = req.session.level;

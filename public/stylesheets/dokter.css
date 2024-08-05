@@ -127,21 +127,35 @@ border-radius: 0.5rem;
     padding-right: 50px;
 }
 
-.card-dokter{
-
+.card-dokter {
     background-color: #f8f9fa;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.card-img{
-    height: 50%;
+.dokter-img {
+    width: 150px; /* Lebar tetap untuk gambar */
+    height: 150px; /* Tinggi tetap untuk gambar */
+    object-fit: cover; /* Menyesuaikan gambar tanpa merubah rasio */
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    margin: auto; /* Menyamakan margin di semua sisi */
+    display: block; /* Memastikan gambar berada di tengah */
 }
 
-.card-img-overlay{
-    padding: 5%;
-    /* background-color: #025589; */
-
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px; /* Memberikan jarak kecil antara gambar dan teks */
 }
+
+.card-title {
+    margin-bottom: 0.5rem; /* Jarak antara judul dan teks berikutnya */
+}
+
+.card-text {
+    margin-bottom: 0.25rem; /* Jarak antara teks */
+}
+
 @media (max-width: 768px) {
     .card-text-desc {
         display: none;

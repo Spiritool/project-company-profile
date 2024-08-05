@@ -1,4 +1,15 @@
 <%- include('../partials/__head.ejs') %>
+<style>
+  :root {
+    --dark-blue-color: #025589;
+  }
+
+  .btn-primary {
+    background-color: var(--dark-blue-color);
+    border-color: var(--dark-blue-color);
+  }
+
+</style>
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -7,9 +18,9 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../skydash/images/logo.svg" alt="logo">
+                <img src="../../images/logo-rsi.png" alt="logo" class="large-logo" style="width: 360px; height: auto;">
               </div>
-              <h4>Hello! let's get started</h4>
+              <h4>Halo, Selamat Datang di RSI Garam Kalianget</h4>
               <h6 class="font-weight-light">Sign in to continue.</h6>
               <%- include('../partials/__messagess.ejs') %>
               <form action="/log" method="POST" class="pt-3">
@@ -31,11 +42,6 @@
                   </div>
                   <a href="forgot-password.html" class="auth-link text-black">Forgot password?</a>
                 </div>
-                <div class="mb-2">
-                  <button type="button" class="btn btn-block btn-facebook auth-form-btn">
-                    <i class="ti-facebook mr-2"></i>Connect using facebook
-                  </button>
-                </div>
                 <div class="text-center mt-4 font-weight-light">
                   Don't have an account? <a href="/register" class="text-primary">Create</a>
                 </div>
@@ -49,3 +55,4 @@
     <!-- page-body-wrapper ends -->
   </div>
   <%- include('../partials/__foot.ejs') %>
+</body>
