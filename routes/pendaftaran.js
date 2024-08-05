@@ -4,7 +4,7 @@ var router = express.Router();
 router.get('/users', async function (req, res, next) {
     try {
         // let level_users = req.session.level;
-        res.render('layanan/users/index', {
+        res.render('pendaftaran/users/index', {
         })
     } catch (error) {
         console.error("Error:", error);
