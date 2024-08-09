@@ -170,42 +170,17 @@
 
     <div id="dokter" class="dokter">
       <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 px-5">
-        <div class="col">
-          <div class="card-dokter">
+        <% data.forEach(function(dokter) { %>
+        <div class="col d-flex">
+          <div class="card-dokter flex-fill">
             <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
+            <img src="../../images/dokter/<%= dokter.gambar_dokter %>" class="card-img-top dokter-img" alt="<%= dokter.nama_dokter %>">
             <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
+              <p class="card-text-dokter"><%= dokter.nama_dokter %></p>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card-dokter">
-            <h5 class="card-title">Dokter Spesialis</h5>
-            <img src="../images/doctor.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Mohammad Shobri</p>
-            </div>
-          </div>
-        </div>
+        <% }); %>
       </div>
       <div class="row mb-5">
         <div class="col text-center">
@@ -213,6 +188,8 @@
         </div>
       </div>
     </div>
+    
+    
     
 
     <div id="layanan" class="layanan px-5 py-5">
