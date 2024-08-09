@@ -142,7 +142,38 @@ h1{
     fill: #fff;
 }
 
-
+.custom-container {
+    background-color: #005691;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .btn-success {
+    background-color: #9ACD32;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .d-flex-align-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 767px) {
+    .d-flex-align-center {
+      display: block;
+      text-align: left;
+    }
+    .btn-success {
+      display: block;
+      margin-top: 10px;
+    }
+  }
     
 /* footer */
 .logo-align {
