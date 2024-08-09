@@ -72,7 +72,7 @@
 
         <div class="container menu  mt-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <a href="../../dokter/users" class="text-decoration-none text-dark">
+                <a type="button" class="text-decoration-none text-dark"  data-bs-toggle="modal" data-bs-target="#syaratketentuan">
                     <div class="card mb-3 mx-2 shadow" style="width: 360px;">
                         <div class="row g-0">
                             <div class="col-md-4 mt-4 p-2">
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="../../dokter/users" class="text-decoration-none text-dark">
+                <a type="button" class="text-decoration-none text-dark"  data-bs-toggle="modal" data-bs-target="#cekstatus">
                     <div class="card mb-3 mx-2 shadow" style="width: 360px;">
                         <div class="row g-0">
                             <div class="col-md-4 mt-4 p-2">
@@ -196,6 +196,129 @@
                 </a>
             </div>
         </div>
+
+<!-- modal -->
+<div class="modal fade modal-lg" id="syaratketentuan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Syarat & Ketentuan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body px-4">
+            <div class="section">
+                <h3>General</h3>
+                <ul>
+                    <li>Pendaftaran Online hanya bisa dilakukan oleh pasien yang telah memiliki nomor rekam medis di Rumah Sakit Islam Garam Kalianget.</li>
+                    <li>Pendaftaran Online dibuka mulai pukul 07:30 sampai dengan pukul 13:00 WIB.</li>
+                    <li>Pendaftaran Online dilakukan H-1.</li>
+                    <li>Pendaftaran Online hari minggu / hari libur nasional TUTUP</li>
+                    <li>Untuk pendaftaran setelah hari minggu / hari libur nasional maka pendaftaran dapat dilakukan H-1 atau sebelum hari minggu / hari libur.</li>
+                    <li>Cek status untuk mendapatkan kwitansi dan nomor antrian poli (antrian dokter)</li>
+                    <li>Nomor antrian ke dokter dapat dilihat di menu status mulai pukul 16:00 WIB</li>
+                    <li>Untuk Poli Spesialis Kandungan, jadwal dokter harus membuat Appoinment/janji terlebih dahulu dengan dokter.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Pasien Umum</h3>
+                <ul>
+                    <li>Setelah mendaftar, harap melakukan pembayaran ke Mandiri syariah 7093 717 338 an. RSI Garam Kalianget sampai dengan pukul 12:00 WIB dan mengirimkan bukti transfer ke nomor 0852-5709-8307</li>
+                    <li>Pasien yang tidak melakukan pembayaran sampai batas waktu yang telah ditentukan dianggap batal.</li>
+                    <li>Jika sudah melakukan pembayaran, kunjungan tidak bisa dibatalkan atau ganti penjamin/debitur.</li>
+                    <li>Pasien diharuskan datang 10 menit sebelum jam praktek dokter dimulai.</li>
+                    <li>Jika pasien datang terlambat dan pelayanan sudah selesai, pasien dianggap tidak datang dan tidak ada pengembalian.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Pasien BPJS Kesehatan</h3>
+                <ul>
+                    <li>Pasien diharap melakukan check in dan cetak tracer 1 jam sebelum jadwal dokter praktek.</li>
+                    <li>Pasien wajib menyerahkan berkas kelengkapan ke loket pendaftaran untuk verifikasi.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Pasien Asuransi/Instansi</h3>
+                <ul>
+                    <li>Saat hari H, sebelum ke dokter pasien diharap melakukan verifikasi ke loket.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade modal-lg" id="cekstatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Syarat & Ketentuan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body px-4">
+            <div class="section">
+                <h3>General</h3>
+                <ul>
+                    <li>Pendaftaran Online hanya bisa dilakukan oleh pasien yang telah memiliki nomor rekam medis di Rumah Sakit Islam Garam Kalianget.</li>
+                    <li>Pendaftaran Online dibuka mulai pukul 07:30 sampai dengan pukul 13:00 WIB.</li>
+                    <li>Pendaftaran Online dilakukan H-1.</li>
+                    <li>Pendaftaran Online hari minggu / hari libur nasional TUTUP</li>
+                    <li>Untuk pendaftaran setelah hari minggu / hari libur nasional maka pendaftaran dapat dilakukan H-1 atau sebelum hari minggu / hari libur.</li>
+                    <li>Cek status untuk mendapatkan kwitansi dan nomor antrian poli (antrian dokter)</li>
+                    <li>Nomor antrian ke dokter dapat dilihat di menu status mulai pukul 16:00 WIB</li>
+                    <li>Untuk Poli Spesialis Kandungan, jadwal dokter harus membuat Appoinment/janji terlebih dahulu dengan dokter.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Pasien Umum</h3>
+                <ul>
+                    <li>Setelah mendaftar, harap melakukan pembayaran ke Mandiri syariah 7093 717 338 an. RSI Garam Kalianget sampai dengan pukul 12:00 WIB dan mengirimkan bukti transfer ke nomor 0852-5709-8307</li>
+                    <li>Pasien yang tidak melakukan pembayaran sampai batas waktu yang telah ditentukan dianggap batal.</li>
+                    <li>Jika sudah melakukan pembayaran, kunjungan tidak bisa dibatalkan atau ganti penjamin/debitur.</li>
+                    <li>Pasien diharuskan datang 10 menit sebelum jam praktek dokter dimulai.</li>
+                    <li>Jika pasien datang terlambat dan pelayanan sudah selesai, pasien dianggap tidak datang dan tidak ada pengembalian.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Pasien BPJS Kesehatan</h3>
+                <ul>
+                    <li>Pasien diharap melakukan check in dan cetak tracer 1 jam sebelum jadwal dokter praktek.</li>
+                    <li>Pasien wajib menyerahkan berkas kelengkapan ke loket pendaftaran untuk verifikasi.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>Pasien Asuransi/Instansi</h3>
+                <ul>
+                    <li>Saat hari H, sebelum ke dokter pasien diharap melakukan verifikasi ke loket.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Setuju</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak Setuju</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid custom-container mt-5">
+    <div class="d-flex-align-center">
+      <div>
+        <h2><b>Mau Konsultasi?</b></h2>
+        <p>Tanyakan Apa Saja Kepada Ahli Kami dan Dapatkan Solusi Terbaik untuk Masalah Anda!</p>
+      </div>
+      <a class="btn btn-success"><b>Hubungi Kami</b></a>
+    </div>
+  </div>
+
+<!-- Floating Action Button -->
+<a href="https://api.whatsapp.com/send?phone=6282332172543" class="float" target="_blank">
+    <i class="fab fa-whatsapp my-float"></i>
+  </a>
 
         <footer class="text-primary text-center text-lg-start  mt-5">
             <!-- Grid container -->
