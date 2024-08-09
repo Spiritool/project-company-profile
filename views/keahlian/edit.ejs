@@ -13,7 +13,7 @@
 
 <div class="container">
     <h1 class="text-center mb-5">Edit Data Keahlian</h1>
-    <form action="/keahlian/store" method="POST">
+    <form action="/keahlian/update/<%= id %>" method="POST">
         <div class="mb-3">
             <label for="nama" class="form-label">Keahlian</label>
             <input type="text" class="form-control" name="keahlian" value="<%= data.keahlian %>">
