@@ -39,7 +39,6 @@ router.get('/users', async function (req, res, next) {
     } catch (error) {
         console.error("Error:", error);
         req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
-        res.redirect('/login');
     }
 });
 

@@ -80,14 +80,26 @@
             <div class="cari-dokter px-5">
               <div class="row">
                 <div class="col-sm-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Pilih Hari" aria-label="Pilih Hari">
+                  <select class="form-control" id="exampleFormControlSelect2" name="hari" required>
+                    <option selected>Pilih Hari</option>
+                    <option value="senin">Senin</option>
+                    <option value="selasa">Selasa</option>
+                    <option value="rabu">rabu</option>
+                    <option value="kamis">Kamis</option>
+                    <option value="jumat">Jumat</option>
+                    <option value="sabtu">Sabtu</option>
+                    <option value="minggu">Minggu</option>
+                  </select>
                 </div>
                 <div class="col-sm-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Pilih Layanan kesehatan"
-                    aria-label="Pilih Layanan kesehatan">
+                  <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
+                    <option selected>Layana Kesehatan</option>
+                  </select>
                 </div>
                 <div class="col-sm-11 mb-5">
-                  <input type="text" class="form-control" placeholder="Pilih Dokter" aria-label="Pilih Dokter">
+                  <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
+                    <option selected>Pilih Dokter</option>
+                  </select>
                 </div>
                 <div class="col-sm mb-5">
                   <button type="submit" class="btn btn-primary">Cari</button>
