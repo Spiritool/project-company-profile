@@ -16,6 +16,7 @@ var jadwalRouter = require('./routes/jadwal');
 var tentang_kamiRouter = require('./routes/tentang_kami');
 var layananRouter = require('./routes/layanan');
 var pendaftaranRouter = require('./routes/pendaftaran');
+var artikelRouter = require('./routes/artikel');
 
 
 //var pemesananRouter = require('./routes/pemesanan');
@@ -56,6 +57,7 @@ app.use('/jadwal', jadwalRouter);
 app.use('/tentang_kami', tentang_kamiRouter);
 app.use('/layanan', layananRouter);
 app.use('/pendaftaran', pendaftaranRouter);
+app.use('/artikel', artikelRouter);
 
 
 
