@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const Model_Dokter = require('../model/Model_Dokter.js');
+const Model_Jadwal = require('../Model/Model_Jadwal.js');
 const Model_Keahlian = require('../model/Model_Keahlian.js');
+const { Op, Sequelize, Model  } = require('sequelize'); // Import Op
 const Model_Users = require('../model/Model_Users.js');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
+const Model_Layanan = require("../model/Model_Layanan.js");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -35,8 +38,10 @@ router.get('/', async (req, res, next) => {
 router.get('/users', async function (req, res, next) {
     try {
         let rows = await Model_Dokter.getAll();
+        let rows2 = await Model_Keahlian.getAll();
         res.render('dokter/users/index', {
-            data: rows
+            data: rows,
+            data_keahlian: rows2
         });
     } catch (error) {
         console.error("Error:", error);
@@ -44,6 +49,30 @@ router.get('/users', async function (req, res, next) {
         res.redirect('/login');
     }
 });
+
+router.get('/get-dokter', async function(req, res) {
+    const { hari, id_keahlian } = req.query;
+    console.log("Received parameters:", { hari, id_keahlian });
+
+    try {
+        // Ensure 'hari' is sanitized and safe to use in a SQL query to prevent SQL injection
+        if (!['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'].includes(hari)) {
+            return res.status(400).json({ error: 'Invalid "hari" parameter' });
+        }
+        const dokter = await Model_Jadwal.getAll({
+            where: {
+                hari : 8
+            },
+            logging: console.log // Logs the SQL query to the console
+        });
+        res.json({ dokter: dokter });
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: 'Terjadi kesalahan saat memuat data dokter' });
+    }
+});
+
+
     
 
 router.get('/create', async function (req, res, next) {
@@ -168,7 +197,6 @@ router.get('/users', async function (req, res, next) {
         req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
         res.redirect('/login');
     }
-
 });
 
 module.exports = router;

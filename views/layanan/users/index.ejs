@@ -48,7 +48,6 @@
     <div class="navbar-top ">
       <span>Contact us: 082332632929 - rsi_garam@yahoo.co.id</span>
     </div>
-
     <nav class="navbar navbar-expand-lg bg-white">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -82,11 +81,9 @@
         </div>
       </div>
     </nav>
-
   </div>
 
   <main>
-
     <div class="awalan">
       <div class="card-dokter mb-3 ">
         <div class="card text-bg-dark mb-3">
@@ -106,155 +103,35 @@
       <!-- Row 1 -->
       <div class="row g-4">
         <!-- Column 1 -->
-        <div class="col-md-6">
-          <div class="card-layanan">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title mb-0">1. Instalansi Gawat Darurat (IGD)</h5>
-                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard1')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path
-                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                  </svg>
-                </button>
+        <% for(var i=0; i < data.length; i++) { %>
+          <div class="col-md-6">
+              <div class="card-layanan">
+                  <div class="card-body">
+                      <div class="d-flex justify-content-between align-items-center">
+                          <h5 class="card-title mb-0"><%= i+1 %>. <%= data[i].nama_layanan %></h5>
+                          <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard<%= i %>')">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
               </div>
-            </div>
+              <div class="facility-card" id="facilityCard<%= i %>">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <p>IGD 24 Jam </p>
+                          <img src="/images/layanan/<%= data[i].gambar_layanan %>" alt="Kamar Marwah" class="facility-image">
+                      </div>
+                      <div class="col-md-6 facility-details">
+                          <ul>
+                              <li><%= data[i].deskripsi_layanan %>.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="facility-card" id="facilityCard1">
-            <div class="row">
-              <div class="col-md-6">
-                <p>IGD 24 Jam</p>
-                <img src="../../images/igd.png" alt="Kamar Marwah" class="facility-image">
-              </div>
-              <div class="col-md-6 facility-details">
-
-                <ul>
-                  <li>Instalasi Gawat Darurat (IGD) RSI Garam Kalianget dilengkapi dengan tenaga medis yang handal dan
-                    siap selama 24 jam untuk menangani kasus gawat darurat.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Column 2 -->
-        <div class="col-md-6">
-          <div class="card-layanan">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title mb-0">2. Rawat Jalan</h5>
-                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard2')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path
-                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="facility-card" id="facilityCard2">
-            <div class="row">
-              <div class="col-md-6">
-                <p>Poli</p>
-                <img src="../../images/rawat_jalan.jpg" alt="Kamar Safa" class="facility-image">
-              </div>
-              <div class="col-md-6 facility-details">
-                <p>Fasilitas</p>
-                <ul>
-                  <li>Poli Umum</li>
-                  <li>Poli Gigi</li>
-                  <li>Poli Konsultasi Gizi</li>
-                  <li>Poli Spesialis Obsgyn</li>
-                  <li>Poli Spesialis Bedah</li>
-                  <li>Poli Spesialis Syaraf</li>
-                  <li>Poli Spesialis Penyakit Dalam</li>
-                  <li>Poli Rehabilitasi Medik</li>
-                  <li>Poli Spesialis Radiologi</li>
-                  <li>Poli Spesialis Kedokteran Jiwa</li>
-                  <li>Poli Spesialis Mata</li>
-                  <li>Poli Spesialis Paru</li>
-                  <li>Poli Fisioterapi</li>
-                  <li>Poli KIA</li>
-                  <li>Poli Kesehatan Tradisional</li>
-                  <li>Poli Mom & Baby Spa</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Row 2 -->
-      <div class="row g-4 mt-3">
-        <!-- Column 1 -->
-        <div class="col-md-6">
-          <div class="card-layanan">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title mb-0">3. Rawat Inap</h5>
-                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard3')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path
-                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="facility-card" id="facilityCard3">
-            <div class="row">
-              <div class="col-md-6">
-                <p>Kamar Marwah</p>
-                <img src="../../images/rawat_inap.jpg" alt="Kamar Mina" class="facility-image">
-              </div>
-              <div class="col-md-6 facility-details">
-                <p>Fasilitas</p>
-                <ul>
-                  <li>Bed Pasien 1 buah</li>
-                  <li>Kursi</li>
-                  <li>Lemari Obat</li>
-                  <li>AC</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Column 2 -->
-        <div class="col-md-6">
-          <div class="card-layanan">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title mb-0">4. Radiologi</h5>
-                <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard4')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path
-                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="facility-card" id="facilityCard4">
-            <div class="row">
-              <div class="col-md-6">
-                <p>Ruang Radiologi</p>
-                <img src="../../images/radiologi.jpeg" alt="Kamar Arafah" class="facility-image">
-              </div>
-              <div class="col-md-6 facility-details">
-                <p>Fasilitas</p>
-                <ul>
-                  <li>Foto Rontgen</li>
-                  <li>Fluoroskopi </li>
-                  <li>Ultrasonografi (USG)</li>
-                  <li>Magnetic Resonance Imaging (MRI) Scan</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% } %>
     </div>
 
 <!-- Floating Action Button -->

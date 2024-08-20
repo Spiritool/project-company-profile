@@ -16,6 +16,7 @@
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
   <link rel="stylesheet" href="../../stylesheets/dokter.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -69,7 +70,8 @@
           <div class="card-img-overlay text-center">
             <h3 class="card-title text-white mb-5">Selamat Datang di
               RSI Garam Kalianget</h3>
-            <p class="card-text-desc">Kami dengan hangat menyambut Anda di RSI Garam Kalianget, tempat di mana kesehatan dan
+            <p class="card-text-desc">Kami dengan hangat menyambut Anda di RSI Garam Kalianget, tempat di mana kesehatan
+              dan
               kesejahteraan Anda menjadi prioritas utama kami. Di sini, kami berkomitmen untuk memberikan pelayanan
               medis terbaik dengan standar profesionalisme yang tinggi.</p>
           </div>
@@ -81,36 +83,38 @@
           </div>
           <form>
             <div class="cari-dokter px-5">
-              <div class="row">
-                <div class="col-sm-6 mb-3">
-                  <select class="form-control" id="exampleFormControlSelect2" name="hari" required>
-                    <option selected>Pilih Hari</option>
-                    <option value="senin">Senin</option>
-                    <option value="selasa">Selasa</option>
-                    <option value="rabu">rabu</option>
-                    <option value="kamis">Kamis</option>
-                    <option value="jumat">Jumat</option>
-                    <option value="sabtu">Sabtu</option>
-                    <option value="minggu">Minggu</option>
-                  </select>
+                <div class="row">
+                    <div class="col-sm-6 mb-3">
+                        <select class="form-control" id="select-hari" name="hari" required>
+                            <option selected>Pilih Hari</option>
+                            <option value="senin">Senin</option>
+                            <option value="selasa">Selasa</option>
+                            <option value="rabu">Rabu</option>
+                            <option value="kamis">Kamis</option>
+                            <option value="jumat">Jumat</option>
+                            <option value="sabtu">Sabtu</option>
+                            <option value="minggu">Minggu</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <select class="form-control" id="select-keahlian" name="id_keahlian" required>
+                            <option selected>Pilih Keahlian</option>
+                            <% for(var i=0; i < data_keahlian.length; i++){ %>
+                            <option value="<%= data_keahlian[i].id_keahlian %>"><%= data_keahlian[i].keahlian %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="col-sm-11 mb-5">
+                        <select class="form-control" id="select-dokter" name="id_dokter" required>
+                            <option selected>Pilih Dokter</option>
+                        </select>
+                    </div>
+                    <div class="col-sm mb-5">
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                    </div>
                 </div>
-                <div class="col-sm-6 mb-3">
-                  <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
-                    <option selected>Layana Kesehatan</option>
-                  </select>
-                </div>
-                <div class="col-sm-11 mb-5">
-                  <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
-                    <option selected>Pilih Dokter</option>
-                  </select>
-                </div>
-                <div class="col-sm mb-5">
-                  <button type="submit" class="btn btn-primary">Cari</button>
-                </div>
-              </div>
-
             </div>
-          </form>
+        </form>
         </div>
       </div>
     </div>
@@ -123,18 +127,23 @@
           <div class="card card-dokter mb-3 shadow-lg" style="max-width: 100%;">
             <div class="row g-0">
               <div class="col-md-4 d-flex align-items-center justify-content-center" style="padding: 20px;">
-                <img src="../../images/dokter/<%= dokter.gambar_dokter %>" class="img-fluid rounded dokter-img" alt="Dokter">
+                <img src="../../images/dokter/<%= dokter.gambar_dokter %>" class="img-fluid rounded dokter-img"
+                  alt="Dokter">
               </div>
               <div class="col-md-8 card-content">
                 <div class="card-body">
                   <h4 class="card-title"><%= dokter.nama_dokter %></h4>
                   <p class="card-text"><%= dokter.alamat_dokter %></p>
                   <p class="card-text"><%= dokter.no_hp %></p>
-                  <p class="card-text"><small class="btn btn-primary btn-sm text-white"><%= dokter.keahlian %></small></p>
+                  <p class="card-text"><small class="btn btn-primary btn-sm text-white"><%= dokter.keahlian %></small>
+                  </p>
                   <div class="position-absolute bottom-0 end-0">
-                    <a class="btn btn-primary m-0 rounded-start" type="button" href="../../jadwal/users" style="border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                    <a class="btn btn-primary m-0 rounded-start" type="button" href="../../jadwal/users"
+                      style="border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                       </svg>
                     </a>
                   </div>
@@ -146,14 +155,14 @@
         <% }); %>
       </div>
     </div>
-    
-    
-    
 
-<!-- Floating Action Button -->
-<a href="https://api.whatsapp.com/send?phone=6282332172543" class="float" target="_blank">
-  <i class="fab fa-whatsapp my-float"></i>
-</a>
+
+
+
+    <!-- Floating Action Button -->
+    <a href="https://api.whatsapp.com/send?phone=6282332172543" class="float" target="_blank">
+      <i class="fab fa-whatsapp my-float"></i>
+    </a>
 
     <footer class="text-primary text-center text-lg-start  mt-5">
       <!-- Grid container -->
@@ -163,8 +172,8 @@
           <!--Grid column-->
           <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
             <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
-  
-  
+
+
             <div class="mt-4">
               <!-- Facebook -->
               <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-facebook-f"></i></a>
@@ -178,35 +187,40 @@
             </div>
           </div>
           <!--Grid column-->
-  
+
           <!--Grid column-->
           <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            
-  
-            
-  
+
+
+
+
             <ul class="fa-ul" style="margin-left: 1.65em;">
-            <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
-  
+              <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
+
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan (08233263292)</span>
+                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan
+                  (08233263292)</span>
               </li>
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance (085334367221)</span>
+                <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance
+                  (085334367221)</span>
               </li>
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran (085257098307)</span>
+                <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran
+                  (085257098307)</span>
               </li>
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-headphones"></i></span><span class="ms-2">Humas/Customer Service (082332632929)</span>
+                <span class="fa-li"><i class="fas fa-headphones"></i></span><span class="ms-2">Humas/Customer Service
+                  (082332632929)</span>
               </li>
               <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2" href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
+                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2"
+                  href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
               </li>
             </ul>
           </div>
           <!--Grid column-->
-  
+
           <!--Grid column-->
           <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
@@ -218,7 +232,7 @@
         <!--Grid row-->
       </div>
       <!-- Grid container -->
-  
+
       <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2024 Copyright:
@@ -232,11 +246,60 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
+  </script>
 
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript" src="js/script.js"></script>
 </body>
+
+<script>
+$(document).ready(function() {
+    $('#select-hari, #select-keahlian').on('change', function() {
+        console.log('Dropdown changed');
+        var hari = $('#select-hari').val();
+        var keahlian = $('#select-keahlian').val();
+
+        console.log('Selected Hari:', hari);
+        console.log('Selected Keahlian:', keahlian);
+
+        if(hari && keahlian) {
+            console.log('Making AJAX request...');
+            // Lakukan panggilan AJAX untuk mendapatkan daftar dokter yang sesuai
+            $.ajax({
+                url: '/dokter/get-dokter',  // Ganti dengan endpoint yang sesuai
+                type: 'GET',
+                data: {
+                    hari: hari.toLowerCase(), // Menyesuaikan dengan nama kolom di tabel jadwal
+                    id_keahlian: keahlian
+                },
+                success: function(response) {
+                    console.log('AJAX success:', response);
+                    // Kosongkan list dokter sebelumnya
+                    $('#select-dokter').empty();
+                    
+                    // Tambahkan opsi dokter yang didapat dari response
+                    $('#select-dokter').append('<option selected>Pilih Dokter</option>');
+                    $.each(response.dokter, function(index, dokter) {
+                        $('#select-dokter').append('<option value="' + dokter.id_dokter + '">' + dokter.nama_dokter + '</option>');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                }
+            });
+        }
+    });
+});
+
+$('#select-hari').on('change', function() {
+    console.log("Changed!");
+});
+
+
+</script>
+
+
+
 
 </html>

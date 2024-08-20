@@ -11,7 +11,6 @@ class Model_Dokter {
                     reject(err);
                 } else {
                     resolve(rows);
-                    console.log(rows);
                 }
             });
         });
@@ -26,7 +25,6 @@ class Model_Dokter {
                     console.log(err)
                 } else {
                     resolve(result);
-                    console.log(Data)
                 }
             })
         });

@@ -20,6 +20,7 @@
                                                 <th>No</th>
                                                 <th>Gambar</th>
                                                 <th>Nama Layanan</th>
+                                                <th>Subnama Layanan</th>
                                                 <th>Deskripsi Layanan</th>
                                                 <th colspan="2">Aksi</th>
                                             </tr>
@@ -32,6 +33,7 @@
                                                     <img src="/images/layanan/<%= data[i].gambar_layanan %>" height="100" width="150" alt="Gambar layanan"/>
                                                 </td>
                                                 <td><%= data[i].nama_layanan %></td>
+                                                <td><%= data[i].subnama_layanan %></td>
                                                 <td><%= data[i].deskripsi_layanan %></td>
                                                 <td>
                                                     <a href="/layanan/edit/<%= data[i].id_layanan %>" class="btn btn-sm btn-warning">Edit</a>

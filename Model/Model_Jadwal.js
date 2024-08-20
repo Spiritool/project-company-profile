@@ -2,19 +2,40 @@ const connection = require('../config/database');
 
 class Model_Jadwal {
 
-    static async getAll(){
-        return new Promise((resolve, reject) => {
-            connection.query(`select a.*, b.nama_dokter from jadwal as a
-                join dokter as b on a.id_dokter=b.id_dokter
-                order by id_jadwal desc`, (err, rows) => {
-                if(err){
-                    reject(err);
-                } else {
-                    resolve(rows);
-                }
+        // static async getAll(){
+        //     return new Promise((resolve, reject) => {
+        //         connection.query(`select a.*, b.nama_dokter from jadwal as a
+        //             join dokter as b on a.id_dokter=b.id_dokter
+        //             order by id_jadwal desc`, (err, rows) => {
+        //             if(err){
+        //                 reject(err);
+        //             } else {
+        //                 resolve(rows);
+        //             }
+        //         });
+        //     });
+        // }
+        
+        static async getAll() {
+            return new Promise((resolve, reject) => {
+                const sql = `select a.*, b.nama_dokter from jadwal as a
+                             join dokter as b on a.id_dokter=b.id_dokter
+                             order by id_jadwal desc`;
+        
+                console.log('Executing SQL query:', sql); // Log the SQL query
+        
+                connection.query(sql, (err, rows) => {
+                    if (err) {
+                        console.error('Error executing SQL query:', err); // Log the error if it occurs
+                        reject(err);
+                    } else {
+                        console.log('Query result:', rows); // Log the result of the query
+                        resolve(rows);
+                    }
+                });
             });
-        });
-    }
+        }
+        
 
     static async Store(Data){
         return new Promise((resolve, reject) => {
