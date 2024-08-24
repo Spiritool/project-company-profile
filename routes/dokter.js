@@ -59,12 +59,7 @@ router.get('/get-dokter', async function(req, res) {
         if (!['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'].includes(hari)) {
             return res.status(400).json({ error: 'Invalid "hari" parameter' });
         }
-        const dokter = await Model_Jadwal.getAll({
-            where: {
-                hari : 8
-            },
-            logging: console.log // Logs the SQL query to the console
-        });
+        const dokter = await Model_Dokter.getDokter(hari, id_keahlian);
         res.json({ dokter: dokter });
     } catch (error) {
         console.error("Error:", error);
