@@ -17,7 +17,8 @@ var tentang_kamiRouter = require('./routes/tentang_kami');
 var layananRouter = require('./routes/layanan');
 var pendaftaranRouter = require('./routes/pendaftaran');
 var artikelRouter = require('./routes/artikel');
-var beritaRouter = require('./routes/berita');
+var beritaRouter = require('./routes/berita'); 
+var bukuRouter = require('./routes/buku'); 
 var albumRouter = require('./routes/album');
 
 
@@ -61,6 +62,7 @@ app.use('/layanan', layananRouter);
 app.use('/pendaftaran', pendaftaranRouter);
 app.use('/artikel', artikelRouter);
 app.use('/berita', beritaRouter);
+app.use('/buku', bukuRouter);
 app.use('/album', albumRouter);
 
 
