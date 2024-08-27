@@ -3,26 +3,25 @@
     <div class="container-scroller d-flex align-items-center justify-content-center" style="min-height: 100vh;">
         <!-- partial:partials/_navbar.html -->
         <!-- partial -->
-        <div class="main-panel w-100">
+        <div class="main-panel">
             <div class="content-wrapper d-flex align-items-center justify-content-center">
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Edit Album</h4>
-                        <p class="card-description">Form untuk mengedit data album</p>
-                        <form action="/album/update/<%= id %>" method="POST" enctype="multipart/form-data" class="forms-sample">
+                        <h4 class="card-title">Tambah Buku</h4>
+                        <p class="card-description">Form untuk menambahkan buku baru</p>
+                        <form action="/buku/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                             <div class="form-group">
-                                <label for="gambar_album">Gambar Album</label>
-                                <input type="file" class="form-control" id="gambar_album" name="gambar_album">
-                                <img src="/images/album/<%= data.gambar_album %>" height="100" width="150" alt="Gambar album lama"/>
+                                <label for="gambar_buku">Gambar Buku</label>
+                                <input type="file" class="form-control" id="gambar_buku" name="gambar_buku" required>
                             </div>
                             <div class="form-group">
-                                <label for="nama_album">Nama Album</label>
-                                <input type="text" class="form-control" id="nama_album" name="nama_album" value="<%= data.nama_album %>" required>
+                                <label for="nama_buku">Nama Buku</label>
+                                <input type="text" class="form-control" id="nama_buku" name="nama_buku" placeholder="Nama Buku" required>
                             </div>
                             <div class="form-group">
-                                <label for="deskripsi_album">Deskripsi Album</label>
-                                <textarea class="form-control" id="deskripsi_album" name="deskripsi_album" required><%= data.deskripsi_album %></textarea>
+                                <label for="deskripsi_buku">Deskripsi Buku</label>
+                                <textarea class="form-control" id="deskripsi_buku" name="deskripsi_buku" placeholder="Deskripsi" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Simpan</button>
                             <button type="button" class="btn btn-light" onclick="history.back()">Batal</button>
