@@ -236,19 +236,28 @@ p {
     padding: 50px 0;
   }
 
-  .nav-pills .nav-link {
+  .nav-pills .nav-link-album {
     color: white;
-
+    transition: all 0.3s ease;
+    border-radius: 5px; /* Default border-radius */
+    padding: 5px 10px; /* Default padding */
   }
-  .nav-pills .nav-link.active{
+  
+  .nav-pills .nav-link-album.active {
     background-color: white;
     color: #025589;
   }
-  .nav-pills .nav-link.active, 
-  .nav-pills .nav-link:hover {
+  
+  .nav-pills .nav-link-album.active, 
+  .nav-pills .nav-link-album:hover {
     background-color: white;
     color: #025589;
+    border-radius: 25px; /* Larger border-radius on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    transform: scale(1.1); /* Slightly increase size on hover */
+    padding: 5px 10px; /* Slightly increase padding on hover */
   }
+  
   .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -317,6 +326,38 @@ p {
     padding-left: 200px;
     padding-right: 200px;
   }
+
+  .float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+  }
+
+  .my-float {
+    margin-top: 14px;
+    font-size: 2em; 
+  }
+
+  .carousel-control-container {
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+
+
+  
 /* footer */
 .logo-align {
     display: inline-block;
