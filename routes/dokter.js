@@ -67,6 +67,29 @@ router.get('/get-dokter', async function(req, res) {
     }
 });
 
+router.get('/cari', async function(req, res) {
+    const { hari, id_keahlian, nama_dokter } = req.query;
+    console.log("Received parameters:", { hari, id_keahlian, nama_dokter });
+    try {
+
+        let dokter = []; 
+        if(nama_dokter == 'Pilih Dokter'){
+            dokter = await Model_Dokter.getDokter(hari, id_keahlian);
+        } else {
+            dokter = await Model_Dokter.getDokterOne(nama_dokter);
+        }
+        let rows2 = await Model_Keahlian.getAll();
+        res.render('dokter/users/index', { 
+            dokter: dokter ,
+            data_keahlian: rows2
+        });
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: 'Terjadi kesalahan saat memuat data dokter' });
+    }
+});
+
+
 
     
 
