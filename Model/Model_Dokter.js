@@ -80,6 +80,23 @@ class Model_Dokter {
                     reject(err);
                 } else {
                     resolve(rows);
+                    console.log(rows);
+                }
+            });
+        });
+    }
+
+    static async getDokterOne(nama_dokter) {
+        return new Promise((resolve, reject) => {
+            connection.query(`SELECT a.*, b.*, c.* from jadwal as a 
+                join dokter as b on b.id_dokter=a.id_dokter
+                join keahlian as c on c.id_keahlian=b.id_keahlian
+                where a.id_dokter=?`, [nama_dokter], (err, rows) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(rows);
+                    console.log('dokter one', rows);
                 }
             });
         });
