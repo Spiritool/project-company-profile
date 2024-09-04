@@ -84,35 +84,60 @@ h1{
     
     
     .navbar-brand img {
-        height: 50px; /* Sesuaikan tinggi logo */
-    }
-    
-    .navbar-nav {
-        margin-left: auto;
-        margin-right: auto;
-        padding-right: 0;
-    }
-    
-    .title {
-        color: #025589 !important;
-    }
-    
+      height: 50px; /* Sesuaikan tinggi logo */
+  }
+  
+  .navbar-nav {
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+  }
+  
+  .title {
+      color: #025589 !important;
+  }
+  
+  .navbar-brand {
+      margin-left: 0; /* Menghilangkan margin kiri */
+      padding-left: 0; /* Menghilangkan padding kiri */
+  }
+  
+  .d-flex {
+      padding-right: 50px;
+  }
+  
+  .btn-light {
+      color: #025589;
+  }
+  
+  /* Atur tampilan untuk layar kecil */
+  @media (max-width: 576px) {
+      .navbar {
+          flex-direction: column; /* Atur navbar dalam kolom pada layar kecil */
+      }
+      .navbar-brand {
+          display: flex;
+          justify-content: center;
+          width: 100%; /* Lebar penuh untuk logo */
+          margin-bottom: 10px; /* Jarak antara logo dan judul */
+      }
+      .navbar-brand img {
+          margin-bottom: 5px; /* Jarak bawah untuk logo */
+      }
+      .navbar-collapse {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+      }
+      .title {
+          text-align: center;
+          margin: 0 auto;
+      }
+  }
+  
     .container-fluid {
     padding-left: 0;
     padding-right: 0;
-    }
-    
-    .navbar-brand {
-    margin-left: 0; /* Menghilangkan margin kiri */
-    padding-left: 0; /* Menghilangkan padding kiri */
-    }
-    
-    .d-flex{
-    padding-right: 50px;
-    }
-    
-    .btn-light{
-        color: #025589;
     }
     
 .card-pendaftaran{
@@ -126,6 +151,8 @@ h1{
    }
 
    .card {
+    min-height: 200px; /* Kurangi tinggi minimum untuk semua card */
+    height: auto; /* Sesuaikan tinggi card dengan konten */
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -141,6 +168,28 @@ h1{
 .card:hover svg path {
     fill: #fff;
 }
+
+/* Atur tampilan untuk layar kecil */
+@media (max-width: 576px) {
+    .row-cols-sm-2 > * {
+        flex: 0 0 50%; /* Mengatur 2 kolom pada layar kecil */
+        max-width: 50%;
+    }
+    .card {
+        display: flex; /* Aktifkan flexbox hanya untuk layar kecil */
+        flex-direction: column; /* Atur konten dalam kolom */
+        align-items: center; /* Konten vertikal di tengah */
+        justify-content: center; /* Konten horizontal di tengah */
+        text-align: center; /* Pusatkan teks */
+        width: 180px; /* Perkecil lebar card */
+        height: 200px;
+        margin-left: 50px; /* Beri jarak antar card */
+    }
+    .card-text {
+        display: none; /* Sembunyikan judul card pada layar kecil */
+    }
+}
+
 
 .custom-container {
     background-color: #005691;
@@ -219,3 +268,19 @@ h1{
  .item p {
     font-size: 1rem;
   }
+
+  /* Aturan responsif untuk layar kecil */
+@media (max-width: 576px) {
+  .logo-align {
+      display: block;
+      margin-left: -90px;
+      text-align: center;
+  }
+  .footer .col-lg-4 {
+      text-align: center; /* Konten lainnya juga di tengah */
+  }
+  .btn-floating {
+      display: inline-block;
+      margin: 0 5px; /* Jarak antar tombol */
+  }
+}

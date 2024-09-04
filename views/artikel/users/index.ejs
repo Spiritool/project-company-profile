@@ -194,11 +194,11 @@
                               <div class="row">
                                   <% chunk.forEach((item) => { %>
                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                          <div class="card" style="width: 95%;">
+                                          <div class="card-berita" style="width: 95%;">
                                               <img src="/images/berita/<%= item.gambar_berita %>" class="card-img-top" alt="gambar berita">
                                               <div class="card-body">
                                                   <small class="fw-light">Upload by: Admin, <%= item.tanggal_upload %></small>
-                                                  <h5 class="card-title"><%= item.nama_berita %></h5>
+                                                  <h5 class="card-title"><b><%= item.nama_berita %></b></h5>
                                                   <p class="card-text fs-7"><%= item.deskripsi_berita.substring(0, 100) %>...</p>
                                                   <a href="/berita/<%= item.id_berita %>" class="btn btn-primary">Read More</a>
                                               </div>
@@ -228,7 +228,7 @@
             <h2>ALBUM RSI GARAM KALIANGET</h2>
             <p class="deskripsi mt-4 mb-5">Di sini, Anda akan menemukan berbagai artikel informatif dan edukatif yang dirancang untuk membantu Anda memahami lebih baik tentang kesehatan.</p>
         
-            <ul class="nav nav-pills justify-content-center">
+            <ul class="nav nav-pills justify-content-center mb-3">
               <li class="nav-item">
                 <a class="nav-link-album active" href="#" data-filter="*">Semua</a>
               </li>
