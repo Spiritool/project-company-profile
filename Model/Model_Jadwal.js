@@ -51,8 +51,9 @@ class Model_Jadwal {
 
     static async getId(id){
         return new Promise((resolve, reject) => {
-            connection.query(`select a.*, b.nama_dokter from jadwal as a
+            connection.query(`select a.*, b.nama_dokter, c.* from jadwal as a
                 join dokter as b on a.id_dokter=b.id_dokter
+                join keahlian as c on b.id_keahlian=c.id_keahlian
                 where id_jadwal = ` + id, (err,rows) => {
                 if(err) {
                     reject(err);
