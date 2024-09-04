@@ -65,9 +65,10 @@ router.get('/create', async function (req, res, next) {
 
 router.post('/store', upload.single("gambar_album"), async function (req, res, next) {
     try {
-        let {nama_album, deskripsi_album} = req.body;
+        let {nama_album,jenis_album ,deskripsi_album} = req.body;
         let Data = {
             nama_album,
+            jenis_album,
             deskripsi_album,
             gambar_album: req.file.filename
         }
@@ -119,6 +120,7 @@ router.post("/update/:id",  upload.single("gambar_album"), async (req, res, next
 
         let {
             nama_album,
+            jenis_album,
             deskripsi_album,
         } = req.body;
         
@@ -126,6 +128,7 @@ router.post("/update/:id",  upload.single("gambar_album"), async (req, res, next
 
         let Data = {
             nama_album: nama_album,
+            jenis_album: jenis_album,
             deskripsi_album: deskripsi_album,
             gambar_album
         }
