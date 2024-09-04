@@ -239,4 +239,61 @@
   </script>
 </body>
 
+<script>
+  $(document).ready(function() {
+      $('#select-hari, #select-keahlian').on('change', function() {
+          console.log('Dropdown changed');
+          var hari = $('#select-hari').val();
+          var keahlian = $('#select-keahlian').val();
+  
+          console.log('Selected Hari:', hari);
+          console.log('Selected Keahlian:', keahlian);
+  
+          if(hari && keahlian) {
+              console.log('Making AJAX request...');
+              // Lakukan panggilan AJAX untuk mendapatkan daftar dokter yang sesuai
+              $.ajax({
+                  url: '/dokter/get-dokter',  // Ganti dengan endpoint yang sesuai
+                  type: 'GET',
+                  data: {
+                      hari: hari.toLowerCase(), // Menyesuaikan dengan nama kolom di tabel jadwal
+                      id_keahlian: keahlian
+                  },
+                  success: function(response) {
+                      console.log('AJAX success:', response);
+                      // Kosongkan list dokter sebelumnya
+                      $('#select-dokter').empty();
+                      
+                      // Tambahkan opsi dokter yang didapat dari response
+                      $('#select-dokter').append('<option selected>Pilih Dokter</option>');
+                      $.each(response.dokter, function(index, dokter) {
+                          $('#select-dokter').append('<option value="' + dokter.id_dokter + '">' + dokter.nama_dokter + '</option>');
+                      });
+                  },
+                  error: function(xhr, status, error) {
+                      console.error("AJAX Error:", error);
+                  }
+              });
+          }
+      });
+  });
+  
+  $('#select-hari').on('change', function() {
+      console.log("Changed!");
+  });
+  
+  // Function to remove query parameters from the URL
+    function removeQueryParameters() {
+      const url = new URL(window.location.href);
+      url.search = ''; // Clears all query parameters
+      window.history.replaceState({}, document.title, url.href);
+    }
+  
+    // Call the function to remove query parameters
+    removeQueryParameters();
+  
+  
+  </script>
+  
+
 </html>

@@ -95,12 +95,14 @@ router.get('/delete/(:id)', async function (req, res) {
     res.redirect('/jadwal');
 })
 
-router.get('/users', async function (req, res, next) {
+router.get('/users/(:id)', async function (req, res, next) {
     try {
+        let id = req.params.id;
         // let level_users = req.session.level;
-        let id = req.session.userId;
-        let rows = await Model_Jadwal.getAll();
+        let id_users = req.session.userId;
+        let rows = await Model_Jadwal.getId(id);
         res.render('jadwal/users/index', {
+            data: rows[0]
         })
     } catch (error) {
         console.error("Error:", error);

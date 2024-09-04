@@ -139,7 +139,7 @@
                       <p class="card-text"><small class="btn btn-primary btn-sm text-white"><%= data.keahlian %></small>
                       </p>
                       <div class="position-absolute bottom-0 end-0">
-                        <a class="btn btn-primary m-0 rounded-start" type="button" href="../../jadwal/users"
+                        <a class="btn btn-primary m-0 rounded-start" type="button" href="../jadwal/users/<%= data.id_jadwal %>"
                           style="border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -155,7 +155,7 @@
             </div>
           <% }); %>
         <% } else { %>
-          <p>No doctors available.</p>
+          
         <% } %>
       </div>
     </div>

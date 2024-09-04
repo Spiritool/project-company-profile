@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../images/logo-rsi.png" alt="Logo" class="d-inline-block align-text-top"
+                    <img src="../../images/logo-rsi.png" alt="Logo" class="d-inline-block align-text-top"
                         style="height: 50px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -79,8 +79,8 @@
 
         <div class="container-sm">
             <div class="card px-5 py-5">
-            <h4 class="table-title">dr. Ruby Hoshino</h4>
-            <p class="table-text">Dokter Umum</p>
+            <h4 class="table-title"><%= data.nama_dokter %></h4>
+            <p class="table-text"><%= data.keahlian %></p>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -95,13 +95,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>16:00 - 18:00</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>14:00 - 16:00</td>
-                        <td>16:00 - 18:00</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td><%= data.senin %></td>
+                        <td><%= data.selasa %></td>
+                        <td><%= data.rabu %></td>
+                        <td><%= data.kamis %></td>
+                        <td><%= data.jumat %></td>
+                        <td><%= data.sabtu %></td>
+                        <td><%= data.minggu %></td>
                     </tr>
                 </tbody>
             </table>
