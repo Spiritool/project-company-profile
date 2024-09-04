@@ -137,6 +137,12 @@ p {
     padding-right: 50px;
 }
 
+@media (max-width: 768px) {
+    .card-text-desc {
+        display: none;
+    }
+}
+
 .library-container {
     background-color: #025589;
     color: white;
@@ -168,9 +174,43 @@ p {
     /* Padding to create the left and right margin */
 }
 
-.card {
-    margin: 10px;
+.card-berita {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* border-radius untuk mempercantik */
+    overflow: hidden; /* Menjaga konten di dalam card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan sedikit bayangan */
 }
+
+.card-berita img {
+    height: 180px; /* Ukuran gambar yang seragam */
+    object-fit: cover; /* Menjaga gambar agar tidak terdistorsi */
+    width: 100%;
+    border-bottom: 1px solid #ddd; /* Memberikan sedikit garis bawah pada gambar */
+}
+
+.card-berita .card-body {
+    padding: 15px;
+    flex-grow: 1; /* Membuat card-body mengisi ruang yang tersedia */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-berita .card-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.card-berita .card-text {
+    margin-bottom: 15px;
+    flex-grow: 1; /* Menjaga teks agar memenuhi ruang yang tersedia */
+}
+
+
 
 .swiper-slide {
     display: flex;
@@ -194,9 +234,7 @@ p {
     height: 5px;
 }
 
-.card-title {
-    font-weight: bold;
-}
+
 
 .card-title-library {
     font-weight: bold;
@@ -209,9 +247,7 @@ p {
     padding-right: 8%;
 }
 
-.news-card {
-    margin-bottom: 20px;
-}
+
 
 .carousel-control-prev,
 .carousel-control-next {
@@ -323,8 +359,8 @@ p {
   }
 
   .deskripsi{
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 8%;
+    padding-right: 8%;
   }
 
   .float {
@@ -404,3 +440,19 @@ p {
 .item p {
     font-size: 1rem;
 }
+
+  /* Aturan responsif untuk layar kecil */
+  @media (max-width: 576px) {
+    .logo-align {
+        display: block;
+        margin-left: -90px;
+        text-align: center;
+    }
+    .footer .col-lg-4 {
+        text-align: center; /* Konten lainnya juga di tengah */
+    }
+    .btn-floating {
+        display: inline-block;
+        margin: 0 5px; /* Jarak antar tombol */
+    }
+  }
