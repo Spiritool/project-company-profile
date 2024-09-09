@@ -40,12 +40,19 @@ font-weight: 400;
 font-style: normal;
 }
 
-.btn-primary{
-background-color: #025589;
+.btn-danger{
+background-color: #dc0618;
 border-radius: 15px;
 padding-left: 15px;
 padding-right: 15px;
 }
+
+.btn-primary{
+    background-color: #025589;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
 
 .btn-primary-disabled{
     background-color: #025589;

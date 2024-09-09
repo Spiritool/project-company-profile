@@ -134,9 +134,8 @@
                   <div class="col-md-8 card-content">
                     <div class="card-body">
                       <h4 class="card-title"><%= data.nama_dokter %></h4>
-                      <p class="card-text"><%= data.alamat_dokter %></p>
-                      <p class="card-text"><%= data.no_hp %></p>
-                      <p class="card-text"><small class="btn btn-primary btn-sm text-white"><%= data.keahlian %></small>
+                      
+                      <p class="card-text"><small class="btn btn-danger btn-sm text-white"><%= data.keahlian %></small>
                       </p>
                       <div class="position-absolute bottom-0 end-0">
                         <a class="btn btn-primary m-0 rounded-start" type="button" href="../jadwal/users/<%= data.id_jadwal %>"
@@ -155,7 +154,36 @@
             </div>
           <% }); %>
         <% } else { %>
-          
+          <% data.forEach(function(data) { %>
+            <div class="col">
+              <div class="card card-dokter mb-3 shadow-lg" style="max-width: 100%;">
+                <div class="row g-0">
+                  <div class="col-md-4 d-flex align-items-center justify-content-center" style="padding: 20px;">
+                    <img src="../../images/dokter/<%= data.gambar_dokter %>" class="img-fluid rounded dokter-img"
+                      alt="Dokter">
+                  </div>
+                  <div class="col-md-8 card-content">
+                    <div class="card-body">
+                      <h4 class="card-title"><%= data.nama_dokter %></h4>
+                      
+                      <p class="card-text"><small class="btn btn-danger btn-sm text-white"><%= data.keahlian %></small>
+                      </p>
+                      <div class="position-absolute bottom-0 end-0">
+                        <a class="btn btn-primary m-0 rounded-start" type="button" href="../jadwal/users/<%= data.id_jadwal %>"
+                          style="border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% }); %>
         <% } %>
       </div>
     </div>

@@ -127,6 +127,28 @@ h1{
         padding-right: 50px;
     }
 
+    .facility-card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      display: none;
+    }
+
+    .facility-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .facility-details {
+      padding-left: 20px;
+    }
+
+    .card-layanan,
+    .facility-card {
+      border: none;
+    }
 
     .float {
       position: fixed;
@@ -149,50 +171,50 @@ h1{
     
 /* footer */
 .logo-align {
-    display: inline-block;
-    margin-left: -185px; /* Sesuaikan nilai ini untuk memposisikan gambar lebih ke kiri */
+  display: inline-block;
+  margin-left: -185px; /* Sesuaikan nilai ini untuk memposisikan gambar lebih ke kiri */
 }
 
 .btn-floating {
-    margin-top: 15px; /* Sesuaikan nilai ini jika diperlukan untuk menjaga keselarasan vertikal */
+  margin-top: 15px; /* Sesuaikan nilai ini jika diperlukan untuk menjaga keselarasan vertikal */
 }
 
 .penghargaan {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #025589;
-    padding: 20px;
-    width: 100%;
-    max-width: 100%;
-  }
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #025589;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+}
 
- .item {
-    text-align: center;
-    background-color: #025589;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 30px 70px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+.item {
+  text-align: center;
+  background-color: #025589;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 30px 70px;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
- .item:hover {
-    background-color:#8AC441 ;
-  }
+.item:hover {
+  background-color:#8AC441 ;
+}
 
- .item h2 {
-    font-size: 3rem;
-    margin-bottom: 5px;
-  }
+.item h2 {
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
 
- .item p {
-    font-size: 1rem;
-  }
+.item p {
+  font-size: 1rem;
+}
 
-    /* Aturan responsif untuk layar kecil */
+  /* Aturan responsif untuk layar kecil */
 @media (max-width: 576px) {
   .logo-align {
       display: block;
