@@ -8,33 +8,33 @@
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Edit Data Dokter</h4>
+                        <h4 class="card-title">Edit Data Menu</h4>
                         <p class="card-description">
                             Basic form layout
                         </p>
-                        <form action="/dokter/update/<%= id %>" method="POST" enctype="multipart/form-data" class="forms-sample">
+                        <form action="/menu/update/<%= id %>" method="POST" enctype="multipart/form-data" class="forms-sample">
                             <div class="form-group">
-                                <label for="gambar_dokter">Foto Menu</label>
-                                <input type="file" class="form-control" id="gambar_dokter" name="gambar_dokter">
+                                <label for="gambar_menu">Foto Menu</label>
+                                <input type="file" class="form-control" id="gambar_menu" name="gambar_menu">
                             </div>
                             <div class="form-group">
                                 <label for="nama_dokter">Nama</label>
-                                <input type="text" class="form-control" id="nama_dokter" name="nama_dokter" value="<%= data.nama_dokter %>" required>
+                                <input type="text" class="form-control" id="nama_menu" name="nama_menu" value="<%= data.nama_menu %>" required>
                             </div>
                             <div class="form-group">
-                                <label for="alamat_dokter">Alamat</label>
-                                <input type="text" class="form-control" id="alamat_dokter" name="alamat_dokter" value="<%= data.alamat_dokter %>" required>
+                                <label for="alamat_dokter">Harga</label>
+                                <input type="text" class="form-control" id="harga_menu" name="harga_menu" value="<%= data.harga_menu %>" required>
                             </div>
                             <div class="form-group">
-                                <label for="no_hp">No. Hp</label>
-                                <input type="text" class="form-control" id="no_hp" name="no_hp" value="<%= data.no_hp %>" required>
+                                <label for="no_hp">Stock</label>
+                                <input type="text" class="form-control" id="stock" name="stock" value="<%= data.stock %>" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect2">Default select</label>
-                                <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
-                                    <option value="<%= data.id_keahlian %>"><%= data.keahlian %></option>
-                                    <% for(var i=0; i < data_keahlian.length; i++){ %>
-                                        <option value="<%= data_keahlian[i].id_keahlian %>"><%= data_keahlian[i].keahlian %></option>
+                                <label for="exampleFormControlSelect2">Kategori</label>
+                                <select class="form-control" id="exampleFormControlSelect2" name="id_kategori" required>
+                                    <option value="<%= data.id_kategori %>"><%= data.nama_kategori %></option>
+                                    <% for(var i=0; i < data_kategori.length; i++){ %>
+                                        <option value="<%= data_kategori[i].id_kategori %>"><%= data_kategori[i].nama_kategori %></option>
                                     <% } %>
                                 </select>
                             </div>

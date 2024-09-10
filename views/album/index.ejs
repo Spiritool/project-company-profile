@@ -20,6 +20,7 @@
                                                 <th>No</th>
                                                 <th>Gambar</th>
                                                 <th>Nama Album</th>
+                                                <th>Jenis Album</th>
                                                 <th>Deskripsi Album</th>
                                                 <th colspan="2">Aksi</th>
                                             </tr>
@@ -32,6 +33,7 @@
                                                     <img src="/images/album/<%= data[i].gambar_album %>" height="100" width="150" alt="Gambar album"/>
                                                 </td>
                                                 <td><%= data[i].nama_album %></td>
+                                                <td><%= data[i].jenis_album %></td>
                                                 <td><%= data[i].deskripsi_album.length > 100 ? data[i].deskripsi_album.substring(0, 100) + '...' : data[i].deskripsi_album %></td>
                                                 <td>
                                                     <a href="/album/edit/<%= data[i].id_album %>" class="btn btn-sm btn-warning">Edit</a>

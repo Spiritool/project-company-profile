@@ -19,10 +19,10 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Gambar</th>
-                                                <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>No. Telp</th>
-                                                <th>Spesialisasi</th>
+                                                <th>Nama Menu</th>
+                                                <th>Harga</th>
+                                                <th>Kategori</th>
+                                                <th>Stock</th>
                                                 <th colspan="2">Aksi</th>
                                             </tr>
                                         </thead>
@@ -31,15 +31,15 @@
                                             <tr>
                                                 <th scope="row"><%= (i+1) %></th>
                                                 <td class="py-1">
-                                                    <img src="/images/dokter/<%= data[i].gambar_dokter %>" height="100" width="150" alt="Gambar Dokter"/>
+                                                    <img src="/images/menu/<%= data[i].gambar_menu %>" height="100" width="150" alt="Gambar Dokter"/>
                                                 </td>
-                                                <td><%= data[i].nama_dokter %></td>
-                                                <td><%= data[i].alamat_dokter %></td>
-                                                <td><%= data[i].no_hp %></td>
-                                                <td><%= data[i].keahlian %></td>
+                                                <td><%= data[i].nama_menu %></td>
+                                                <td><%= data[i].harga_menu %></td>
+                                                <td><%= data[i].nama_kategori %></td>
+                                                <td><%= data[i].stock %></td>
                                                 <td>
-                                                    <a href="/dokter/edit/<%= data[i].id_dokter %>" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="/dokter/delete/<%= data[i].id_dokter %>" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="/menu/edit/<%= data[i].id_menu %>" class="btn btn-sm btn-warning">Edit</a>
+                                                    <a href="/menu/delete/<%= data[i].id_menu %>" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <% } %>

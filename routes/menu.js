@@ -41,7 +41,7 @@ router.get('/create', async function (req, res, next) {
         let id = req.session.userId;
         let Data = await Model_Kategori.getAll();
         // if(Data[0].level_users == "2") {
-        res.render('dokter/create', {
+        res.render('menu/create', {
             nama_service: '',
             data: Data,
         })
@@ -55,7 +55,7 @@ router.get('/create', async function (req, res, next) {
     }
 })
 
-router.post('/store', upload.single("gambar_dokter"), async function (req, res, next) {
+router.post('/store', upload.single("gambar_menu"), async function (req, res, next) {
     try {
         let {nama_menu, harga_menu, stock, id_kategori} = req.body;
         let Data = {
@@ -68,7 +68,8 @@ router.post('/store', upload.single("gambar_dokter"), async function (req, res, 
         await Model_Menu.Store(Data);
         req.flash('success', 'Berhasil menyimpan data');
         res.redirect('/menu');
-    } catch {
+    } catch(error) {
+        console.log('error: ', error)
         req.flash('error', 'Terjadi kesalahan pada fungsi')
         res.redirect('/menu')
     }
@@ -78,56 +79,51 @@ router.post('/store', upload.single("gambar_dokter"), async function (req, res, 
 router.get("/edit/:id", async (req, res, next) => {
     try {
         const id = req.params.id;
-        let rows = await Model_Dokter.getId(id);
-        let rows2 = await Model_Keahlian.getAll();
+        let rows = await Model_Menu.getId(id);
+        let rows2 = await Model_Kategori.getAll();
         if (rows.length > 0) {
-            res.render("dokter/edit", {
+            res.render("menu/edit", {
                 id: id,
                 data: rows[0],
-                data_keahlian: rows2,
+                data_kategori: rows2,
             });
-        } else {
-            req.flash("error", "dokter not found");
-            res.redirect("/dokter");
         }
     } catch (error) {
-        next(error);
+        console.log(error);
     }
 });
 
-router.post("/update/:id",  upload.single("gambar_dokter"), async (req, res, next) => {
+router.post("/update/:id",  upload.single("gambar_menu"), async (req, res, next) => {
     try {
         const id = req.params.id;
         let filebaru = req.file ? req.file.filename : null;
-        let rows = await Model_Dokter.getId(id);
-        const namaFileLama = rows[0].gambar_dokter;
+        let rows = await Model_Menu.getId(id);
+        const namaFileLama = rows[0].gambar_menu;
 
         if (filebaru && namaFileLama) {
-            const pathFileLama = path.join(__dirname, '../public/images/dokter', namaFileLama);
+            const pathFileLama = path.join(__dirname, '../public/images/menu', namaFileLama);
             fs.unlinkSync(pathFileLama);
         }
 
         let {
-            nama_dokter,
-            alamat_dokter,
-            no_hp,
-            id_keahlian,
+            nama_menu,
+            harga_menu,
+            stock,
+            id_kategori,
         } = req.body;
         
-        let gambar_dokter = filebaru || namaFileLama
+        let gambar_menu = filebaru || namaFileLama
 
         let Data = {
-            nama_dokter: nama_dokter,
-            alamat_dokter: alamat_dokter,
-            no_hp: no_hp,
-            id_keahlian: id_keahlian,
-            gambar_dokter
+            nama_menu: nama_menu,
+            harga_menu: harga_menu,
+            stock: stock,
+            id_kategori: id_kategori,
+            gambar_menu
         }
-        console.log(req.body);
-        console.log(Data);
-        await Model_Dokter.Update(id, Data);
+        await Model_Menu.Update(id, Data);
         req.flash("success", "Berhasil mengupdate data dokter");
-        res.redirect("/dokter");
+        res.redirect("/menu");
     } catch (error) {
         console.log(error);
     }
@@ -136,27 +132,27 @@ router.post("/update/:id",  upload.single("gambar_dokter"), async (req, res, nex
 router.get('/delete/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
-        await Model_Dokter.Delete(id);
-        req.flash('success', 'Berhasil menghapus data dokter');
-        res.redirect('/dokter');
+        await Model_Menu.Delete(id);
+        req.flash('success', 'Berhasil menghapus data menu');
+        res.redirect('/menu');
     } catch (error) {
-        req.flash("error", "Gagal menghapus data dokter");
-        res.redirect("/dokter");
+        req.flash("error", "Gagal menghapus data menu");
+        res.redirect("/menu");
     }
 });
 
-router.get('/users', async function (req, res, next) {
-    try {
-        // let level_users = req.session.level;
-        let id = req.session.userId;
-        let rows = await Model_Dokter.getAll();
-        res.render('dokter/users/index', {
-        })
-    } catch (error) {
-        console.error("Error:", error);
-        req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
-        res.redirect('/login');
-    }
-});
+// router.get('/users', async function (req, res, next) {
+//     try {
+//         // let level_users = req.session.level;
+//         let id = req.session.userId;
+//         let rows = await Model_Dokter.getAll();
+//         res.render('dokter/users/index', {
+//         })
+//     } catch (error) {
+//         console.error("Error:", error);
+//         req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
+//         res.redirect('/login');
+//     }
+// });
 
 module.exports = router;

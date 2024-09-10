@@ -248,71 +248,16 @@
         
             <div class="gallery">
               <!-- Add photos here -->
-              <div class="photo perkumpulan">
-                <img src="../../images/album1.png" alt="Photo 1">
+              <% for(var i = 0; i < data_album.length; i++) { %>
+              <div class="photo <%= data_album[i].jenis_album %>">
+                <img src="../../images/album/<%= data_album[i].gambar_album %>" alt="Photo 1" width="200" height="150">
                 <div class="overlay-full"></div>
                 <div class="overlay-half">
-                  <h4>Judul 1</h4>
-                  <p>Deskripsi 1</p>
+                  <h4><%= data_album[i].nama_album %></h4>
+                  <p><%= data_album[i].deskripsi_album %></p>
                 </div>
               </div>
-              <div class="photo ramadhan">
-                <img src="../../images/album2.jpeg" alt="Photo 2">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 2</h4>
-                  <p>Deskripsi 2</p>
-                </div>
-              </div>
-              <div class="photo pelatihan">
-                <img src="../../images/album3.jpeg" alt="Photo 3">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 3</h4>
-                  <p>Deskripsi 3</p>
-                </div>
-              </div>
-              <div class="photo acara">
-                <img src="../../images/album1.png" alt="Photo 4">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 4</h4>
-                  <p>Deskripsi 4</p>
-                </div>
-              </div>
-              <div class="photo perkumpulan more-photos">
-                <img src="../../images/album2.jpeg" alt="Photo 5">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 5</h4>
-                  <p>Deskripsi 5</p>
-                </div>
-              </div>
-              <div class="photo ramadhan more-photos">
-                <img src="../../images/album3.jpeg" alt="Photo 6">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 6</h4>
-                  <p>Deskripsi 6</p>
-                </div>
-              </div>
-              <div class="photo pelatihan more-photos">
-                <img src="../../images/album1.png" alt="Photo 7">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 7</h4>
-                  <p>Deskripsi 7</p>
-                </div>
-              </div>
-              <div class="photo acara more-photos">
-                <img src="../../images/album2.jpeg" alt="Photo 8">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 8</h4>
-                  <p>Deskripsi 8</p>
-                </div>
-              </div>
-              <!-- Add more photos as needed -->
+              <% } %>
             </div>
             
             <button class="btn btn-primary mt-4" id="show-more">Lihat Selengkapnya</button>

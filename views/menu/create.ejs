@@ -8,33 +8,33 @@
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Input Data Dokter</h4>
+                        <h4 class="card-title">Input Data Menu</h4>
                         <p class="card-description">
-                            Basic form layout
+                            Basic 
                         </p>
-                        <form action="/dokter/store" method="POST" enctype="multipart/form-data" class="forms-sample">
+                        <form action="/menu/store" method="POST" enctype="multipart/form-data" class="forms-sample">
                             <div class="form-group">
                                 <label for="gambar_dokter">Foto Menu</label>
-                                <input type="file" class="form-control" id="gambar_dokter" name="gambar_dokter" required>
+                                <input type="file" class="form-control" id="gambar_menu" name="gambar_menu" required>
                             </div>
                             <div class="form-group">
-                                <label for="nama_dokter">Nama</label>
-                                <input type="text" class="form-control" id="nama_dokter" name="nama_dokter" placeholder="Nama" required>
+                                <label for="nama_dokter">Nama Menu</label>
+                                <input type="text" class="form-control" id="nama_menu" name="nama_menu" placeholder="Nama" required>
                             </div>
                             <div class="form-group">
-                                <label for="alamat_dokter">Alamat</label>
-                                <input type="text" class="form-control" id="alamat_dokter" name="alamat_dokter" placeholder="Alamat" required>
+                                <label for="alamat_dokter">Harga</label>
+                                <input type="text" class="form-control" id="harga_menu" name="harga_menu" placeholder="harga" required>
                             </div>
                             <div class="form-group">
-                                <label for="no_hp">No. Hp</label>
-                                <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="No. Hp" required>
+                                <label for="stock">Stock</label>
+                                <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect2">Default select</label>
-                                <select class="form-control" id="exampleFormControlSelect2" name="id_keahlian" required>
-                                    <option selected>Pilih Keahlian</option>
+                                <label for="exampleFormControlSelect2">Kategori</label>
+                                <select class="form-control" id="exampleFormControlSelect2" name="id_kategori" required>
+                                    <option selected>Pilih Kategori</option>
                                     <% for(var i=0; i < data.length; i++){ %>
-                                        <option value="<%= data[i].id_keahlian %>"><%= data[i].keahlian %></option>
+                                        <option value="<%= data[i].id_kategori %>"><%= data[i].nama_kategori %></option>
                                     <% } %>
                                 </select>
                             </div>

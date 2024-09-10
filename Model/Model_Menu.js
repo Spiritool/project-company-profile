@@ -34,7 +34,7 @@ class Model_Menu {
         return new Promise((resolve, reject) => {
             connection.query(`select a.*, b.nama_kategori from menu as a
                 join kategori_menu as b on a.id_kategori=b.id_kategori
-                where id_kategori = ` + id, (err, rows) => {
+                where a.id_menu= ` + id, (err, rows) => {
                 if (err) {
                     reject(err);
                 } else {
