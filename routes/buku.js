@@ -7,17 +7,22 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/images/buku')
+        // Check the field name to determine where to store the file
+        if (file.fieldname === 'gambar_buku') {
+            cb(null, 'public/images/buku'); // Save images here
+        } else if (file.fieldname === 'file_buku') {
+            cb(null, 'public/files/buku'); // Save files here
+        }
     },
     filename: (req, file, cb) => {
-        console.log(file)
-        cb(null, Date.now() + path.extname(file.originalname))
+        console.log(file);
+        cb(null, Date.now() + path.extname(file.originalname)); // Unique filename with a timestamp
     }
-})
+});
 
 const upload = multer({
     storage: storage
-})
+});
 
 router.get('/', async (req, res, next) => {
     try {
@@ -63,25 +68,37 @@ router.get('/create', async function (req, res, next) {
     }
 })
 
-router.post('/store', upload.single("gambar_buku"), async function (req, res, next) {
+router.post('/store', upload.fields([{
+        name: 'gambar_buku',
+        maxCount: 1
+    },
+    {
+        name: 'file_buku',
+        maxCount: 1
+    }
+]), async function (req, res, next) {
     try {
-        let {nama_buku, deskripsi_buku} = req.body;
+        let {
+            nama_buku,
+            deskripsi_buku
+        } = req.body;
+
         let Data = {
             nama_buku,
             deskripsi_buku,
-            gambar_buku: req.file.filename
-        }
+            gambar_buku: req.files['gambar_buku'][0].filename, // Accessing the first file for 'gambar_buku'
+            file_buku: req.files['file_buku'][0].filename // Accessing the first file for 'file_buku'
+        };
+
         await Model_Buku.Store(Data);
         req.flash('success', 'Berhasil menyimpan data');
         res.redirect('/buku');
-        
     } catch (error) {
-        req.flash('error', 'Terjadi kesalahan pada fungsi')
+        req.flash('error', 'Terjadi kesalahan pada fungsi');
         console.log(error);
-        res.redirect('/buku')
+        res.redirect('/buku');
     }
-    
-})
+});
 
 
 router.get("/edit/:id", async (req, res, next) => {
@@ -105,51 +122,99 @@ router.get("/edit/:id", async (req, res, next) => {
 });
 
 
-router.post("/update/:id",  upload.single("gambar_buku"), async (req, res, next) => {
+router.post("/update/:id", upload.fields([
+    { name: 'gambar_buku', maxCount: 1 },
+    { name: 'file_buku', maxCount: 1 }
+]), async (req, res, next) => {
     try {
         const id = req.params.id;
-        let filebaru = req.file ? req.file.filename : null;
-        let rows = await Model_Buku.getId(id);
-        const namaFileLama = rows[0].gambar_buku;
+        const files = req.files;
 
-        if (filebaru && namaFileLama) {
-            const pathFileLama = path.join(__dirname, '../public/images/buku', namaFileLama);
-            fs.unlinkSync(pathFileLama);
+        let newGambarBuku = files['gambar_buku'] ? files['gambar_buku'][0].filename : null;
+        let newFileBuku = files['file_buku'] ? files['file_buku'][0].filename : null;
+
+        let rows = await Model_Buku.getId(id);
+        const oldGambarBuku = rows[0].gambar_buku;
+        const oldFileBuku = rows[0].file_buku;
+
+        // Delete the old image if a new one is uploaded
+        if (newGambarBuku && oldGambarBuku) {
+            const oldGambarBukuPath = path.join(__dirname, '../public/images/buku', oldGambarBuku);
+            fs.unlinkSync(oldGambarBukuPath);
         }
 
-        let {
+        // Delete the old file if a new one is uploaded
+        if (newFileBuku && oldFileBuku) {
+            const oldFileBukuPath = path.join(__dirname, '../public/files/buku', oldFileBuku);
+            fs.unlinkSync(oldFileBukuPath);
+        }
+
+        // Handle form data
+        let { nama_buku, deskripsi_buku } = req.body;
+
+        let gambar_buku = newGambarBuku || oldGambarBuku;
+        let file_buku = newFileBuku || oldFileBuku;
+
+        // Prepare data for update
+        let Data = {
             nama_buku,
             deskripsi_buku,
-        } = req.body;
-        
-        let gambar_buku = filebaru || namaFileLama
+            gambar_buku,
+            file_buku
+        };
 
-        let Data = {
-            nama_buku: nama_buku,
-            deskripsi_buku: deskripsi_buku,
-            gambar_buku
-        }
         console.log(req.body);
         console.log(Data);
+
+        // Update the record
         await Model_Buku.Update(id, Data);
         req.flash("success", "Berhasil mengupdate data buku");
         res.redirect("/buku");
     } catch (error) {
         console.log(error);
+        req.flash("error", "Terjadi kesalahan saat memperbarui data buku");
+        res.redirect("/buku");
     }
 });
+
 
 router.get('/delete/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
+
+        // Fetch the record by its ID to get the filenames
+        const rows = await Model_Buku.getId(id);
+        const gambarBuku = rows[0].gambar_buku;
+        const fileBuku = rows[0].file_buku;
+
+        // Delete the image file if it exists
+        if (gambarBuku) {
+            const gambarBukuPath = path.join(__dirname, '../public/images/buku', gambarBuku);
+            if (fs.existsSync(gambarBukuPath)) {
+                fs.unlinkSync(gambarBukuPath);
+            }
+        }
+
+        // Delete the document file if it exists
+        if (fileBuku) {
+            const fileBukuPath = path.join(__dirname, '../public/files/buku', fileBuku);
+            if (fs.existsSync(fileBukuPath)) {
+                fs.unlinkSync(fileBukuPath);
+            }
+        }
+
+        // Now, delete the record from the database
         await Model_Buku.Delete(id);
+        
         req.flash('success', 'Berhasil menghapus data buku');
         res.redirect('/buku');
     } catch (error) {
+        console.log(error);
         req.flash("error", "Gagal menghapus data buku");
         res.redirect("/buku");
     }
 });
+
 
 
 module.exports = router;

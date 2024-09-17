@@ -31,7 +31,7 @@ class Model_Users {
         return new Promise((resolve, reject) => {
             connection.query('select * from users where email_users = ?', [email], function(err, result){
                 if (err) {
-                    reject(err);m
+                    reject(err);
                 } else {
                     resolve(result);
                 }
