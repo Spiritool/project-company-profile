@@ -140,8 +140,8 @@ border-radius: 0.5rem;
 }
 
 .dokter-img {
-    width: 150px; /* Lebar tetap untuk gambar */
-    height: 150px; /* Tinggi tetap untuk gambar */
+    width: 10rem; /* Lebar tetap untuk gambar */
+    height: 10rem; /* Tinggi tetap untuk gambar */
     object-fit: cover; /* Menyesuaikan gambar tanpa merubah rasio */
     border-radius: 50%; /* Membuat gambar menjadi lingkaran */
     margin: auto; /* Menyamakan margin di semua sisi */

@@ -69,38 +69,38 @@
 
 
   <main>
-    <!-- <div id="beranda" class="beranda">
-      <div class="container-fluid content">
-        <img src="../images/awal.png" alt="Hospital Image">
-        <div class="form-container ">
-          <div class="text-center">
-            <h3><b>Cari Jadwal Dokter</b></h3>
-            <p class="text-success">Temukan jadwal dokter, booking atau buat janji dengan dokter ahli, spesialis atau
-              umum
-              yang berpengalaman</p>
+    <div id="beranda" class="beranda">
+      <div class="container content">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
-          <form>
-            <div class="cari-dokter">
-              <div class="mb-3">
-                <label for="hari" class="form-label">Pilih Hari</label>
-                <input type="text" class="form-control" id="hari" required>
-              </div>
-              <div class="mb-3">
-                <label for="service" class="form-label">Pilih Layanan</label>
-                <input type="text" class="form-control" id="service" required>
-              </div>
-              <div class="mb-3">
-                <label for="doctor" class="form-label">Pilih Dokter</label>
-                <input type="text" class="form-control" id="doctor" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Cari</button>
+          <div class="carousel-inner rounded-4 mt-3">
+            <div class="carousel-item active">
+              <img src="../images/awal.png" class="d-block " alt="...">
             </div>
-          </form>
+            <div class="carousel-item">
+              <img src="../images/awal.png" class="d-block " alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../images/awal.png" class="d-block " alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <div id="beranda" class="beranda">
+    <!-- <div id="beranda" class="beranda">
       <div class="container-fluid-beranda">
         <div class="card-beranda mb-3 mx-auto">
           <div class="row g-0">
@@ -110,8 +110,7 @@
                 <div class="card-img-overlay">
                   <h3 class="card-title text-white mb-5">Selamat Datang di 
                     RSI Garam Kalianget</h3>
-                  <p class="card-text">Kami dengan hangat menyambut Anda di RSI Garam Kalianget, tempat di mana kesehatan dan kesejahteraan Anda menjadi prioritas utama kami. Di sini, kami berkomitmen untuk memberikan pelayanan medis terbaik dengan standar profesionalisme yang tinggi.</p>
-                  <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+                  <p class="card-text">Kami dengan hangat menyambut Anda di RSI Garam Kalianget, tempat di mana kesehatan dan kesejahteraan Anda menjadi prioritas utama kami. Di sini, kami berkomitmen untuk memberikan pelayanan medis terbaik dengan standar profesionalisme yang tinggi.</p>>
                 </div>
               </div>
             </div>
@@ -145,7 +144,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     
 
@@ -172,7 +171,8 @@
     </div>
 
     <div id="dokter" class="dokter">
-      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5 px-5">
+      <!-- Menambahkan kelas responsif Bootstrap untuk tampilan mobile -->
+      <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5 px-5">
         <% data.forEach(function(dokter) { %>
         <div class="col d-flex">
           <div class="card-dokter flex-fill">
@@ -191,6 +191,7 @@
         </div>
       </div>
     </div>
+    
     
     
     
@@ -229,7 +230,7 @@
   </div>
   
 <div id="mitra" class="mitra">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 px-5">
+  <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 g-4 mt-5 px-5">
     <div class="col">
       <div class="card mitra">
         <img src="../images/mitra-ptgaram.png" class="mitra-img" alt="...">
@@ -263,101 +264,93 @@
   </div>
 </div>
 
-<div class="penghargaan">
-  <button class="item">
-    <h3>69 Tahun</h3>
-    <p>Melayani Anda</p>
-  </button>
-  <button class="item">
-    <h3>30</h3>
-    <p>Penghargaan</p>
-  </button>
-  <button class="item">
-    <h3>130</h3>
-    <p>Dokter</p>
-  </button>
-  <button class="item">
-    <h3>1500</h3>
-    <p>Kunjungan / hari</p>
-  </button>
-</div>
+
 
 <!-- Floating Action Button -->
 <a href="https://api.whatsapp.com/send?phone=6282332172543" class="float" target="_blank">
   <i class="fab fa-whatsapp my-float"></i>
 </a>
 
-  <footer class="text-primary text-center text-lg-start  mt-5">
-    <!-- Grid container -->
-    <div class="container p-4">
+<footer class="text-primary text-center text-lg-start  mt-5">
+  <!-- Grid container -->
+  <div class="container p-4">
       <!--Grid row-->
       <div class="row mb-5">
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-          <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+              <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
 
 
-          <div class="mt-4">
-            <!-- Facebook -->
-            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-facebook-f"></i></a>
-            <!-- Dribbble -->
-            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-dribbble"></i></a>
-            <!-- Twitter -->
-            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-twitter"></i></a>
-            <!-- Google + -->
-            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-google-plus-g"></i></a>
-            <!-- Linkedin -->
+              <div class="mt-4">
+                  <!-- Facebook -->
+                  <a type="button" class="btn btn-floating btn-primary btn-lg"><i
+                          class="fab fa-facebook-f"></i></a>
+                  <!-- Dribbble -->
+                  <a type="button" class="btn btn-floating btn-primary btn-lg"><i
+                          class="fab fa-dribbble"></i></a>
+                  <!-- Twitter -->
+                  <a type="button" class="btn btn-floating btn-primary btn-lg"><i
+                          class="fab fa-twitter"></i></a>
+                  <!-- Google + -->
+                  <a type="button" class="btn btn-floating btn-primary btn-lg"><i
+                          class="fab fa-google-plus-g"></i></a>
+                  <!-- Linkedin -->
+              </div>
           </div>
-        </div>
-        <!--Grid column-->
+          <!--Grid column-->
 
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-          
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
 
-          
 
-          <ul class="fa-ul" style="margin-left: 1.65em;">
-          <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
 
-            <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan (08233263292)</span>
-            </li>
-            <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance (085334367221)</span>
-            </li>
-            <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran (085257098307)</span>
-            </li>
-            <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-headphones"></i></span><span class="ms-2">Humas/Customer Service (082332632929)</span>
-            </li>
-            <li class="mb-3">
-              <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2" href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
 
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
-          <p>SIANG : JAM 10.00 WIB s/d 12.00 WIB</p>
-          <p>SORE  : JAM 14.00 WIB s/d 18.00 WIB</p>
-        </div>
-        <!--Grid column-->
+              <ul class="fa-ul" style="margin-left: 1.65em;">
+                  <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
+
+                  <li class="mb-3">
+                      <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat
+                          Panggilan (08233263292)</span>
+                  </li>
+                  <li class="mb-3">
+                      <span class="fa-li"><i class="fas fa-ambulance"></i></span><span
+                          class="ms-2">IGD/Ambulance (085334367221)</span>
+                  </li>
+                  <li class="mb-3">
+                      <span class="fa-li"><i class="fas fa-user-plus"></i></span><span
+                          class="ms-2">Pendaftaran (085257098307)</span>
+                  </li>
+                  <li class="mb-3">
+                      <span class="fa-li"><i class="fas fa-headphones"></i></span><span
+                          class="ms-2">Humas/Customer Service (082332632929)</span>
+                  </li>
+                  <li class="mb-3">
+                      <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2"
+                          href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
+                  </li>
+              </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
+              <p>SIANG : JAM 10.00 WIB s/d 12.00 WIB</p>
+              <p>SORE  : JAM 14.00 WIB s/d 18.00 WIB</p>
+          </div>
+          <!--Grid column-->
       </div>
       <!--Grid row-->
-    </div>
-    <!-- Grid container -->
+  </div>
+  <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2024 Copyright:
       <a class="text-primary" href="https://rsi_garam@yahoo.co.id/">RSI GARAM KALIANGET</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
+  </div>
+  <!-- Copyright -->
+</footer>
 
 
 

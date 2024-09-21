@@ -30586,10 +30586,79 @@ div.tagsinput span.tag a {
   left: 30px;
 }
 
-@media (max-width: 991px) {
-  #settings-trigger {
-    display: none;
+/* Style untuk right-sidebar */
+.right-sidebar {
+  position: fixed;
+  right: 0;
+  top: 60px; /* Disesuaikan dengan tinggi navbar */
+  width: 280px;
+  height: 100%;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+  z-index: 1030;
+  transition: transform 0.3s ease;
+}
+
+/* Menyembunyikan sidebar pada layar kecil dan menampilkannya pada layar besar */
+@media (max-width: 768px) {
+  .right-sidebar {
+    transform: translateX(100%);
   }
+
+  .right-sidebar.active {
+    transform: translateX(0);
+  }
+}
+
+.right-sidebar-card {
+  margin: 15px;
+}
+
+.right-sidebar-header {
+  padding: 15px;
+  background-color: #4E88AC;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style untuk Floating Action Button (FAB) */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1040;
+  background-color: #4E88AC;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fab:hover {
+  background-color: #0056b3;
+}
+
+.close-sidebar-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menyembunyikan tombol FAB saat sidebar dibuka pada layar kecil */
+.fab.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

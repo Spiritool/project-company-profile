@@ -111,12 +111,7 @@ p{
     border-radius: 0.5rem;
 }
 
-.container-fluid-beranda{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
+
 
 .card-beranda{
     /* padding-left: 50px; */
@@ -125,10 +120,9 @@ p{
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.card-img-overlay{
-    padding: 12%;
-    /* background-color: #025589; */
-    
+.d-block {
+    width: 100%;
+    height: 30rem;
 }
 
 @media (max-width: 768px) {
@@ -193,7 +187,7 @@ p{
     align-items: center;
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 20px 10px 0 10px;
     background-color: #f8f9fa; /* Memberikan background color agar konsisten */
 }
 
@@ -223,12 +217,24 @@ p{
     align-items: stretch;
 }
 
-.card-dokter {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
+/* Media query untuk layar ekstra kecil (maksimal 576px) */
+@media (max-width: 576px) {
+    .card-dokter {
+      width: 16rem; /* Lebar kartu diatur agar mengambil seluruh lebar kolom */
+      height: auto; /* Tinggi kartu akan menyesuaikan konten */
+      padding: 20px 20px 0 20px; /* Menambahkan padding untuk tampilan lebih baik */
+    }
+  
+    .dokter-img {
+      height: 150px; /* Mengatur tinggi gambar agar seragam */
+      object-fit: cover; /* Memastikan gambar terisi penuh dalam card */
+    }
+  
+    .card-body {
+      padding: 10px; /* Padding dalam card untuk teks */
+    }
+  }
+  
 
 
 .layanan {
@@ -267,13 +273,13 @@ p{
 
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 576px) {
     .grid-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .list-layanan {
