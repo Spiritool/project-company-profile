@@ -37,7 +37,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/users', async function (req, res, next) {
     try {
-        let rows = await Model_Dokter.getAll();
+        let rows = await Model_Jadwal.getAll();
         let rows2 = await Model_Keahlian.getAll();
         res.render('dokter/users/index', {
             data: rows,
