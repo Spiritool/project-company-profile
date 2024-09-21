@@ -20,6 +20,7 @@ var artikelRouter = require('./routes/artikel');
 var beritaRouter = require('./routes/berita'); 
 var bukuRouter = require('./routes/buku'); 
 var albumRouter = require('./routes/album');
+var cateringRouter = require('./routes/catering');
 
 
 //var pemesananRouter = require('./routes/pemesanan');
@@ -64,6 +65,7 @@ app.use('/artikel', artikelRouter);
 app.use('/berita', beritaRouter);
 app.use('/buku', bukuRouter);
 app.use('/album', albumRouter);
+app.use('/catering', cateringRouter);
 
 
 

@@ -121,7 +121,7 @@
 
 
     <div class="container-sm">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="row row-cols-1  g-4">
         <% if (typeof dokter != 'undefined') { %>
           <% dokter.forEach(function(data) { %>
             <div class="col">
@@ -137,16 +137,30 @@
                       
                       <p class="card-text"><small class="btn btn-danger btn-sm text-white"><%= data.keahlian %></small>
                       </p>
-                      <div class="position-absolute bottom-0 end-0">
-                        <a class="btn btn-primary m-0 rounded-start" type="button" href="../jadwal/users/<%= data.id_jadwal %>"
-                          style="border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-                          </svg>
-                        </a>
-                      </div>
+                      <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Senin</th>
+                        <th scope="col">Selasa</th>
+                        <th scope="col">Rabu</th>
+                        <th scope="col">Kamis</th>
+                        <th scope="col">Jumat</th>
+                        <th scope="col">Sabtu</th>
+                        <th scope="col">Minggu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= data.senin %></td>
+                        <td><%= data.selasa %></td>
+                        <td><%= data.rabu %></td>
+                        <td><%= data.kamis %></td>
+                        <td><%= data.jumat %></td>
+                        <td><%= data.sabtu %></td>
+                        <td><%= data.minggu %></td>
+                    </tr>
+                </tbody>
+            </table>
                     </div>
                   </div>
                 </div>
@@ -168,16 +182,30 @@
                       
                       <p class="card-text"><small class="btn btn-danger btn-sm text-white"><%= data.keahlian %></small>
                       </p>
-                      <div class="position-absolute bottom-0 end-0">
-                        <a class="btn btn-primary m-0 rounded-start" type="button" href="../jadwal/users/<%= data.id_jadwal %>"
-                          style="border-top-left-radius: 15px; border-top-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-                          </svg>
-                        </a>
-                      </div>
+                      <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Senin</th>
+                        <th scope="col">Selasa</th>
+                        <th scope="col">Rabu</th>
+                        <th scope="col">Kamis</th>
+                        <th scope="col">Jumat</th>
+                        <th scope="col">Sabtu</th>
+                        <th scope="col">Minggu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= data.senin %></td>
+                        <td><%= data.selasa %></td>
+                        <td><%= data.rabu %></td>
+                        <td><%= data.kamis %></td>
+                        <td><%= data.jumat %></td>
+                        <td><%= data.sabtu %></td>
+                        <td><%= data.minggu %></td>
+                    </tr>
+                </tbody>
+            </table>
                     </div>
                   </div>
                 </div>
