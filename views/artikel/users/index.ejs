@@ -99,77 +99,27 @@
                 <div class="col-md-9">
                     <div class="swiper-container p-2">
                         <div class="swiper-wrapper ">
-                            <div class="swiper-slide">
-                                <div class="card border" style="width: 18rem;">
-                                    <div class="garis-vertical"><h5 class="card-title-library">PENELITIAN GIZI</h5>
-                                    </div>
-                                    
-                                    <img src="../../images/gizi.jpeg" class="card-img-library" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Ini adalah buku tentang cara menentukan Gizi yang baik</p>
-                                        <div class="d-grid  d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary " type="button">Read More</button>
+                            <% for(var i = 0; i < data_buku.length; i++) { 
+                                // Open a new swiper-slide every 3 items
+                                if (i % 3 === 0) { %>
+                                    <div class="swiper-slide">
+                                <% } %>
+                                    <div class="card border" style="width: 18rem;">
+                                        <div class="garis-vertical">
+                                            <h5 class="card-title-library"><%= data_buku[i].nama_buku %></h5>
+                                        </div>
+                                        <img src="../../images/buku/<%= data_buku[i].gambar_buku %>" class="card-img-library" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text"><%= data_buku[i].deskripsi_buku %></p>
+                                            <div class="d-grid d-md-flex justify-content-md-end">
+                                                <button class="btn btn-primary" type="button">Read More</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card border" style="width: 18rem;">
-                                    <div class="garis-vertical"><h5 class="card-title-library">PENELITIAN GIZI</h5>
+                                <% if ((i + 1) % 3 === 0 || i === data_buku.length - 1) { %>
                                     </div>
-                                    <img src="../../images/gizi.jpeg" class="card-img-library" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Ini adalah buku tentang cara menentukan Gizi yang baik</p>
-                                        <div class="d-grid  d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary " type="button">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card border" style="width: 18rem;">
-                                    <div class="garis-vertical"><h5 class="card-title-library">PENELITIAN GIZI</h5>
-                                    </div>
-                                    <img src="../../images/gizi.jpeg" class="card-img-library" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Ini adalah buku tentang cara menentukan Gizi yang baik</p>
-                                        <div class="d-grid  d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary " type="button">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card border" style="width: 18rem;">
-                                    <div class="garis-vertical"><h5 class="card-title-library">PENELITIAN GIZI</h5>
-                                    </div>
-                                    <img src="../../images/gizi.jpeg" class="card-img-library" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Ini adalah buku tentang cara menentukan Gizi yang baik</p>
-                                        <div class="d-grid  d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary " type="button">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card border" style="width: 18rem;">
-                                    <div class="garis-vertical"><h5 class="card-title-library">PENELITIAN GIZI</h5>
-                                    </div>
-                                    <img src="../../images/gizi.jpeg" class="card-img-library" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Ini adalah buku tentang cara menentukan Gizi yang baik</p>
-                                        <div class="d-grid  d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary " type="button">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card border" style="width: 18rem;">
-                                    <div class="garis-vertical"><h5 class="card-title-library">PENELITIAN GIZI</h5>
-                                    </div>
-                                    <img src="../../images/gizi.jpeg" class="card-img-library" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Ini adalah buku tentang cara menentukan Gizi yang baik</p>
-                                        <div class="d-grid  d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary " type="button">Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <% } } %>
+                            
                             <!-- Tambahkan slide lainnya sesuai kebutuhan -->
                         </div>
                         <!-- Add Pagination -->
@@ -179,265 +129,230 @@
         </div>
 
         <div class="container mt-5 position-relative">
-          <h2 class="berita">Daftar Berita</h2>
-          <div class="garis-horizontal"></div>
-          <div class="container position-relative mt-5">
-              <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                      <% let chunkedData = []; 
+            <h2 class="berita">Daftar Berita</h2>
+            <div class="garis-horizontal"></div>
+            <div class="container position-relative mt-5">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <% let chunkedData = []; 
                       for (let i = 0; i < data.length; i += 4) {
                           chunkedData.push(data.slice(i, i + 4)); 
                       } %>
-                      
-                      <% chunkedData.forEach((chunk, chunkIndex) => { %>
-                          <div class="carousel-item <%= chunkIndex === 0 ? 'active' : '' %>">
-                              <div class="row">
-                                  <% chunk.forEach((item) => { %>
-                                      <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                          <div class="card-berita" style="width: 95%;">
-                                              <img src="/images/berita/<%= item.gambar_berita %>" class="card-img-top" alt="gambar berita">
-                                              <div class="card-body">
-                                                  <small class="fw-light">Upload by: Admin, <%= item.tanggal_upload %></small>
-                                                  <h5 class="card-title"><b><%= item.nama_berita %></b></h5>
-                                                  <p class="card-text fs-7"><%= item.deskripsi_berita.substring(0, 100) %>...</p>
-                                                  <a href="/berita/<%= item.id_berita %>" class="btn btn-primary">Read More</a>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  <% }) %>
-                              </div>
-                          </div>
-                      <% }) %>
-                  </div>
-      
-                  <!-- Carousel Controls -->
-                  <div class="carousel-control-container">
-                      <button class="btn btn-light border" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                          <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#025589" d="M1.777 9.313a1.5 1.5 0 0 1 0-2.629l9.999-5.5A1.5 1.5 0 0 1 13.999 2.5v10.999a1.5 1.5 0 0 1-2.223 1.314z"/></svg></span>
-                      </button>
-                      <button class="btn btn-light border" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                          <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#025589" d="M14.222 6.687a1.5 1.5 0 0 1 0 2.629l-10 5.499A1.5 1.5 0 0 1 2 13.5V2.502a1.5 1.5 0 0 1 2.223-1.314z"/></svg></span>
-                      </button>
-                  </div>
-              </div>
-          </div>
-          </div>
+
+                        <% chunkedData.forEach((chunk, chunkIndex) => { %>
+                        <div class="carousel-item <%= chunkIndex === 0 ? 'active' : '' %>">
+                            <div class="row">
+                                <% chunk.forEach((item) => { %>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                                    <div class="card-berita" style="width: 95%;">
+                                        <img src="/images/berita/<%= item.gambar_berita %>" class="card-img-top"
+                                            alt="gambar berita">
+                                        <div class="card-body">
+                                            <small class="fw-light">Upload by: Admin, <%= item.tanggal_upload %></small>
+                                            <h5 class="card-title"><b><%= item.nama_berita %></b></h5>
+                                            <p class="card-text fs-7"><%= item.deskripsi_berita.substring(0, 100) %>...
+                                            </p>
+                                            <a href="/berita/<%= item.id_berita %>" class="btn btn-primary">Read
+                                                More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-control-container">
+                        <button class="btn btn-light border" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 16 16">
+                                    <path fill="#025589"
+                                        d="M1.777 9.313a1.5 1.5 0 0 1 0-2.629l9.999-5.5A1.5 1.5 0 0 1 13.999 2.5v10.999a1.5 1.5 0 0 1-2.223 1.314z" />
+                                    </svg></span>
+                        </button>
+                        <button class="btn btn-light border" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 16 16">
+                                    <path fill="#025589"
+                                        d="M14.222 6.687a1.5 1.5 0 0 1 0 2.629l-10 5.499A1.5 1.5 0 0 1 2 13.5V2.502a1.5 1.5 0 0 1 2.223-1.314z" />
+                                    </svg></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Album -->
         <div class="container-fluid container-bg text-center px-4">
             <h2>ALBUM RSI GARAM KALIANGET</h2>
-            <p class="deskripsi mt-4 mb-5">Di sini, Anda akan menemukan berbagai artikel informatif dan edukatif yang dirancang untuk membantu Anda memahami lebih baik tentang kesehatan.</p>
-        
+            <p class="deskripsi mt-4 mb-5">Di sini, Anda akan menemukan berbagai artikel informatif dan edukatif yang
+                dirancang untuk membantu Anda memahami lebih baik tentang kesehatan.</p>
+
             <ul class="nav nav-pills justify-content-center mb-3">
-              <li class="nav-item">
-                <a class="nav-link-album active" href="#" data-filter="*">Semua</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link-album" href="#" data-filter=".perkumpulan">Perkumpulan</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link-album" href="#" data-filter=".ramadhan">Ramadhan</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link-album" href="#" data-filter=".pelatihan">Pelatihan</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link-album" href="#" data-filter=".acara">Acara</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link-album active" href="#" data-filter="*">Semua</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-album" href="#" data-filter=".perkumpulan">Perkumpulan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-album" href="#" data-filter=".ramadhan">Ramadhan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-album" href="#" data-filter=".pelatihan">Pelatihan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link-album" href="#" data-filter=".acara">Acara</a>
+                </li>
             </ul>
-        
+
             <div class="gallery">
-              <!-- Add photos here -->
-              <div class="photo perkumpulan">
-                <img src="../../images/album1.png" alt="Photo 1">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 1</h4>
-                  <p>Deskripsi 1</p>
+                <!-- Add photos here -->
+                <% for(var i = 0; i < data_album.length; i++) { %>
+                <div class="photo <%= data_album[i].jenis_album %>">
+                    <img src="../../images/album/<%= data_album[i].gambar_album %>" alt="Photo 1" width="200"
+                        height="150">
+                    <div class="overlay-full"></div>
+                    <div class="overlay-half">
+                        <h4><%= data_album[i].nama_album %></h4>
+                        <p><%= data_album[i].deskripsi_album %></p>
+                    </div>
                 </div>
-              </div>
-              <div class="photo ramadhan">
-                <img src="../../images/album2.jpeg" alt="Photo 2">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 2</h4>
-                  <p>Deskripsi 2</p>
-                </div>
-              </div>
-              <div class="photo pelatihan">
-                <img src="../../images/album3.jpeg" alt="Photo 3">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 3</h4>
-                  <p>Deskripsi 3</p>
-                </div>
-              </div>
-              <div class="photo acara">
-                <img src="../../images/album1.png" alt="Photo 4">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 4</h4>
-                  <p>Deskripsi 4</p>
-                </div>
-              </div>
-              <div class="photo perkumpulan more-photos">
-                <img src="../../images/album2.jpeg" alt="Photo 5">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 5</h4>
-                  <p>Deskripsi 5</p>
-                </div>
-              </div>
-              <div class="photo ramadhan more-photos">
-                <img src="../../images/album3.jpeg" alt="Photo 6">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 6</h4>
-                  <p>Deskripsi 6</p>
-                </div>
-              </div>
-              <div class="photo pelatihan more-photos">
-                <img src="../../images/album1.png" alt="Photo 7">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 7</h4>
-                  <p>Deskripsi 7</p>
-                </div>
-              </div>
-              <div class="photo acara more-photos">
-                <img src="../../images/album2.jpeg" alt="Photo 8">
-                <div class="overlay-full"></div>
-                <div class="overlay-half">
-                  <h4>Judul 8</h4>
-                  <p>Deskripsi 8</p>
-                </div>
-              </div>
-              <!-- Add more photos as needed -->
+                <% } %>
             </div>
-            
+
             <button class="btn btn-primary mt-4" id="show-more">Lihat Selengkapnya</button>
-          </div>
-        
-          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-          <script>
-            $(document).ready(function(){
-              // Filter functionality
-              $('.nav-link-album').click(function(){
-                var filterValue = $(this).attr('data-filter');
-                if (filterValue == "*") {
-                  $('.photo').show();
-                } else {
-                  $('.photo').not(filterValue).hide();
-                  $(filterValue).show();
-                }
-                $('.nav-link-album').removeClass('active');
-                $(this).addClass('active');
-                return false;
-              });
-        
-              // Show more photos
-              $('#show-more').click(function(){
-                $('.more-photos').toggle();
-                if ($(this).text() == "Lihat Selengkapnya") {
-                  $(this).text("Tampilkan Lebih Sedikit");
-                } else {
-                  $(this).text("Lihat Selengkapnya");
-                }
-              });
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Filter functionality
+                $('.nav-link-album').click(function () {
+                    var filterValue = $(this).attr('data-filter');
+                    if (filterValue == "*") {
+                        $('.photo').show();
+                    } else {
+                        $('.photo').not(filterValue).hide();
+                        $(filterValue).show();
+                    }
+                    $('.nav-link-album').removeClass('active');
+                    $(this).addClass('active');
+                    return false;
+                });
+
+                // Show more photos
+                $('#show-more').click(function () {
+                    $('.more-photos').toggle();
+                    if ($(this).text() == "Lihat Selengkapnya") {
+                        $(this).text("Tampilkan Lebih Sedikit");
+                    } else {
+                        $(this).text("Lihat Selengkapnya");
+                    }
+                });
             });
-          </script>
+        </script>
 
 
 
-        
+
         <!-- Floating Action Button -->
-    <a href="https://api.whatsapp.com/send?phone=6282332172543" class="float" target="_blank">
-      <i class="fab fa-whatsapp my-float"></i>
-    </a>
-          
-        
+        <a href="https://api.whatsapp.com/send?phone=6282332172543" class="float" target="_blank">
+            <i class="fab fa-whatsapp my-float"></i>
+        </a>
+
+
     </main>
 
     <footer class="text-primary text-center text-lg-start  mt-5">
         <!-- Grid container -->
         <div class="container p-4">
-          <!--Grid row-->
-          <div class="row mb-5">
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-              <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
-    
-    
-              <div class="mt-4">
-                <!-- Facebook -->
-                <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-facebook-f"></i></a>
-                <!-- Dribbble -->
-                <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-dribbble"></i></a>
-                <!-- Twitter -->
-                <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-twitter"></i></a>
-                <!-- Google + -->
-                <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-google-plus-g"></i></a>
-                <!-- Linkedin -->
-              </div>
+            <!--Grid row-->
+            <div class="row mb-5">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <img src="../images/logo-rsi.png" alt="Logo" class="logo logo-align" style="height: 100px;">
+
+
+                    <div class="mt-4">
+                        <!-- Facebook -->
+                        <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-facebook-f"></i></a>
+                        <!-- Dribbble -->
+                        <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-dribbble"></i></a>
+                        <!-- Twitter -->
+                        <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-twitter"></i></a>
+                        <!-- Google + -->
+                        <a type="button" class="btn btn-floating btn-primary "><i class="fab fa-google-plus-g"></i></a>
+                        <!-- Linkedin -->
+                    </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+
+
+
+
+                    <ul class="fa-ul" style="margin-left: 1.65em;">
+                        <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
+
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan
+                                (08233263292)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance
+                                (085334367221)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran
+                                (085257098307)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-headphones"></i></span><span
+                                class="ms-2">Humas/Customer Service (082332632929)</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2"
+                                href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
+                    <p>SIANG : JAM 10.00 WIB s/d 12.00 WIB</p>
+                    <p>SORE  : JAM 14.00 WIB s/d 18.00 WIB</p>
+                </div>
+                <!--Grid column-->
             </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-              
-    
-              
-    
-              <ul class="fa-ul" style="margin-left: 1.65em;">
-              <h5 class="text-uppercase mb-4">Hubungi Kami</h5>
-    
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">Pusat Panggilan (08233263292)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-ambulance"></i></span><span class="ms-2">IGD/Ambulance (085334367221)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-user-plus"></i></span><span class="ms-2">Pendaftaran (085257098307)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-headphones"></i></span><span class="ms-2">Humas/Customer Service (082332632929)</span>
-                </li>
-                <li class="mb-3">
-                  <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2" href="rsi_garam@yahoo.co.id">rsi_garam@yahoo.co.id</span>
-                </li>
-              </ul>
-            </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase mb-4">Jam Kunjung</h5>
-              <p>SIANG : JAM 10.00 WIB s/d 12.00 WIB</p>
-              <p>SORE  : JAM 14.00 WIB s/d 18.00 WIB</p>
-            </div>
-            <!--Grid column-->
-          </div>
-          <!--Grid row-->
+            <!--Grid row-->
         </div>
         <!-- Grid container -->
-    
+
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2024 Copyright:
-          <a class="text-primary" href="https://rsi_garam@yahoo.co.id/">RSI GARAM KALIANGET</a>
+            © 2024 Copyright:
+            <a class="text-primary" href="https://rsi_garam@yahoo.co.id/">RSI GARAM KALIANGET</a>
         </div>
         <!-- Copyright -->
-      </footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgQW4Dp2FmProfiljBbNBY9lbFlnK4yfRvH+8abtTEKSk"
-        crossorigin="anonymous"></script>
+        integrity="sha384-oBqDVmMz4fnFO9gybBogGzOgQW4Dp2FmProfiljBbNBY9lbFlnK4yfRvH+8abtTEKSk" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cu4lX3SEd5GfqQb4rbl3k4ymoqVRLA2XKSyyvTtvhS4QKxT0Ok3Ebc1uwWjJJ7Sk"
-        crossorigin="anonymous"></script>
+        integrity="sha384-cu4lX3SEd5GfqQb4rbl3k4ymoqVRLA2XKSyyvTtvhS4QKxT0Ok3Ebc1uwWjJJ7Sk" crossorigin="anonymous">
+    </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
@@ -452,12 +367,11 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-
     </script>
 
     <!-- plugins:js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+</body>
 </body>
 
 </html>

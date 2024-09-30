@@ -1,14 +1,14 @@
 const connection = require('../config/database');
 
-class Model_Users {
+class Model_Kategori {
+
     static async getAll(){
         return new Promise((resolve, reject) => {
-            connection.query('select * from users order by id_users desc', (err, rows) => {
+            connection.query('select * from kategori_menu order by id_kategori desc', (err, rows) => {
                 if(err){
                     reject(err);
                 } else {
                     resolve(rows);
-                    console.log(rows);
                 }
             });
         });
@@ -16,10 +16,9 @@ class Model_Users {
 
     static async Store(Data){
         return new Promise((resolve, reject) => {
-            connection.query('insert into users set ?', Data, function(err, result){
+            connection.query('insert into kategori_menu set ?', Data, function(err, result){
                 if(err){
                     reject(err);
-                    console.log(err);
                 } else {
                     resolve(result);
                 }
@@ -27,26 +26,13 @@ class Model_Users {
         });
     }
 
-    static async Login(email) {
-        return new Promise((resolve, reject) => {
-            connection.query('select * from users where email_users = ?', [email], function(err, result){
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            })
-        })
-    }
-
     static async getId(id){
         return new Promise((resolve, reject) => {
-            connection.query('select * from users where id_users = ' + id, (err,rows) => {
+            connection.query('select * from kategori_menu where id_kategori = ' + id, (err,rows) => {
                 if(err) {
                     reject(err);
                 } else {
                     resolve(rows);
-                    console.log(rows);
                 }
             })
         })
@@ -54,13 +40,12 @@ class Model_Users {
 
     static async Update(id, Data) {
         return new Promise((resolve, reject) => {
-            connection.query('update users set ? where id_users =' + id, Data, function(err, result){
+            connection.query('update kategori_menu set ? where id_kategori =' + id, Data, function(err, result){
                 if(err){
                     reject(err);
                     console.log(err);
                 } else {
                     resolve(result);
-                    console.log(result);
                 }
             })
         });
@@ -68,7 +53,7 @@ class Model_Users {
 
     static async Delete(id) {
         return new Promise((resolve, reject) => {
-            connection.query('delete from users where id_users =' + id, function(err,result){
+            connection.query('delete from kategori_menu where id_kategori =' + id, function(err,result){
                 if(err) {
                     reject(err);
                 } else {
@@ -78,7 +63,7 @@ class Model_Users {
         });
     }
 
-
 }
 
-module.exports = Model_Users;
+
+module.exports = Model_Kategori;
