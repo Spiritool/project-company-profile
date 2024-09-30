@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
-  <link rel="stylesheet" href="../../stylesheets/catering_home.css" />
+    <link rel="stylesheet" href="../../stylesheets/catering_home.css" />
 
 
 </head>
@@ -63,223 +64,538 @@
     </nav>
     <!-- end navbar -->
 
-<div class="container-fluid bg-light">
+    <div class="container-fluid-latar px-3">
 
 
-    <div class="container py-4">
+        <div class="container-promosi py-4">
+            <div class="row">
+                <!-- Carousel Section -->
+                <div class="col-lg-7">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0"
+                                class="active"></button>
+                            <button type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner rounded-3">
+                            <div class="carousel-item active">
+                                <img src="../images/catering.png" class="d-block w-100" alt="Slide 1">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/catering.png" class="d-block w-100" alt="Slide 2">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../images/catering.png" class="d-block w-100" alt="Slide 3">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cards Section -->
+                <div class="col-lg-5">
+                    <!-- Card 1: SPOT PRODUK TERLARIS -->
+                    <div class="card mt-2 mb-2" style="height: 45%; background-color: #4E88AD;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">*SPOT PRODUK TERLARIS</h5>
+                        </div>
+                    </div>
+                    <!-- Card 2: SPOT PRODUK DISKON -->
+                    <div class="card" style="height: 45%; background-color: #4E88AD;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">*SPOT PRODUK DISKON</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
-            <!-- Carousel Section -->
-            <div class="col-lg-7">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0"
-                            class="active"></button>
-                        <button type="button" data-bs-target="#carouselExampleAutoplaying"
-                            data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#carouselExampleAutoplaying"
-                            data-bs-slide-to="2"></button>
+
+            <!-- KATEGORI MENU -->
+            <div class="col-lg-8">
+                <div class="container border rounded-3 bg-white">
+                    <!-- Bagian Judul -->
+                    <div class="category-title">
+                        <h5>KATEGORI</h5>
                     </div>
-                    <div class="carousel-inner rounded-3">
-                        <div class="carousel-item active">
-                            <img src="../images/catering.png" class="d-block w-100" alt="Slide 1">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/catering.png" class="d-block w-100" alt="Slide 2">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/catering.png" class="d-block w-100" alt="Slide 3">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
+                    <!-- Bagian Navbar Button -->
+                    <div class="container my-3">
+                        <div class="d-flex justify-content-center nav-category">
+                            <button class="btn btn-outline-primary"
+                                onclick="filterMenu('all')"><small>Semua</small></button>
+                            <button class="btn btn-primary"
+                                onclick="filterMenu('makanan')"><small>Makanan</small></button>
+                            <button class="btn btn-outline-primary"
+                                onclick="filterMenu('minuman')"><small>Minuman</small></button>
+                            <button class="btn btn-outline-primary"
+                                onclick="filterMenu('snack')"><small>Snack</small></button>
+                            <button class="btn btn-outline-primary"
+                                onclick="filterMenu('lainnya')"><small>Lainnya</small></button>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <!-- Bagian Card Menu -->
+                    <div class="container container-card">
+                        <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
+                            <!-- Card 1 - Kategori Makanan -->
+                            <div class="col card-kategori makanan">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Healthy Nasi Goreng</h5>
+                                        <p class="card-text">Rp. 12.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>99 Terjual</small></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col card-kategori makanan">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Healthy Nasi Goreng</h5>
+                                        <p class="card-text">Rp. 12.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>99 Terjual</small></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col card-kategori makanan">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Healthy Nasi Goreng</h5>
+                                        <p class="card-text">Rp. 12.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>99 Terjual</small></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Card 2 - Kategori Minuman -->
+                            <div class="col card-kategori minuman hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Es Teh Manis</h5>
+                                        <p class="card-text">Rp. 5.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>150 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col card-kategori minuman hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Es Teh Manis</h5>
+                                        <p class="card-text">Rp. 5.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>150 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col card-kategori minuman hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Es Teh Manis</h5>
+                                        <p class="card-text">Rp. 5.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>150 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 - Kategori Snack -->
+                            <div class="col card-kategori snack hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Keripik Kentang</h5>
+                                        <p class="card-text">Rp. 10.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>200 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col card-kategori snack hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Keripik Kentang</h5>
+                                        <p class="card-text">Rp. 10.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>200 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col card-kategori snack hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Keripik Kentang</h5>
+                                        <p class="card-text">Rp. 10.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>200 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 - Kategori Lainnya -->
+                            <div class="col card-kategori lainnya hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Sup Ayam</h5>
+                                        <p class="card-text">Rp. 15.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>120 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col card-kategori lainnya hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Sup Ayam</h5>
+                                        <p class="card-text">Rp. 15.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>120 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col card-kategori lainnya hidden">
+                                <div class="card-menu border rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <div class="card-body-menu">
+                                        <h5 class="card-title">Sup Ayam</h5>
+                                        <p class="card-text">Rp. 15.000</p>
+                                        <div class="d-md-flex justify-content-md-end"><small>120 Terjual</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Cards Section -->
-            <div class="col-lg-5">
-                <!-- Card 1: SPOT PRODUK TERLARIS -->
-                <div class="card mt-2 mb-2" style="height: 45%; background-color: #4E88AD;">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">*SPOT PRODUK TERLARIS</h5>
+            <!-- FLASH SALE -->
+            <div class="col-lg-4">
+                <div class="container-flashsale bg-white border rounded">
+                    <!-- Header Flash Sale -->
+                    <div class="flashsale-header">
+                        <h5 class="mb-0">Flash Sale</h5>
+                        <small>Berikut Daftar Produk Yang Sedang Flash Sale</small>
                     </div>
-                </div>
-                <!-- Card 2: SPOT PRODUK DISKON -->
-                <div class="card" style="height: 45%; background-color: #4E88AD;">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">*SPOT PRODUK DISKON</h5>
+
+                    <!-- Daftar Produk Flash Sale -->
+                    <div class="flashsale p-3">
+                        <!-- Card Produk 1 -->
+                        <div class="card-flashsale">
+                          <img src="../images/menu.jpg" alt="Menu Image">
+                          <div class="card-body-flashsale">
+                            <div class="row">
+                                <div class="flashsale-timer">04:27:54</div>
+                                <h6 class="mb-1">Healthy Pecel</h6>
+                                <div class="col">
+                              <p class="mb-1"><span class="price-original">Rp. 12.000</span></p> <p><span class="price-discount">Rp. 9.000</span></p>
+                            </div>
+                            
+                              <div class="col">
+                                <div class="pesan">
+                                <input type="number" class="form-control" value="1" min="1">
+                              <button class="btn btn-pesan btn-sm mt-3">Pesan</button>
+                            </div>
+                            </div>
+                        </div>
+                          </div>
+                        </div>
+
+                        <!-- Card Produk 2 -->
+                        <div class="card-flashsale">
+                            <img src="../images/menu.jpg" alt="Menu Image">
+                            <div class="card-body-flashsale">
+                                <div class="row">
+                                    <div class="flashsale-timer">04:27:54</div>
+                                    <h6 class="mb-1">Healthy Pecel</h6>
+                                    <div class="col">
+                                        <p class="mb-1"><span class="price-original">Rp. 12.000</span></p>
+                                        <p><span class="price-discount">Rp. 9.000</span></p>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="pesan">
+                                        <input type="number" class="form-control" value="1" min="1">
+                                        <button class="btn btn-pesan btn-sm mt-3">Pesan</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Produk 3 -->
+                        <div class="card-flashsale">
+                          <img src="../images/menu.jpg" alt="Menu Image">
+                          <div class="card-body-flashsale">
+                            <div class="row">
+                                <div class="flashsale-timer">04:27:54</div>
+                                <h6 class="mb-1">Healthy Pecel</h6>
+                                <div class="col">
+                              <p class="mb-1"><span class="price-original">Rp. 12.000</span></p> <p><span class="price-discount">Rp. 9.000</span></p>
+                            </div>
+                            
+                              <div class="col">
+                                <div class="pesan">
+                                <input type="number" class="form-control" value="1" min="1">
+                              <button class="btn btn-pesan btn-sm mt-3">Pesan</button>
+                            </div>
+                            </div>
+                        </div>
+                          </div>
+                        </div>
                     </div>
+
+                    <!-- Footer -->
+                    <div class="flashsale-footer"></div>
                 </div>
             </div>
         </div>
-    </div>
 
-    
-    <div class="container bg-white rounded-5 py-4">
-        <!-- Navbar Kategori -->
-        <div class="d-flex justify-content-start mb-4 category-buttons">
-            <button class="btn btn-outline-category active" onclick="filterCards('all')">Semua</button>
-            <button class="btn btn-outline-category" onclick="filterCards('makanan')">Makanan</button>
-            <button class="btn btn-outline-category" onclick="filterCards('minuman')">Minuman</button>
-            <button class="btn btn-outline-category" onclick="filterCards('snack')">Snack</button>
-            <button class="btn btn-outline-category" onclick="filterCards('lainnya')">Lainnya</button>
+        <!-- PRODUK TERLARIS -->
+        <div class="container-produk border bg-white mt-5 rounded-3 py-4 px-4">
+            <h5 class="mb-4"><b>PRODUK TERLARIS</b></h5>
+            <div id="topProductsCarousel" class="carousel slide px-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <!-- Card 1 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 5 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 6 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <!-- Card 7 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 8 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 9 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 10 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 11 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                            <!-- Card 12 -->
+                            <div class="col-md-2">
+                                <div class="card-produk rounded-3">
+                                    <img src="../images/menu.jpg" class="card-img-top" alt="Healthy Fried Rice">
+                                    <div class="card-body-produk">
+                                        <h5 class="card-title">Healty fried rice</h5>
+                                        <p class="card-price">Rp. 15.000</p>
+                                        <p class="card-sold">Terjual 40pcs/bulan</p>
+                                    </div>
+                                    <a href="link-to-product.html" class="btn-pesan">Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#topProductsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#topProductsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
 
-        <!-- Daftar Makanan -->
-        <div class="row" id="food-container">
-            <!-- Card Makanan 1 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 food-card makanan">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <!-- Bagian Kiri (Gambar dan Input Jumlah) -->
-                        <div class="card-body-left text-center">
-                            <img src="https://via.placeholder.com/150" class="card-img-top mb-3" alt="Makanan 1">
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <!-- Bagian Kanan (Detail) -->
-                        <div class="card-body-right">
-                            <h5 class="card-title-kategori fs-6">Healthy Pecel</h5>
-                            <p class="card-text-kategori fs-6"><small>Kombinasi antara saus kacang dan sayuran segar.
-                            </p>
-                            </small>
-                            <p><strong>Rp. 12.000</strong></p>
-                            <button class="btn btn-primary btn-sm">Masukkan Keranjang</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card Minuman 1 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 food-card minuman">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <!-- Bagian Kiri (Gambar dan Input Jumlah) -->
-                        <div class="card-body-left text-center">
-                            <img src="https://via.placeholder.com/150" class="card-img-top mb-3" alt="Minuman 1">
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <!-- Bagian Kanan (Detail) -->
-                        <div class="card-body-right">
-                            <h5 class="card-title-kategori fs-6">Fresh Juice</h5>
-                            <p class="card-text-kategori fs-6"><small>Jus buah segar yang menyegarkan dan sehat.</p>
-                            </small>
-                            <p><strong>Rp. 10.000</strong></p>
-                            <button class="btn btn-primary btn-sm">Masukkan Keranjang</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card Snack 1 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 food-card snack">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <!-- Bagian Kiri (Gambar dan Input Jumlah) -->
-                        <div class="card-body-left text-center">
-                            <img src="https://via.placeholder.com/150" class="card-img-top mb-3" alt="Snack 1">
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <!-- Bagian Kanan (Detail) -->
-                        <div class="card-body-right">
-                            <h5 class="card-title-kategori fs-6">Healthy Snack</h5>
-                            <p class="card-text-kategori fs-6"><small>Snack ringan yang kaya serat dan cocok untuk diet
-                                    sehat.</p></small>
-                            <p><strong>Rp. 5.000</strong></p>
-                            <button class="btn btn-primary btn-sm">Masukkan Keranjang</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card Lainnya 1 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 food-card lainnya">
-                <div class="card p-3">
-                    <div class="card-body">
-                        <!-- Bagian Kiri (Gambar dan Input Jumlah) -->
-                        <div class="card-body-left text-center">
-                            <img src="https://via.placeholder.com/150" class="card-img-top mb-3" alt="Lainnya 1">
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
-                        <!-- Bagian Kanan (Detail) -->
-                        <div class="card-body-right">
-                            <h5 class="card-title-kategori fs-6">Special Dish</h5>
-                            <p class="card-text-kategori fs-6"><small>Hidangan spesial dengan cita rasa unik dan
-                                    beragam.</p>
-                            </small>
-                            <p><strong>Rp. 20.000</strong></p>
-                            <button class="btn btn-primary btn-sm">Masukkan Keranjang</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <script>
+            function filterMenu(category) {
+                // Ambil semua kartu menu
+                const cards = document.querySelectorAll('.card-kategori');
 
-    <script>
-        // JavaScript untuk filter kartu makanan
-        function filterCards(category) {
-            var cards = document.getElementsByClassName('food-card');
-            for (var i = 0; i < cards.length; i++) {
-                cards[i].classList.remove('active');
-                if (category === 'all' || cards[i].classList.contains(category)) {
-                    cards[i].classList.add('active');
+                // Jika 'all' dipilih, tampilkan semua kartu
+                if (category === 'all') {
+                    cards.forEach(card => {
+                        card.classList.remove('hidden');
+                    });
+                } else {
+                    // Jika kategori tertentu dipilih, sembunyikan semua kecuali kategori yang dipilih
+                    cards.forEach(card => {
+                        if (card.classList.contains(category)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
                 }
+
+                // Ubah warna button yang aktif
+                const buttons = document.querySelectorAll('.nav-category button');
+                buttons.forEach(button => {
+                    if (button.innerText.toLowerCase() === category || (category === 'all' && button.innerText.toLowerCase() === 'semua')) {
+                        button.classList.remove('btn-outline-primary');
+                        button.classList.add('btn-primary');
+                    } else {
+                        button.classList.remove('btn-primary');
+                        button.classList.add('btn-outline-primary');
+                    }
+                });
             }
+        </script>
 
-            // Mengatur tombol navbar yang aktif
-            var buttons = document.getElementsByClassName('btn');
-            for (var j = 0; j < buttons.length; j++) {
-                buttons[j].classList.remove('active');
-            }
-            event.target.classList.add('active');
-        }
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
 
-        // Menampilkan semua kartu saat pertama kali
-        document.addEventListener('DOMContentLoaded', function () {
-            filterCards('all');
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript" src="js/script.js"></script>
-</div>    
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <!-- Custom scripts -->
+        <script type="text/javascript" src="js/script.js"></script>
+    </div>
 </body>
 
 </html>
