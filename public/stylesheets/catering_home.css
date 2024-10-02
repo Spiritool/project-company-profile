@@ -215,10 +215,16 @@ p {
     width: 100%;
 }
 
+.input-group-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Add space between image and input group */
+    margin-left: 20px;
+}
 
 .pesan {
     max-width: 50px;
-    margin-bottom: 10px;
+    margin-top: -25px;
     
 }
 
