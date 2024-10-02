@@ -155,4 +155,14 @@ router.get('/delete/:id', async (req, res, next) => {
 //     }
 // });
 
+router.get('/detail', async (req, res, next) => {
+    try {
+        res.render('catering/detail_menu', {
+            
+        });
+    } catch (error) {
+        console.log(error)
+    }
+});
+
 module.exports = router;
