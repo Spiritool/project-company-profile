@@ -1,0 +1,101 @@
+.btn-primary {
+    background-color: #4E88AD;
+}
+
+.btn-outline-category {
+    color: #4E88AD;
+    border-color:#4E88AD; 
+}
+
+.btn-outline-category:hover{
+    background-color: #4E88AD;
+    color: #fff;
+}
+
+
+.garis-vertical {
+    margin-right: 20px;
+    border-left: 1px solid grey;
+    height: 25px;
+    opacity: 50%;
+}
+
+/* Custom style for circular indicators */
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* Make the indicators circular */
+    background-color: #666666;
+    /* Default color */
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+    /* Active indicator color */
+}
+
+.category-buttons .btn {
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.food-card {
+    display: none;
+    /* Hide all cards by default */
+}
+
+.food-card.active {
+    display: flex;
+    /* Show the active cards */
+    flex-direction: row;
+    align-items: center;
+}
+
+.food-card .card {
+    max-width: 16rem;
+    /* Set a minimum height to ensure uniform size */
+}
+
+.food-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-body-left {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.card-body-right {
+    flex: 2;
+}
+
+.card-body-right h5 {
+    font-weight: bold;
+}
+
+.card-body-right p {
+    margin-bottom: 5px;
+}
+
+.input-group {
+    max-width: 100px;
+}
+
+/* Ensure all cards have consistent padding and margin */
+.food-card .card {
+    padding: 20px;
+    margin-bottom: 20px;
+    
+}
