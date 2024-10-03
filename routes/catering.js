@@ -14,5 +14,15 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+router.get('/keranjang', async (req, res, next) => {
+    try {
+        res.render('catering/keranjang', {
+            
+        });
+    } catch (error) {
+        console.log(error)
+    }
+});
+
 
 module.exports = router;
