@@ -175,6 +175,7 @@ p {
     justify-content: space-between;
     padding: 15px;
     width: 100%;
+    margin-left: 10px;
   }
 
   .flashsale-timer {
@@ -186,8 +187,7 @@ p {
     text-align: right;
     margin-bottom: 10px;
     margin-top: -15px;
-
-    margin-right: -25px;
+    
   }
 
   .flashsale-footer {
@@ -205,6 +205,7 @@ p {
   .price-discount {
     color: red;
     font-weight: bold;
+    padding-left: 50px;
   }
 
   .card-body-flashsale {
@@ -216,21 +217,21 @@ p {
 }
 
 .input-group-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px; /* Add space between image and input group */
-    margin-left: 20px;
+
+    margin-bottom: 10px; 
+    margin-left: 2rem;
 }
 
 .pesan {
-    max-width: 50px;
-    margin-top: -25px;
+    max-width:100px;
+    padding-left: 10px;
     
 }
 
 .btn-pesan {
     background-color: var(--primary-color);
     color: white;
+    width: 100px;
 
 }
 
@@ -272,6 +273,7 @@ p {
 }
 /* Style untuk tombol 'Pesan' menggunakan <a> */
 .card-produk .btn-pesan {
+    text-align: center;
     display: none;
     position: absolute;
     top: 50%;
