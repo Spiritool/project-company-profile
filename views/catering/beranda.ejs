@@ -333,9 +333,9 @@
                                     <img src="../images/menu.jpg" class="card-img-left px-3 py-3 border" style="width: 9rem; height: 9.1rem;" alt="Menu Image">
                                     <div class="input-group-wrapper">
                                     <div class="input-group input-group-sm mt-2 ">
-                                        <button class="btn btn-outline-secondary btn-sm" type="button" id="button-minus" style="width: 1.4rem; height: 1.6rem;">-</button>
-                                        <input type="text" class="form-control text-center" id="quantity" value="1" style="width: 1.5rem; height: 1.6rem; font-size: 0.70rem;">
-                                        <button class="btn btn-outline-secondary btn-sm" type="button" id="button-plus" style="width: 1.4rem; height: 1.6rem;">+</button>
+                                        <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"  style="width: 1.4rem; height: 1.6rem;">-</button>
+                                        <input type="text" class="form-control text-center quantity-input"  value="1" style="width: 1.5rem; height: 1.6rem; font-size: 0.70rem;">
+                                        <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"  style="width: 1.4rem; height: 1.6rem;">+</button>
                                     </div>
                                 </div>
                                 </div>
@@ -368,9 +368,9 @@
                                     <img src="../images/menu.jpg" class="card-img-left px-3 py-3 border" style="width: 9rem; height: 9.1rem;" alt="Menu Image">
                                     <div class="input-group-wrapper">
                                         <div class="input-group input-group-sm mt-2 ">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button" id="button-minus" style="width: 1.4rem; height: 1.6rem;">-</button>
-                                            <input type="text" class="form-control text-center" id="quantity" value="1" style="width: 1.5rem; height: 1.6rem; font-size: 0.70rem;">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button" id="button-plus" style="width: 1.4rem; height: 1.6rem;">+</button>
+                                            <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"  style="width: 1.4rem; height: 1.6rem;">-</button>
+                                            <input type="text" class="form-control text-center quantity-input"  value="1" style="width: 1.5rem; height: 1.6rem; font-size: 0.70rem;">
+                                            <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"  style="width: 1.4rem; height: 1.6rem;">+</button>
                                         </div>
                                 </div>
                                 </div>
@@ -404,9 +404,9 @@
                                     <img src="../images/menu.jpg" class="card-img-left px-3 py-3 border" style="width: 9rem; height: 9.1rem;" alt="Menu Image">
                                     <div class="input-group-wrapper">
                                         <div class="input-group input-group-sm mt-2 ">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button" id="button-minus" style="width: 1.4rem; height: 1.6rem;">-</button>
-                                            <input type="text" class="form-control text-center" id="quantity" value="1" style="width: 1.5rem; height: 1.6rem; font-size: 0.70rem;">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button" id="button-plus" style="width: 1.4rem; height: 1.6rem;">+</button>
+                                            <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"  style="width: 1.4rem; height: 1.6rem;">-</button>
+                                            <input type="text" class="form-control text-center quantity-input"  value="1" style="width: 1.5rem; height: 1.6rem; font-size: 0.70rem;">
+                                            <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"  style="width: 1.4rem; height: 1.6rem;">+</button>
                                         </div>
                                 </div>
                                 </div>
@@ -654,21 +654,26 @@
 
         <!-- function flashsale -->
         <script>
-            // Script to handle quantity increment and decrement
-            document.getElementById('button-plus').addEventListener('click', function() {
-                let quantity = document.getElementById('quantity');
-                let value = parseInt(quantity.value);
-                quantity.value = value + 1;
-            });
-    
-            document.getElementById('button-minus').addEventListener('click', function() {
-                let quantity = document.getElementById('quantity');
-                let value = parseInt(quantity.value);
-                if (value > 1) {
-                    quantity.value = value - 1;
-                }
+            // Script to handle quantity increment and decrement for all input groups
+            document.querySelectorAll('.input-group').forEach(function (inputGroup) {
+                const plusButton = inputGroup.querySelector('.btn-plus');
+                const minusButton = inputGroup.querySelector('.btn-minus');
+                const quantityInput = inputGroup.querySelector('.quantity-input');
+        
+                plusButton.addEventListener('click', function () {
+                    let value = parseInt(quantityInput.value);
+                    quantityInput.value = value + 1;
+                });
+        
+                minusButton.addEventListener('click', function () {
+                    let value = parseInt(quantityInput.value);
+                    if (value > 1) {
+                        quantityInput.value = value - 1;
+                    }
+                });
             });
         </script>
+        
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
