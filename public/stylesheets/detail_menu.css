@@ -108,3 +108,55 @@ p {
 .d-grid button {
     width: 160px;
 }
+
+/* PRODUK Serupa */
+.produk-title{
+    background-color: var(--primary-color); /* Biru tua */
+    border-radius: 8px 8px 0 0;
+    color: white;
+    padding: 10px;
+    margin-left:0;
+    margin-right: 0;
+}
+.card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.card-price {
+    font-size: 0.85rem;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+.card-sold {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+.card-body-produk {
+    padding: 10px 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+#topProductsCarousel .carousel-control-prev {
+    left: 20px; /* Mengatur posisi tombol lebih ke kiri */
+}
+#topProductsCarousel .carousel-control-next {
+    right: 20px; /* Mengatur posisi tombol lebih ke kanan */
+}
+#topProductsCarousel .carousel-control-prev,
+#topProductsCarousel .carousel-control-next {
+    background-color: var(--primary-color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* Position relative untuk memastikan overlay dan tombol diatur dengan benar */
+.card-produk {
+    position: relative;
+    overflow: hidden;
+}
