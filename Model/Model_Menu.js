@@ -38,6 +38,7 @@ class Model_Menu {
                 if (err) {
                     reject(err);
                 } else {
+                    console.log(rows);
                     resolve(rows);
                 }
             })

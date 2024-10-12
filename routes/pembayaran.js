@@ -1,66 +1,56 @@
 const express = require("express");
 const router = express.Router();
 const Model_Pembayaran = require('../Model/Model_Pembayaran.js');
-const Model_Menu = require('../Model/Model_Menu.js');
-const Model_Users = require('../model/Model_Users.js');
-
+const Model_Menu = require("../Model/Model_Menu.js");
 
 router.get('/', async (req, res, next) => {
     try {
-        let rows = await Model_Menu.getAll();
-        let rows2 = await Model_Pembayaran.getAll();
-        let rows3 = await Model_Users.getAll();
+        let rows = await Model_Pembayaran.getAll();
         res.render('pembayaran/index', {
-            data: rows,
-            data2: rows2,
+            data: rows
         });
     } catch (error) {
         next(error);
     }
 });
 
-router.get('/create', async function (req, res, next) {
-    try {
-        let level_users = req.session.level;
-        let id = req.session.userId;
-        let Data = await Model_Pembayaran.getAll();
-        let Data2 = await Model_Menu.getAll();
-        let Data3 = await Model_Users.getAll();
-        // if(Data[0].level_users == "2") {
-        res.render('pembayaran/create', {
-            nama_service: '',
-            data: Data,
-            data_menu: Data2,
-            data_users: Data3,
-        })
-        // }
-        // else if (Data[0].level_users == "1"){
-        //     req.flash('failure', 'Anda bukan admin');
-        //     res.redirect('/sevice')
-        // }
-    } catch (error) {
-        console.log(error);
-    }
-})
+// router.get('/create', async function (req, res, next) {
+//     try {
+//         let level_users = req.session.level;
+//         let id = req.session.userId;
+//         let Data = await Model_Pembayaran.getAll();
+//         // if(Data[0].level_users == "2") {
+//         res.render('pembayaran/create', {
+//             nama_service: '',
+//             data: Data,
+//         })
+//         // }
+//         // else if (Data[0].level_users == "1"){
+//         //     req.flash('failure', 'Anda bukan admin');
+//         //     res.redirect('/sevice')
+//         // }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })
 
-router.post('/store', async function (req, res, next) {
-    try {
-        let {status_pembayaran, jumlah, id_menu, id_users} = req.body;
-        let Data = {
-            status_pembayaran,
-            jumlah,
-            id_menu,
-            id_users,
-        }
-        await Model_Pembayaran.Store(Data);
-        req.flash('success', 'Berhasil Menyimpan Data!');
-        res.redirect("/pembayaran");
-    } catch(error) {
-        console.log(error);
-        req.flash('error', "Terjadi kesalahan pada Menyimpan Data!");
-        res.redirect("/pembayaran");
-    }
-});
+// router.post('/store', async function (req, res, next) {
+//     try {
+//         let { pembayaran } = req.body;
+        
+//         let Data = {
+//             pembayaran, 
+//         }
+//         await Model_Pembayaran.Store(Data);
+//         req.flash('success', 'Berhasil Menyimpan Data!');
+//         res.redirect("/pembayaran");
+//     } catch(error) {
+//         console.log(error);
+//         req.flash('error', "Terjadi kesalahan pada Menyimpan Data!");
+//         res.redirect("/pembayaran");
+//     }
+// });
+
 
 router.get("/edit/:id", async (req, res, next) => {
     try {
@@ -84,7 +74,6 @@ router.get("/edit/:id", async (req, res, next) => {
 router.post("/update/:id", async (req, res, next) => {
     try {
         const id = req.params.id;
-
         let {status_pembayaran, jumlah, id_menu, id_users} = req.body;
 
         let Data = {
@@ -106,7 +95,7 @@ router.post("/update/:id", async (req, res, next) => {
 router.get('/delete/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
-        await Model_Menu.Delete(id);
+        await Model_Pembayaran.Delete(id);
         req.flash('success', 'Berhasil menghapus data pembayaran');
         res.redirect('/pembayaran');
     } catch (error) {

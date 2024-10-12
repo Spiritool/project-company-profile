@@ -140,9 +140,9 @@
                     <!-- Bagian Navbar Button -->
                     <div class="container my-3">
                         <div class="d-flex justify-content-center nav-category">
-                            <button class="btn btn-outline-primary"
-                                onclick="filterMenu('all')"><small>Semua</small></button>
                             <button class="btn btn-primary"
+                                onclick="filterMenu('all')"><small>Semua</small></button>
+                            <button class="btn btn-outline-primary"
                                 onclick="filterMenu('makanan')"><small>Makanan</small></button>
                             <button class="btn btn-outline-primary"
                                 onclick="filterMenu('minuman')"><small>Minuman</small></button>
@@ -156,160 +156,20 @@
                     <div class="container container-card">
                         <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
                             <!-- Card 1 - Kategori Makanan -->
-                            <div class="col card-kategori makanan">
+                            <% for(var i=0; i < data.length; i++){ %>
+                            <div class="col card-kategori <%= data[i].nama_kategori %>">
                                 <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
+                                    <a href="../menu/detail/<%= data[i].id_menu %>">
+                                        <img src="../images/menu/<%= data[i].gambar_menu %>" class="card-img-top" alt="Menu Image">
                                     </a>
                                     <div class="card-body-menu">
-                                        <h5 class="card-title">Healthy Nasi Goreng</h5>
-                                        <p class="card-text">Rp. 12.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>99 Terjual</small></div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="col card-kategori makanan">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Healthy Nasi Goreng</h5>
-                                        <p class="card-text">Rp. 12.000</p>
+                                        <h5 class="card-title"><%= data[i].nama_menu %></h5>
+                                        <p class="card-text"><%= data[i].harga_menu %></p>
                                         <div class="d-md-flex justify-content-md-end"><small>99 Terjual</small></div>
                                     </div>
                                 </div>
-
                             </div>
-                            <div class="col card-kategori makanan">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Healthy Nasi Goreng</h5>
-                                        <p class="card-text">Rp. 12.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>99 Terjual</small></div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Card 2 - Kategori Minuman -->
-                            <div class="col card-kategori minuman hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Es Teh Manis</h5>
-                                        <p class="card-text">Rp. 5.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>150 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col card-kategori minuman hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Es Teh Manis</h5>
-                                        <p class="card-text">Rp. 5.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>150 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col card-kategori minuman hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Es Teh Manis</h5>
-                                        <p class="card-text">Rp. 5.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>150 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 3 - Kategori Snack -->
-                            <div class="col card-kategori snack hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Keripik Kentang</h5>
-                                        <p class="card-text">Rp. 10.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>200 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col card-kategori snack hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Keripik Kentang</h5>
-                                        <p class="card-text">Rp. 10.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>200 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col card-kategori snack hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Keripik Kentang</h5>
-                                        <p class="card-text">Rp. 10.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>200 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 4 - Kategori Lainnya -->
-                            <div class="col card-kategori lainnya hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Sup Ayam</h5>
-                                        <p class="card-text">Rp. 15.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>120 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col card-kategori lainnya hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Sup Ayam</h5>
-                                        <p class="card-text">Rp. 15.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>120 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col card-kategori lainnya hidden">
-                                <div class="card-menu border rounded-3">
-                                    <a href="menu/detail">
-                                        <img src="../images/menu.jpg" class="card-img-top" alt="Menu Image">
-                                    </a>
-                                    <div class="card-body-menu">
-                                        <h5 class="card-title">Sup Ayam</h5>
-                                        <p class="card-text">Rp. 15.000</p>
-                                        <div class="d-md-flex justify-content-md-end"><small>120 Terjual</small></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <% } %>
                         </div>
                     </div>
                 </div>

@@ -50,20 +50,18 @@ class Model_Pembayaran {
                 } else {
                     resolve(rows);
                 }
-            });
-        });
+            })
+        })
     }
-    
 
     static async Update(id, Data) {
         return new Promise((resolve, reject) => {
-            connection.query('update pembayaran set ? where id_pembayaran =' + id, Data, function (err, result) {
-                if (err) {
+            connection.query('update pembayaran set ? where id_pembayaran =' + id, Data, function(err, result){
+                if(err){
                     reject(err);
                     console.log(err);
                 } else {
                     resolve(result);
-                    console.log(Data);
                 }
             })
         });
@@ -80,11 +78,7 @@ class Model_Pembayaran {
             })
         });
     }
-
-
-
-
 }
 
 
-module.exports = Model_Pembayaran;
+module.exports = Model_Pembayarans;
