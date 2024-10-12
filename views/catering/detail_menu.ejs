@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg  border-bottom">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../images/logo-rsi.png" alt="Logo" class="d-inline-block align-text-top"
+                <img src="../../images/logo-rsi.png" alt="Logo" class="d-inline-block align-text-top"
                     style="height: 50px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -76,7 +76,7 @@
             <div class="row mt-5 mb-5">
                 <!-- Kolom Kiri (Gambar Produk) -->
                 <div class="col-md-6 d-flex justify-content-center">
-                    <img src="../images/menu.jpg" alt="Produk" class="product-image">
+                    <img src="../../images/menu/<%= data.gambar_menu %>" alt="Produk" class="product-image">
                 </div>
     
                 <!-- Garis Vertikal Pemisah -->
@@ -86,17 +86,16 @@
     
                 <!-- Kolom Kanan (Detail Produk) -->
                 <div class="col-md-5">
-                    <h5>Healty Fried Rice</h5>
+                    <h5><%= data.nama_menu %></h5>
                     <small class="text-muted">Terjual 269 Produk</small>
                     <p>
                         <small>
-                        Nasi Goreng Sehat yang kami sajikan adalah perpaduan lezat antara nasi merah, sayuran segar, dan protein pilihan. 
-                        Dimasak dengan minyak sehat dan rendah lemak, hidangan ini menawarkan cita rasa autentik nasi goreng dengan sentuhan lebih sehat.
+                            <%= data.deskripsi_menu %>
                     </small>
                     </p>
                     
                     <!-- Harga Produk -->
-                    <p class="price">Rp. 12.000</p>
+                    <p class="price" id="harga"><%= data.harga_menu %></p>
     
                     <!-- Opsi Pedas -->
                     <div class="mb-3">
@@ -109,7 +108,6 @@
                             <label class="btn btn-outline-success" for="tidak-pedas">Tidak Pedas</label>
                         </div>
                     </div>
-    
                     <!-- Kuantitas -->
                     <div class="mb-3">
                         <label for="quantity" class="form-label"><small>Jumlah :</small></label>
@@ -119,11 +117,12 @@
                             <button class="btn btn-outline-secondary btn-sm" type="button" id="button-plus">+</button>
                         </div>
                     </div>
-    
                     <!-- Tombol Beli & Tambah Keranjang -->
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-outline-primary ">Beli Sekarang</button>
-                        <button class="btn btn-primary ">Tambah Keranjang</button>
+                        <button class="btn btn-outline-primary">Beli Sekarang</button>
+                        <form action="/menu/pesan/<%= data.id_menu %>" method="POST" style="display: inline-block;">
+                            <button type="submit" class="btn btn-primary">Tambah Keranjang</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -153,6 +152,28 @@
                 }
             });
         </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var hargaElement = document.getElementById("harga");
+        var hargaValue = parseInt(hargaElement.innerText); // Mengambil nilai dan mengubahnya menjadi integer
+        
+        // Fungsi untuk memformat angka ke dalam bentuk Rupiah tanpa ,00
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID', { 
+                style: 'currency', 
+                currency: 'IDR', 
+                minimumFractionDigits: 0, 
+                maximumFractionDigits: 0 
+            }).format(angka);
+        }
+
+        // Memformat nilai dan mengubah teks elemen menjadi format Rupiah
+        hargaElement.innerText = formatRupiah(hargaValue);
+    });
+</script>
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

@@ -18,8 +18,9 @@ class Model_Jadwal {
         
         static async getAll() {
             return new Promise((resolve, reject) => {
-                const sql = `select a.*, b.nama_dokter from jadwal as a
+                const sql = `select a.*, b.nama_dokter, b.gambar_dokter, c.keahlian from jadwal as a
                              join dokter as b on a.id_dokter=b.id_dokter
+                             join keahlian as c on b.id_keahlian=c.id_keahlian
                              order by id_jadwal desc`;
         
                 console.log('Executing SQL query:', sql); // Log the SQL query

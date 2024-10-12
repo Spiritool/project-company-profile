@@ -1,13 +1,11 @@
 const connection = require('../config/database');
 
-class Model_Menu {
+class Model_Pembayarans {
 
-    static async getAll() {
+    static async getAll(){
         return new Promise((resolve, reject) => {
-            connection.query(`select a.*, b.nama_kategori from menu as a
-                join kategori_menu as b on a.id_kategori=b.id_kategori
-                order by id_menu DESC`, (err, rows) => {
-                if (err) {
+            connection.query('select * from pembayaran order by id_pembayaran desc', (err, rows) => {
+                if(err){
                     reject(err);
                 } else {
                     resolve(rows);
@@ -16,13 +14,11 @@ class Model_Menu {
         });
     }
 
-    static async Store(Data) {
+    static async Store(Data){
         return new Promise((resolve, reject) => {
-            connection.query('insert into menu set ?', Data, function (err, result) {
-                if (err) {
+            connection.query('insert into pembayaran set ?', Data, function(err, result){
+                if(err){
                     reject(err);
-                    console.log(Data)
-                    console.log(err)
                 } else {
                     resolve(result);
                 }
@@ -30,15 +26,12 @@ class Model_Menu {
         });
     }
 
-    static async getId(id) {
+    static async getId(id){
         return new Promise((resolve, reject) => {
-            connection.query(`select a.*, b.nama_kategori from menu as a
-                join kategori_menu as b on a.id_kategori=b.id_kategori
-                where a.id_menu= ` + id, (err, rows) => {
-                if (err) {
+            connection.query('select * from pembayaran where id_pembayaran = ' + id, (err,rows) => {
+                if(err) {
                     reject(err);
                 } else {
-                    console.log(rows);
                     resolve(rows);
                 }
             })
@@ -47,13 +40,12 @@ class Model_Menu {
 
     static async Update(id, Data) {
         return new Promise((resolve, reject) => {
-            connection.query('update menu set ? where id_menu =' + id, Data, function (err, result) {
-                if (err) {
+            connection.query('update pembayaran set ? where id_pembayaran =' + id, Data, function(err, result){
+                if(err){
                     reject(err);
                     console.log(err);
                 } else {
                     resolve(result);
-                    console.log(Data);
                 }
             })
         });
@@ -61,8 +53,8 @@ class Model_Menu {
 
     static async Delete(id) {
         return new Promise((resolve, reject) => {
-            connection.query('delete from menu where id_menu =' + id, function (err, result) {
-                if (err) {
+            connection.query('delete from pembayaran where id_pembayaran =' + id, function(err,result){
+                if(err) {
                     reject(err);
                 } else {
                     resolve(result);
@@ -71,10 +63,7 @@ class Model_Menu {
         });
     }
 
-
-
-
 }
 
 
-module.exports = Model_Menu;
+module.exports = Model_Pembayarans;

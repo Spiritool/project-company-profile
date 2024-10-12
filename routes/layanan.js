@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Model_Layanan = require('../model/Model_Layanan.js');
+const Model_Layanan = require('../Model/Model_Layanan.js');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');

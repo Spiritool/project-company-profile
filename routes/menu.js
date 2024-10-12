@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Model_Menu = require('../Model/Model_Menu.js');
 const Model_Kategori = require('../Model/Model_Kategori.js');
-const Model_Users = require('../model/Model_Users.js');
+const Model_Users = require('../Model/Model_Users.js');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
-const Model_Layanan = require("../model/Model_Layanan.js");
+const Model_Layanan = require("../Model/Model_Layanan.js");
+const Model_Pembayaran = require("../Model/Model_Pembayaran.js");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -57,10 +58,11 @@ router.get('/create', async function (req, res, next) {
 
 router.post('/store', upload.single("gambar_menu"), async function (req, res, next) {
     try {
-        let {nama_menu, harga_menu, stock, id_kategori} = req.body;
+        let {nama_menu, harga_menu, deskripsi_menu, stock, id_kategori} = req.body;
         let Data = {
             nama_menu,
             harga_menu,
+            deskripsi_menu,
             stock,
             id_kategori,
             gambar_menu: req.file.filename
@@ -108,6 +110,7 @@ router.post("/update/:id",  upload.single("gambar_menu"), async (req, res, next)
         let {
             nama_menu,
             harga_menu,
+            deskripsi_menu,
             stock,
             id_kategori,
         } = req.body;
@@ -117,6 +120,7 @@ router.post("/update/:id",  upload.single("gambar_menu"), async (req, res, next)
         let Data = {
             nama_menu: nama_menu,
             harga_menu: harga_menu,
+            deskripsi_menu: deskripsi_menu,
             stock: stock,
             id_kategori: id_kategori,
             gambar_menu
@@ -141,28 +145,39 @@ router.get('/delete/:id', async (req, res, next) => {
     }
 });
 
-// router.get('/users', async function (req, res, next) {
-//     try {
-//         // let level_users = req.session.level;
-//         let id = req.session.userId;
-//         let rows = await Model_Dokter.getAll();
-//         res.render('dokter/users/index', {
-//         })
-//     } catch (error) {
-//         console.error("Error:", error);
-//         req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
-//         res.redirect('/login');
-//     }
-// });
 
-router.get('/detail', async (req, res, next) => {
+
+// routes user
+
+router.get('/detail/:id', async (req, res, next) => {
     try {
+        const id = req.params.id;
+        let rows = await Model_Menu.getId(id);
         res.render('catering/detail_menu', {
-            
+            data: rows[0],
         });
     } catch (error) {
         console.log(error)
     }
 });
+
+router.post('/pesan/:id', async function (req, res, next) {
+    try {
+        const id = req.params.id;
+        let Data = {
+            id_menu: id,
+            id_users: 1,
+            status_pemesanan: 'order',
+            jumlah: 1
+        }
+        await Model_Pembayaran.Store(Data);
+        req.flash('success', 'Berhasil menyimpan data');
+        res.redirect('/menu');
+    } catch(error) {
+        console.log('error: ', error)
+        req.flash('error', 'Terjadi kesalahan pada fungsi')
+        res.redirect('/menu')
+    }
+})
 
 module.exports = router;
