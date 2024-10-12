@@ -52,45 +52,41 @@ router.get('/', async (req, res, next) => {
 // });
 
 
-
 router.get("/edit/:id", async (req, res, next) => {
     try {
         const id = req.params.id;
         let rows = await Model_Pembayaran.getId(id);
         let rows2 = await Model_Menu.getAll();
+        let rows3 = await Model_Users.getAll();
         if (rows.length > 0) {
-            res.render("pembayaran/edit", {
+            res.render("menu/edit", {
                 id: id,
                 data: rows[0],
                 data_menu: rows2,
+                data_users: rows3,
             });
-        } else {
-            req.flash("error", "pembayaran not found");
-            res.redirect("/pembayaran");
         }
     } catch (error) {
-        next(error);
+        console.log(error);
     }
 });
 
 router.post("/update/:id", async (req, res, next) => {
     try {
         const id = req.params.id;
-
-        let {
-            status_pembayaran,
-            jumlah
-        } = req.body;
+        let {status_pembayaran, jumlah, id_menu, id_users} = req.body;
 
         let Data = {
             status_pembayaran,
-            jumlah
+            jumlah,
+            id_menu,
+            id_users,
         }
         console.log(req.body);
         console.log(Data);
-        await Model_Pembayaran.Update(id, Data);
+        await Model_Keahlian.Update(id, Data);
         req.flash("success", "Berhasil mengupdate data dokter");
-        res.redirect("/pembayaran");
+        res.redirect("/keahlian");
     } catch (error) {
         console.log(error);
     }
@@ -107,5 +103,20 @@ router.get('/delete/:id', async (req, res, next) => {
         res.redirect("/pembayaran");
     }
 });
+
+// router.get('/users', async function (req, res, next) {
+//     try {
+//         // let level_users = req.session.level;
+//         let id = req.session.userId;
+//         let rows = await Model_Dokter.getAll();
+//         res.render('dokter/users/index', {
+//         })
+//     } catch (error) {
+//         console.error("Error:", error);
+//         req.flash('invalid', 'Terjadi kesalahan saat memuat data pengguna');
+//         res.redirect('/login');
+//     }
+// });
+
 
 module.exports = router;

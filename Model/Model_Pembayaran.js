@@ -1,11 +1,17 @@
 const connection = require('../config/database');
 
-class Model_Pembayarans {
+class Model_Pembayaran {
 
-    static async getAll(){
+    static async getAll() {
         return new Promise((resolve, reject) => {
-            connection.query('select * from pembayaran order by id_pembayaran desc', (err, rows) => {
-                if(err){
+            connection.query(`
+                SELECT pembayaran.*, menu.nama_menu, users.nama_users
+                FROM pembayaran
+                JOIN menu ON pembayaran.id_menu = menu.id_menu
+                JOIN users ON pembayaran.id_users = users.id_users
+                ORDER BY id_pembayaran DESC
+            `, (err, rows) => {
+                if (err) {
                     reject(err);
                 } else {
                     resolve(rows);
@@ -14,22 +20,32 @@ class Model_Pembayarans {
         });
     }
 
-    static async Store(Data){
+    static async Store(Data) {
         return new Promise((resolve, reject) => {
-            connection.query('insert into pembayaran set ?', Data, function(err, result){
-                if(err){
+            connection.query('insert into pembayaran set ?', Data, function (err, result) {
+                if (err) {
                     reject(err);
+                    console.log(result)
+                    console.log(err)
                 } else {
                     resolve(result);
+                    console.log(result)
+
                 }
             })
         });
     }
 
-    static async getId(id){
+    static async getId(id) {
         return new Promise((resolve, reject) => {
-            connection.query('select * from pembayaran where id_pembayaran = ' + id, (err,rows) => {
-                if(err) {
+            connection.query(`
+                SELECT pembayaran.*, menu.nama_menu, users.nama_users
+                FROM pembayaran
+                JOIN menu ON pembayaran.id_menu = menu.id_menu
+                JOIN users ON pembayaran.id_users = users.id_users
+                WHERE pembayaran.id_pembayaran = ?
+            `, [id], (err, rows) => {
+                if (err) {
                     reject(err);
                 } else {
                     resolve(rows);
@@ -53,8 +69,8 @@ class Model_Pembayarans {
 
     static async Delete(id) {
         return new Promise((resolve, reject) => {
-            connection.query('delete from pembayaran where id_pembayaran =' + id, function(err,result){
-                if(err) {
+            connection.query('delete from pembayaran where id_pembayaran =' + id, function (err, result) {
+                if (err) {
                     reject(err);
                 } else {
                     resolve(result);
@@ -62,7 +78,6 @@ class Model_Pembayarans {
             })
         });
     }
-
 }
 
 

@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt');
 
 var Model_Users = require('../model/Model_Users.js');
 var Model_Dokter = require('../model/Model_Dokter.js');
+var Model_Layanan = require('../model/Model_Layanan.js');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -25,8 +26,10 @@ const upload = multer({ storage: storage })
 router.get('/', async function (req, res, next) {
   try {
       let rows = await Model_Dokter.getAll();
+      let layanan = await Model_Layanan.getAll(); // Ambil data layanan dari database
       res.render('index', {
-          data: rows
+          data: rows,
+          layanan: layanan // Kirim data layanan ke view
       });
   } catch (error) {
       console.error("Error:", error);
@@ -34,9 +37,6 @@ router.get('/', async function (req, res, next) {
       res.redirect('/login');
   }
 });
-router.get('/register', function(req, res, next) {
-  res.render('auth/register');
-})
 
 router.get('/login', function(req, res, next) {
   res.render('auth/login');

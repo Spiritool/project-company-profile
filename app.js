@@ -23,6 +23,7 @@ var albumRouter = require('./routes/album');
 var cateringRouter = require('./routes/catering');
 var kategoriRouter = require('./routes/kategori');
 var menuRouter = require('./routes/menu');
+var pembayaranRouter = require('./routes/pembayaran');
 
 
 
@@ -71,6 +72,7 @@ app.use('/album', albumRouter);
 app.use('/catering', cateringRouter);
 app.use('/kategori', kategoriRouter);
 app.use('/menu', menuRouter);
+app.use('/pembayaran', pembayaranRouter);
 
 
 
