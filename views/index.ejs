@@ -194,40 +194,33 @@
     
     
     
-    
-
     <div id="layanan" class="layanan px-5 py-5">
       <div class="row g-5">
-          <div class="col-md-6">
-              <div class="card layanan" style=" border: none;">
-                  <img src="../images/layanan.jpg" class="card-layanan" alt="...">
-                  <div class="card-body">
-                      <p class="card-text">Rumah Sakit Islam Garam Kalianget selalu berkomitmen menghadirkan inovasi layanan untuk pasien. Didukung oleh Dokter, Perawat, Paramedis dan Staf yang profesional dan ramah melayani pasien. Serta didukung dengan peralatan medis modern dan terbaru, kami yakin RSI GARAM KALIANGET akan selalu menjadi pilihan Anda dan Keluarga</p>
-                  </div>
-              </div>
+        <div class="col-md-6">
+          <div class="card layanan" style="border: none;">
+            <img src="../images/layanan.jpg" class="card-layanan" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                Rumah Sakit Islam Garam Kalianget selalu berkomitmen menghadirkan inovasi layanan untuk pasien. Didukung oleh Dokter, Perawat, Paramedis dan Staf yang profesional dan ramah melayani pasien. Serta didukung dengan peralatan medis modern dan terbaru, kami yakin RSI GARAM KALIANGET akan selalu menjadi pilihan Anda dan Keluarga
+              </p>
+            </div>
           </div>
-          <div class="col-md-6">
-            <p>TEMUKAN LAYANAN YANG ANDA INGINKAN</p>
-            <h3>Layanan Yang Tersedia</h3>
-              <div class="list-layanan ml-4 mt-5">
-                  <div class="grid-container">
-                      <a class="btn btn-primary" href="#" role="button">Rawat Jalan</a>
-                      <a class="btn btn-primary" href="#" role="button">Rawat Inap</a>
-                      <a class="btn btn-primary" href="#" role="button">Laboratorium</a>
-                      <a class="btn btn-primary" href="#" role="button">Radiologi</a>
-                      <a class="btn btn-primary" href="#" role="button">IGD 24 Jam</a>
-                      <a class="btn btn-primary" href="#" role="button">Instalasi Farmasi</a>
-                      <a class="btn btn-primary" href="#" role="button">Kamar Operasi</a>
-                      <a class="btn btn-primary" href="#" role="button">Kamar Bersalin</a>
-                      <a class="btn btn-primary" href="#" role="button">NICU</a>
-                      <a class="btn btn-primary" href="#" role="button">Ambulance</a>
-                      <a class="btn btn-primary" href="#" role="button">Homecare</a>
-                      <a class="btn btn-primary" href="/layanan/users" role="button">Lainnya</a>
-                  </div>
-              </div>
+        </div>
+        <div class="col-md-6">
+          <p>TEMUKAN LAYANAN YANG ANDA INGINKAN</p>
+          <h3>Layanan Yang Tersedia</h3>
+          <div class="list-layanan ml-4 mt-5">
+            <div class="grid-container">
+              <% layanan.forEach(function(item) { %>
+                <a class="btn btn-primary" href="#" role="button"><%= item.nama_layanan %></a>
+              <% }); %>
+              <a class="btn btn-primary" href="/layanan/users" role="button">Lainnya</a>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
+    </div>
+    
   
 <div id="mitra" class="mitra">
   <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 g-4 mt-5 px-5">
