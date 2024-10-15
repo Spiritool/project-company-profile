@@ -3,11 +3,11 @@ var router = express.Router();
 var connection = require('../config/database.js');
 const fs = require('fs');
 const multer = require('multer');
-const path = require('path');
+const path = require('path'); 
 const bcrypt = require('bcrypt');
 
 var Model_Users = require('../model/Model_Users.js');
-var Model_Users_Kantin = require('../Model/Model_Users_Kantin.js');
+var Model_Users_Kantin = require('../model/Model_Users_Kantin.js');
 var Model_Dokter = require('../model/Model_Dokter.js');
 var Model_Layanan = require('../model/Model_Layanan.js');
 
@@ -38,14 +38,6 @@ router.get('/', async function (req, res, next) {
       res.redirect('/login');
   }
 });
-
-router.get('/register', function(req, res, next) {
-  res.render('auth/register');
-})
-
-router.get('/registerkantin', function(req, res, next) {
-  res.render('auth/registerkantin');
-})
 
 router.get('/login', function(req, res, next) {
   res.render('auth/login');
