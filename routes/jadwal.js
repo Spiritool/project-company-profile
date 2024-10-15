@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Model_Jadwal = require('../model/Model_Jadwal.js');
+var Model_Jadwal = require('../Model/Model_Jadwal.js');
 var Model_Dokter = require('../model/Model_Dokter.js');
 
 router.get('/', async function (req, res, next) {

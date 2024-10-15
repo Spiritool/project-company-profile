@@ -81,4 +81,4 @@ class Model_Pembayaran {
 }
 
 
-module.exports = Model_Pembayarans;
+module.exports = Model_Pembayaran;
