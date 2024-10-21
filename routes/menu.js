@@ -164,9 +164,10 @@ router.get('/detail/:id', async (req, res, next) => {
 router.post('/pesan/:id', async function (req, res, next) {
     try {
         const id = req.params.id;
+        const id_users = req.session.userId;
         let Data = {
             id_menu: id,
-            id_users: 1,
+            id_users: id_users,
             status_pemesanan: 'order',
             jumlah: 1
         }

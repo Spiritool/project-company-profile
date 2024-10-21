@@ -78,6 +78,25 @@ class Model_Pembayaran {
             })
         });
     }
+
+    static async getKeranjang(id) {
+        return new Promise((resolve, reject) => {
+            connection.query(`
+                SELECT pembayaran.*, menu.gambar_menu, menu.nama_menu, menu.harga_menu, users.nama_users
+                FROM pembayaran
+                left JOIN menu ON pembayaran.id_menu = menu.id_menu
+                left JOIN users ON pembayaran.id_users = users.id_users
+                WHERE pembayaran.id_users = ?
+            `, [id], (err, rows) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(rows);
+                }
+            })
+        })
+    }
+
 }
 
 

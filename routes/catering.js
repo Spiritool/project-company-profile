@@ -21,8 +21,12 @@ router.get('/', async (req, res, next) => {
 
 router.get('/keranjang', async (req, res, next) => {
     try {
+        id = req.session.userId
+        console.log("routes", id)
+        let rows = await Model_Pembayaran.getKeranjang(id);
         res.render('catering/keranjang', {
-            
+            data: rows,
+            id: id,
         });
     } catch (error) {
         console.log(error)

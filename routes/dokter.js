@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const Model_Dokter = require('../model/Model_Dokter.js');
+const Model_Dokter = require('../Model/Model_Dokter.js');
 const Model_Jadwal = require('../Model/Model_Jadwal.js');
 const Model_Keahlian = require('../model/Model_Keahlian.js');
 const { Op, Sequelize, Model  } = require('sequelize'); // Import Op
-const Model_Users = require('../model/Model_Users.js');
+const Model_Users = require('../Model/Model_Users.js');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
-const Model_Layanan = require("../model/Model_Layanan.js");
+const Model_Layanan = require("../Model/Model_Layanan.js");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {

@@ -96,6 +96,7 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <% for(var i=0; i < data.length; i++){ %>
                             <th scope="row" class="align-middle">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -104,12 +105,12 @@
                             </th>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
+                                    <img src="../images/menu/<%= data[i].gambar_menu %>" class="img-cart rounded" alt="Healthy Fried Rice"
                                         style="width: 5rem; height: 5rem;">
                                     <div class="d-flex flex-column ms-3">
-                                        <small class="nama text-primary">Healty Nasi Goreng</small>
-                                        <small class="opsi text-success">Tidak Pedas</small>
-                                        <small class="harga text-danger">Rp.12.000</small>
+                                        <small class="nama text-primary"><%= data[i].nama_menu %></small>
+                                        <small class="opsi text-success">Pedas</small>
+                                        <small class="harga text-danger"><%= data[i].harga_menu %></small>
                                     </div>
                                 </div>
                             </td>
@@ -119,7 +120,7 @@
                                         style="width: 130px;">
                                         <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"
                                             style="width: 30px;">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1"
+                                        <input type="text" class="form-control text-center quantity-input" value="<%= data[i].jumlah %>"
                                             style="width: 50px;">
                                         <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"
                                             style="width: 30px;">+</button>
@@ -133,85 +134,9 @@
                                 <a href="#"
                                     class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
                             </td>
+
                         </tr>
-                        <tr>
-                            <th scope="row" class="align-middle">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault"></label>
-                                </div>
-                            </th>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
-                                        style="width: 5rem; height: 5rem;">
-                                    <div class="d-flex flex-column ms-3">
-                                        <small class="nama text-primary">Healty Nasi Goreng</small>
-                                        <small class="opsi text-success">Tidak Pedas</small>
-                                        <small class="harga text-danger">Rp.12.000</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="input-group input-group-sm d-flex justify-content-center"
-                                        style="width: 130px;">
-                                        <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"
-                                            style="width: 30px;">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1"
-                                            style="width: 50px;">
-                                        <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"
-                                            style="width: 30px;">+</button>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td class="align-middle text-danger  ">Rp.240.000</td>
-                            <td class="align-middle">
-                                <a href="#"
-                                    class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="align-middle">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault"></label>
-                                </div>
-                            </th>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
-                                        style="width: 5rem; height: 5rem;">
-                                    <div class="d-flex flex-column ms-3">
-                                        <small class="nama text-primary">Healty Nasi Goreng</small>
-                                        <small class="opsi text-success">Tidak Pedas</small>
-                                        <small class="harga text-danger">Rp.12.000</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="input-group input-group-sm d-flex justify-content-center"
-                                        style="width: 130px;">
-                                        <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"
-                                            style="width: 30px;">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1"
-                                            style="width: 50px;">
-                                        <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"
-                                            style="width: 30px;">+</button>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td class="align-middle text-danger  ">Rp.240.000</td>
-                            <td class="align-middle">
-                                <a href="#"
-                                    class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
-                            </td>
-                        </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
