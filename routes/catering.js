@@ -39,4 +39,34 @@ router.get('/checkout', async (req, res, next) => {
     }
 });
 
+router.get('/profil', async (req, res, next) => {
+    try {
+        res.render('catering/profil', {
+            
+        });
+    } catch (error) {
+        console.log(error)
+    }
+});
+
+router.get('/pesanan', async (req, res, next) => {
+    try {
+        res.render('catering/pesanan', {
+            
+        });
+    } catch (error) {
+        console.log(error)
+    }
+});
+
+router.get('/riwayan', async (req, res, next) => {
+    try {
+        res.render('catering/riwayat', {
+            
+        });
+    } catch (error) {
+        console.log(error)
+    }
+});
+
 module.exports = router;
