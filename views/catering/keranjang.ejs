@@ -105,11 +105,11 @@
                             </th>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../images/menu/<%= data[i].gambar_menu %>" class="img-cart rounded" alt="Healthy Fried Rice"
-                                        style="width: 5rem; height: 5rem;">
+                                    <img src="../images/menu/<%= data[i].gambar_menu %>" class="img-cart rounded"
+                                        alt="Healthy Fried Rice" style="width: 5rem; height: 5rem;">
                                     <div class="d-flex flex-column ms-3">
                                         <small class="nama text-primary"><%= data[i].nama_menu %></small>
-                                        <small class="opsi text-success">Pedas</small>
+                                        <small class="opsi text-success"><%= data[i].kategori_pedas %></small>
                                         <small class="harga text-danger"><%= data[i].harga_menu %></small>
                                     </div>
                                 </div>
@@ -120,19 +120,16 @@
                                         style="width: 130px;">
                                         <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"
                                             style="width: 30px;">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="<%= data[i].jumlah %>"
-                                            style="width: 50px;">
+                                        <input type="text" class="form-control text-center quantity-input"
+                                            value="<%= data[i].jumlah %>" style="width: 50px;">
                                         <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"
                                             style="width: 30px;">+</button>
                                     </div>
-
                                 </div>
                             </td>
-
-                            <td class="align-middle text-danger  ">Rp.240.000</td>
+                            <td class="align-middle text-danger total-harga">Rp.240.000</td>
                             <td class="align-middle">
-                                <a href="#"
-                                    class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
+                                <a href="/pembayaran/delete/<%= data[i].id_pembayaran %>" class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
                             </td>
 
                         </tr>
@@ -177,35 +174,70 @@
         </div>
 
 
-        <!-- funcion jumlah -->
-        <script>
-            // Script to handle quantity increment and decrement for all input groups
-            document.querySelectorAll('.input-group').forEach(function (inputGroup) {
-                const plusButton = inputGroup.querySelector('.btn-plus');
-                const minusButton = inputGroup.querySelector('.btn-minus');
-                const quantityInput = inputGroup.querySelector('.quantity-input');
 
-                plusButton.addEventListener('click', function () {
-                    let value = parseInt(quantityInput.value);
-                    quantityInput.value = value + 1;
-                });
 
-                minusButton.addEventListener('click', function () {
-                    let value = parseInt(quantityInput.value);
-                    if (value > 1) {
-                        quantityInput.value = value - 1;
-                    }
-                });
-            });
-        </script>
+<script>
+    // Function to update total price
+    function updateTotalPrice() {
+        // Select all rows containing the cart items
+        const cartItems = document.querySelectorAll('.total-harga');
+        
+        cartItems.forEach((item, index) => {
+            const priceElement = document.querySelectorAll('.harga')[index]; // Get the price element
+            const quantityElement = document.querySelectorAll('.quantity-input')[index]; // Get the quantity input
+            
+            // Remove formatting for calculation
+            const price = parseInt(priceElement.textContent.replace('Rp.', '').replace(/\./g, '').trim()); 
+            const quantity = parseInt(quantityElement.value);
+            
+            if (!isNaN(price) && !isNaN(quantity)) {
+                // Calculate total
+                const totalPrice = price * quantity;
+                
+                // Display the formatted total price in the 'total-harga' element
+                item.textContent = `Rp.${totalPrice.toLocaleString('id-ID')}`;
+            } else {
+                console.log("Error: Price or quantity is not a number");
+            }
+        });
+    }
+
+    // Attach event listeners to the plus and minus buttons
+    document.querySelectorAll('.btn-minus').forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            const quantityInput = document.querySelectorAll('.quantity-input')[index];
+            let currentQuantity = parseInt(quantityInput.value);
+            
+            if (currentQuantity > 1) {
+                quantityInput.value = currentQuantity - 1;
+                updateTotalPrice(); // Update price when quantity is changed
+            }
+        });
+    });
+
+    document.querySelectorAll('.btn-plus').forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            const quantityInput = document.querySelectorAll('.quantity-input')[index];
+            let currentQuantity = parseInt(quantityInput.value);
+            quantityInput.value = currentQuantity + 1;
+            updateTotalPrice(); // Update price when quantity is changed
+        });
+    });
+
+    // Initial call to update total prices when the page loads
+    window.onload = function() {
+        updateTotalPrice();
+    };
+</script>
+
 
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-            crossorigin="anonymous"></script>
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
 
         <script type="text/javascript" src="js/mdb.min.js"></script>
         <!-- Custom scripts -->

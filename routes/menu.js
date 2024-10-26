@@ -165,19 +165,22 @@ router.post('/pesan/:id', async function (req, res, next) {
     try {
         const id = req.params.id;
         const id_users = req.session.userId;
+        let {kategori_pedas, jumlah} = req.body;
         let Data = {
             id_menu: id,
             id_users: id_users,
+            kategori_pedas,
             status_pemesanan: 'order',
-            jumlah: 1
+            jumlah,
         }
+        console.log(req.body);
         await Model_Pembayaran.Store(Data);
         req.flash('success', 'Berhasil menyimpan data');
-        res.redirect('/menu');
+        res.redirect('/catering');
     } catch(error) {
         console.log('error: ', error)
         req.flash('error', 'Terjadi kesalahan pada fungsi')
-        res.redirect('/menu')
+        res.redirect('/loginkantin')
     }
 })
 

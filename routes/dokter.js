@@ -128,7 +128,7 @@ router.post('/store', upload.single("gambar_dokter"), async function (req, res, 
         res.redirect('/dokter');
     } catch {
         req.flash('error', 'Terjadi kesalahan pada fungsi')
-        res.redirect('/dokter')
+        res.redirect('/dokter');
     }
 })
 
