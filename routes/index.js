@@ -79,10 +79,11 @@ router.post('/saveusers', upload.single("gambar_users"), async (req, res) => {
 
 router.post('/saveuserskantin', upload.single("gambar_users"), async (req, res) => {
   try {
-    let { nama_users, no_telp_users, jenis_kelamin, email_users, password_users } = req.body;
+    let { nama_users, nama_panggilan_users, no_telp_users, jenis_kelamin, email_users, password_users } = req.body;
     let enkripsi = await bcrypt.hash(password_users, 10);
     let Data = {
       nama_users,
+      nama_panggilan_users,
       no_telp_users,
       jenis_kelamin,
       email_users,
@@ -153,6 +154,7 @@ router.post('/logkantin', async (req,res) => {
         // req.session.level = Data[0].level_users;
         req.session.gambar_users = Data[0].gambar_users;
         req.session.nama_users = Data[0].nama_users;
+        req.session.nama_panggilan_users = Data[0].nama_panggilan_users;
         req.session.no_telp_users = Data[0].no_telp_users;
         req.session.email_users = Data[0].email_users;
         // tambahkan kondisi pengecekan level pada user yang logi
@@ -173,6 +175,48 @@ router.post('/logkantin', async (req,res) => {
     console.log(err);
   }
 })
+
+
+
+router.post("/updateuserskantin/:id",  upload.single("gambar_users"), async (req, res, next) => {
+  try {
+      const id = req.params.id;
+      let filebaru = req.file ? req.file.filename : null;
+      let rows = await Model_Users_Kantin.getId(id);
+      const namaFileLama = rows[0].gambar_users;
+
+      if (filebaru && namaFileLama) {
+          const pathFileLama = path.join(__dirname, '../public/images/users', namaFileLama);
+          fs.unlinkSync(pathFileLama);
+      }
+
+      let {
+        nama_users,
+        nama_panggilan_users,
+        no_telp_users,
+        jenis_kelamin,
+        email_users,
+      } = req.body;
+      
+      let gambar_users = filebaru || namaFileLama
+
+      let Data = {
+          nama_users: nama_users,
+          nama_panggilan_users: nama_panggilan_users,
+          no_telp_users: no_telp_users,
+          jenis_kelamin: jenis_kelamin,
+          email_users: email_users,
+          gambar_users
+      }
+      console.log(req.body);
+      console.log(Data);
+      await Model_Users_Kantin.Update(id, Data);
+      req.flash("success", "Berhasil mengupdate data profil");
+      res.redirect("/catering/profil");
+  } catch (error) {
+      console.log(error);
+  }
+});
 
 router.get('/logout', function(req, res) {
   req.session.destroy(function(err) {

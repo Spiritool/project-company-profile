@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Model_Pembayaran = require('../Model/Model_Pembayaran.js');
 const Model_Menu = require("../Model/Model_Menu.js");
-const Model_Users_Kantin = require("../Model/Model_Users_Kantin.js");
+const Model_Users_Kantin = require("../model/Model_Users_Kantin.js");
 
 router.get('/', async (req, res, next) => {
     try {
@@ -45,11 +45,17 @@ router.get('/checkout', async (req, res, next) => {
 
 router.get('/profil', async (req, res, next) => {
     try {
+        let id = req.session.userId;
+        let rows = await Model_Menu.getAll();
+        let rows2 = await Model_Users_Kantin.getId(id);
         res.render('catering/profil', {
-            
+            id: id,
+            data: rows,
+            data2: rows2,
         });
     } catch (error) {
-        console.log(error)
+        res.redirect('/loginkantin');
+        console.log(error);
     }
 });
 
@@ -59,11 +65,12 @@ router.get('/pesanan', async (req, res, next) => {
             
         });
     } catch (error) {
+        res.redirect('/loginkantin');
         console.log(error)
     }
 });
 
-router.get('/riwayan', async (req, res, next) => {
+router.get('/riwayat', async (req, res, next) => {
     try {
         res.render('catering/riwayat', {
             
