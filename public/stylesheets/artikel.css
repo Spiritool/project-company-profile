@@ -130,7 +130,7 @@ p {
     border-radius: 0.5rem;
 }
 
-.awalan {
+.awalan{
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 50px;
@@ -217,9 +217,10 @@ p {
     justify-content: center;
 }
 
-.card img {
-    height: 200px;
-    object-fit: cover;
+.card-img-overlay{
+    padding: 5%;
+    /* background-color: #025589; */
+
 }
 
 .garis-vertical {
@@ -245,6 +246,8 @@ p {
 .card-img-library {
     padding-left: 8%;
     padding-right: 8%;
+    height: 200px;
+    object-fit: cover;
 }
 
 

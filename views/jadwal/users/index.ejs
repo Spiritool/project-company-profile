@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/">BERANDA</a>
+                            <a class="nav-link " aria-current="page" href="/"><small>BERANDA</small></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/">MOTTO</a>
@@ -81,30 +81,33 @@
             <div class="card px-5 py-5">
             <h4 class="table-title"><%= data.nama_dokter %></h4>
             <p class="table-text"><%= data.keahlian %></p>
-            <table class="table table-bordered">
-                <thead>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
                     <tr>
-                        <th scope="col">Senin</th>
-                        <th scope="col">Selasa</th>
-                        <th scope="col">Rabu</th>
-                        <th scope="col">Kamis</th>
-                        <th scope="col">Jumat</th>
-                        <th scope="col">Sabtu</th>
-                        <th scope="col">Minggu</th>
+                      <th scope="col">Senin</th>
+                      <th scope="col">Selasa</th>
+                      <th scope="col">Rabu</th>
+                      <th scope="col">Kamis</th>
+                      <th scope="col">Jumat</th>
+                      <th scope="col">Sabtu</th>
+                      <th scope="col">Minggu</th>
                     </tr>
-                </thead>
-                <tbody>
+                  </thead>
+                  <tbody>
                     <tr>
-                        <td><%= data.senin %></td>
-                        <td><%= data.selasa %></td>
-                        <td><%= data.rabu %></td>
-                        <td><%= data.kamis %></td>
-                        <td><%= data.jumat %></td>
-                        <td><%= data.sabtu %></td>
-                        <td><%= data.minggu %></td>
+                      <td><%= data.senin %></td>
+                      <td><%= data.selasa %></td>
+                      <td><%= data.rabu %></td>
+                      <td><%= data.kamis %></td>
+                      <td><%= data.jumat %></td>
+                      <td><%= data.sabtu %></td>
+                      <td><%= data.minggu %></td>
                     </tr>
-                </tbody>
-            </table>
+                  </tbody>
+                </table>
+              </div>
+              
         </div>
     </div>
 

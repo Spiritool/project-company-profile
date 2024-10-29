@@ -39,23 +39,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="/">BERANDA</a>
+              <a class="nav-link " aria-current="page" href="/"><small>BERANDA</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../../dokter/users">DOKTER</a>
+              <a class="nav-link " aria-current="page" href="../../dokter/users"><small>DOKTER</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../../layanan/users">LAYANAN</a>
+              <a class="nav-link active" aria-current="page" href="../../layanan/users"><small>LAYANAN</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../../artikel/users">ARTIKEL</a>
+              <a class="nav-link " aria-current="page" href="../../artikel/users"><small>ARTIKEL</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../../tentang_kami/users">TENTANG KAMI</a>
+              <a class="nav-link " aria-current="page" href="../../tentang_kami/users"><small>TENTANG KAMI</small></a>
             </li>
           </ul>
           <form class="d-flex">
-            <a class="btn btn-daftar" href="../../pendaftaran/users" role="button">Daftar</a>
+            <a class="btn btn-daftar" href="https://pmo.rsigaramkalianget.com/#daftar" role="button"><small>Daftar</small></a>
           </form>
         </div>
       </div>
@@ -68,13 +68,13 @@
         <div class="card text-bg-dark mb-3">
           <img src="../../images/home.png" class="card-img" alt="...">
           <div class="card-img-overlay text-center">
-            <h3 class="card-title text-white mb-5">Layanan Rumah Sakit</h3>
-            <p class="card-text-desc">RSI GARAM KALIANGET selalu berkomitmen menghadirkan inovasi layanan untuk pasien.
-              Didukung oleh Dokter, Perawat, Paramedis dan Staf yang profesional dan ramah melayani pasien. Serta
-              didukung dengan peralatan medis modern dan terbaru, kami yakin RSI GARAM KALIANGET akan selalu menjadi
-              pilihan Anda dan Keluarga</p>
+            <h3 class="card-title text-white mb-5">Selamat Datang di RSI Garam Kalianget</h3>
+            <p class="card-text-desc">Kami dengan hangat menyambut Anda di RSI Garam Kalianget, tempat di mana kesehatan dan
+              kesejahteraan Anda menjadi prioritas utama kami. Di sini, kami berkomitmen untuk memberikan pelayanan
+              medis terbaik dengan standar profesionalisme yang tinggi.</p>
           </div>
         </div>
+        
       </div>
     </div>
 
@@ -87,7 +87,7 @@
               <div class="card-layanan">
                   <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center">
-                          <h5 class="card-title mb-0"><%= i+1 %>. <%= data[i].nama_layanan %></h5>
+                          <h6 class="card-title mb-0"><%= i+1 %>. <%= data[i].nama_layanan %></h6>
                           <button class="btn btn-primary" onclick="toggleFacilityCard('facilityCard<%= i %>')">
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                   <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
