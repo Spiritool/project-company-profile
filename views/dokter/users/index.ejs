@@ -37,23 +37,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="/">BERANDA</a>
+              <a class="nav-link " aria-current="page" href="/"><small>BERANDA</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">DOKTER</a>
+              <a class="nav-link active" aria-current="page" href="/"><small>DOKTER</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../../layanan/users">LAYANAN</a>
+              <a class="nav-link " aria-current="page" href="../../layanan/users"><small>LAYANAN</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../../artikel/users">ARTIKEL</a>
+              <a class="nav-link " aria-current="page" href="../../artikel/users"><small>ARTIKEL</small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../../tentang_kami/users">TENTANG KAMI</a>
+              <a class="nav-link " aria-current="page" href="../../tentang_kami/users"><small>TENTANG KAMI</small></a>
             </li>
           </ul>
           <form class="d-flex">
-            <a class="btn btn-daftar" href="../../pendaftaran/users" role="button">Daftar</a>
+            <a class="btn btn-daftar" href="https://pmo.rsigaramkalianget.com/#daftar"
+              role="button"><small>Daftar</small></a>
           </form>
         </div>
       </div>
@@ -78,43 +79,45 @@
         </div>
         <div class="card-body">
           <div class="text-center text-primary mb-3">
-            <h3><b>Cari Jadwal Dokter</b></h3>
+            <h4><b>Cari Jadwal Dokter</b></h4>
 
           </div>
-            <div class="cari-dokter px-5">
-                <div class="row">
-                    <div class="col-sm-6 mb-3">
-                      <form action="/dokter/cari" method="GET" enctype="multipart/form-data" class="forms-sample">
-                        <select class="form-control" id="select-hari" name="hari" required>
-                            <option selected>Pilih Hari</option>
-                            <option value="senin">Senin</option>
-                            <option value="selasa">Selasa</option>
-                            <option value="rabu">Rabu</option>
-                            <option value="kamis">Kamis</option>
-                            <option value="jumat">Jumat</option>
-                            <option value="sabtu">Sabtu</option>
-                            <option value="minggu">Minggu</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-6 mb-3">
-                        <select class="form-control" id="select-keahlian" name="id_keahlian" required>
-                            <option selected>Pilih Keahlian</option>
-                            <% for(var i=0; i < data_keahlian.length; i++){ %>
-                            <option value="<%= data_keahlian[i].id_keahlian %>"><%= data_keahlian[i].keahlian %></option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div class="col-sm-11 mb-5">
-                        <select class="form-control" id="select-dokter" name="nama_dokter" required>
-                            <option selected>Pilih Dokter</option>
-                        </select>
-                    </div>
-                    <div class="col-sm mb-5">
-                        <button type="submit" class="btn btn-primary">Cari</button>
-                    </div>
-                </div>
-              </form>
+          <div class="cari-dokter px-5">
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <form action="/dokter/cari" method="GET" enctype="multipart/form-data" class="forms-sample">
+                  <select class="form-control" id="select-hari" name="hari" required>
+                    <option selected>Pilih Hari</option>
+                    <option value="senin">Senin</option>
+                    <option value="selasa">Selasa</option>
+                    <option value="rabu">Rabu</option>
+                    <option value="kamis">Kamis</option>
+                    <option value="jumat">Jumat</option>
+                    <option value="sabtu">Sabtu</option>
+                    <option value="minggu">Minggu</option>
+                  </select>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <select class="form-control" id="select-keahlian" name="id_keahlian" required>
+                  <option selected>Pilih Keahlian</option>
+                  <% for(var i=0; i < data_keahlian.length; i++){ %>
+                    <option value="<%= data_keahlian[i].id_keahlian %>">
+                      <%= data_keahlian[i].keahlian %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div class="col-sm-11 mb-5">
+                <select class="form-control" id="select-dokter" name="nama_dokter" required>
+                  <option selected>Pilih Dokter</option>
+                </select>
+              </div>
+              <div class="col-sm mb-5">
+                <button type="submit" class="btn btn-primary">Cari</button>
+              </div>
             </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -122,7 +125,7 @@
 
     <div class="container-sm">
       <div class="row row-cols-1  g-4">
-        <% if (typeof dokter != 'undefined') { %>
+        <% if (typeof dokter !='undefined' ) { %>
           <% dokter.forEach(function(data) { %>
             <div class="col">
               <div class="card card-dokter mb-3 shadow-lg" style="max-width: 100%;">
@@ -133,89 +136,131 @@
                   </div>
                   <div class="col-md-8 card-content">
                     <div class="card-body">
-                      <h4 class="card-title"><%= data.nama_dokter %></h4>
-                      
-                      <p class="card-text"><small class="btn btn-danger btn-sm text-white"><%= data.keahlian %></small>
+                      <h4 class="card-title">
+                        <%= data.nama_dokter %>
+                      </h4>
+
+                      <p class="card-text"><small class="btn btn-danger btn-sm text-white">
+                          <%= data.keahlian %>
+                        </small>
                       </p>
-                      <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Senin</th>
-                        <th scope="col">Selasa</th>
-                        <th scope="col">Rabu</th>
-                        <th scope="col">Kamis</th>
-                        <th scope="col">Jumat</th>
-                        <th scope="col">Sabtu</th>
-                        <th scope="col">Minggu</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><%= data.senin %></td>
-                        <td><%= data.selasa %></td>
-                        <td><%= data.rabu %></td>
-                        <td><%= data.kamis %></td>
-                        <td><%= data.jumat %></td>
-                        <td><%= data.sabtu %></td>
-                        <td><%= data.minggu %></td>
-                    </tr>
-                </tbody>
-            </table>
+                      <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th scope="col">Senin</th>
+                              <th scope="col">Selasa</th>
+                              <th scope="col">Rabu</th>
+                              <th scope="col">Kamis</th>
+                              <th scope="col">Jumat</th>
+                              <th scope="col">Sabtu</th>
+                              <th scope="col">Minggu</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <%= data.senin %>
+                              </td>
+                              <td>
+                                <%= data.selasa %>
+                              </td>
+                              <td>
+                                <%= data.rabu %>
+                              </td>
+                              <td>
+                                <%= data.kamis %>
+                              </td>
+                              <td>
+                                <%= data.jumat %>
+                              </td>
+                              <td>
+                                <%= data.sabtu %>
+                              </td>
+                              <td>
+                                <%= data.minggu %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          <% }); %>
-        <% } else { %>
-          <% data.forEach(function(data) { %>
-            <div class="col">
-              <div class="card card-dokter mb-3 shadow-lg" style="max-width: 100%;">
-                <div class="row g-0">
-                  <div class="col-md-4 d-flex align-items-center justify-content-center" style="padding: 20px;">
-                    <img src="../../images/dokter/<%= data.gambar_dokter %>" class="img-fluid rounded dokter-img"
-                      alt="Dokter">
-                  </div>
-                  <div class="col-md-8 card-content">
-                    <div class="card-body">
-                      <h4 class="card-title"><%= data.nama_dokter %></h4>
-                      
-                      <p class="card-text"><small class="btn btn-danger btn-sm text-white"><%= data.keahlian %></small>
-                      </p>
-                      <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Senin</th>
-                        <th scope="col">Selasa</th>
-                        <th scope="col">Rabu</th>
-                        <th scope="col">Kamis</th>
-                        <th scope="col">Jumat</th>
-                        <th scope="col">Sabtu</th>
-                        <th scope="col">Minggu</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><%= data.senin %></td>
-                        <td><%= data.selasa %></td>
-                        <td><%= data.rabu %></td>
-                        <td><%= data.kamis %></td>
-                        <td><%= data.jumat %></td>
-                        <td><%= data.sabtu %></td>
-                        <td><%= data.minggu %></td>
-                    </tr>
-                </tbody>
-            </table>
+            <% }); %>
+              <% } else { %>
+                <% data.forEach(function(data) { %>
+                  <div class="col">
+                    <div class="card card-dokter mb-3 shadow-lg" style="max-width: 100%;">
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center" style="padding: 20px;">
+                          <img src="../../images/dokter/<%= data.gambar_dokter %>" class="img-fluid rounded dokter-img"
+                            alt="Dokter">
+                        </div>
+                        <div class="col-md-8 card-content">
+                          <div class="card-body">
+                            <h4 class="card-title">
+                              <%= data.nama_dokter %>
+                            </h4>
+
+                            <p class="card-text"><small class="btn btn-danger btn-sm text-white">
+                                <%= data.keahlian %>
+                              </small>
+                            </p>
+                            <div class="table-responsive">
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Senin</th>
+                                    <th scope="col">Selasa</th>
+                                    <th scope="col">Rabu</th>
+                                    <th scope="col">Kamis</th>
+                                    <th scope="col">Jumat</th>
+                                    <th scope="col">Sabtu</th>
+                                    <th scope="col">Minggu</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <%= data.senin %>
+                                    </td>
+                                    <td>
+                                      <%= data.selasa %>
+                                    </td>
+                                    <td>
+                                      <%= data.rabu %>
+                                    </td>
+                                    <td>
+                                      <%= data.kamis %>
+                                    </td>
+                                    <td>
+                                      <%= data.jumat %>
+                                    </td>
+                                    <td>
+                                      <%= data.sabtu %>
+                                    </td>
+                                    <td>
+                                      <%= data.minggu %>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          <% }); %>
-        <% } %>
+                  <% }); %>
+                    <% } %>
       </div>
     </div>
-    
+
 
 
 
@@ -307,7 +352,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
@@ -315,49 +360,49 @@
 </body>
 
 <script>
-$(document).ready(function() {
-    $('#select-hari, #select-keahlian').on('change', function() {
-        console.log('Dropdown changed');
-        var hari = $('#select-hari').val();
-        var keahlian = $('#select-keahlian').val();
+  $(document).ready(function () {
+    $('#select-hari, #select-keahlian').on('change', function () {
+      console.log('Dropdown changed');
+      var hari = $('#select-hari').val();
+      var keahlian = $('#select-keahlian').val();
 
-        console.log('Selected Hari:', hari);
-        console.log('Selected Keahlian:', keahlian);
+      console.log('Selected Hari:', hari);
+      console.log('Selected Keahlian:', keahlian);
 
-        if(hari && keahlian) {
-            console.log('Making AJAX request...');
-            // Lakukan panggilan AJAX untuk mendapatkan daftar dokter yang sesuai
-            $.ajax({
-                url: '/dokter/get-dokter',  // Ganti dengan endpoint yang sesuai
-                type: 'GET',
-                data: {
-                    hari: hari.toLowerCase(), // Menyesuaikan dengan nama kolom di tabel jadwal
-                    id_keahlian: keahlian
-                },
-                success: function(response) {
-                    console.log('AJAX success:', response);
-                    // Kosongkan list dokter sebelumnya
-                    $('#select-dokter').empty();
-                    
-                    // Tambahkan opsi dokter yang didapat dari response
-                    $('#select-dokter').append('<option selected>Pilih Dokter</option>');
-                    $.each(response.dokter, function(index, dokter) {
-                        $('#select-dokter').append('<option value="' + dokter.id_dokter + '">' + dokter.nama_dokter + '</option>');
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX Error:", error);
-                }
+      if (hari && keahlian) {
+        console.log('Making AJAX request...');
+        // Lakukan panggilan AJAX untuk mendapatkan daftar dokter yang sesuai
+        $.ajax({
+          url: '/dokter/get-dokter',  // Ganti dengan endpoint yang sesuai
+          type: 'GET',
+          data: {
+            hari: hari.toLowerCase(), // Menyesuaikan dengan nama kolom di tabel jadwal
+            id_keahlian: keahlian
+          },
+          success: function (response) {
+            console.log('AJAX success:', response);
+            // Kosongkan list dokter sebelumnya
+            $('#select-dokter').empty();
+
+            // Tambahkan opsi dokter yang didapat dari response
+            $('#select-dokter').append('<option selected>Pilih Dokter</option>');
+            $.each(response.dokter, function (index, dokter) {
+              $('#select-dokter').append('<option value="' + dokter.id_dokter + '">' + dokter.nama_dokter + '</option>');
             });
-        }
+          },
+          error: function (xhr, status, error) {
+            console.error("AJAX Error:", error);
+          }
+        });
+      }
     });
-});
+  });
 
-$('#select-hari').on('change', function() {
+  $('#select-hari').on('change', function () {
     console.log("Changed!");
-});
+  });
 
-// Function to remove query parameters from the URL
+  // Function to remove query parameters from the URL
   function removeQueryParameters() {
     const url = new URL(window.location.href);
     url.search = ''; // Clears all query parameters

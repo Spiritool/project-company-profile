@@ -127,6 +127,12 @@ h1{
         padding-right: 50px;
     }
 
+    .card-img-overlay{
+      padding: 5%;
+      /* background-color: #025589; */
+  
+  }
+
     .facility-card {
       border: 1px solid #ddd;
       padding: 20px;

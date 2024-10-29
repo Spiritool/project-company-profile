@@ -134,6 +134,12 @@ border-radius: 0.5rem;
     padding-right: 50px;
 }
 
+.card-img-overlay{
+    padding: 5%;
+    /* background-color: #025589; */
+
+}
+
 .card-dokter {
     background-color: #f8f9fa;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -208,6 +214,17 @@ border-radius: 0.5rem;
     margin-top: 14px;
     font-size: 2em; 
   }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* untuk smooth scrolling di perangkat mobile */
+  }
+  
+  table {
+    width: 100%;
+    table-layout: auto;
+  }
+  
 
 /* footer */
 .logo-align {

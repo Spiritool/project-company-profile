@@ -61,22 +61,33 @@ router.get('/profil', async (req, res, next) => {
 
 router.get('/pesanan', async (req, res, next) => {
     try {
+        let id = req.session.userId;
+        let rows = await Model_Menu.getAll();
+        let rows2 = await Model_Users_Kantin.getId(id);
         res.render('catering/pesanan', {
-            
+            id: id,
+            data: rows,
+            data2: rows2,
         });
     } catch (error) {
         res.redirect('/loginkantin');
-        console.log(error)
+        console.log(error);
     }
 });
 
 router.get('/riwayat', async (req, res, next) => {
     try {
+        let id = req.session.userId;
+        let rows = await Model_Menu.getAll();
+        let rows2 = await Model_Users_Kantin.getId(id);
         res.render('catering/riwayat', {
-            
+            id: id,
+            data: rows,
+            data2: rows2,
         });
     } catch (error) {
-        console.log(error)
+        res.redirect('/loginkantin');
+        console.log(error);
     }
 });
 
