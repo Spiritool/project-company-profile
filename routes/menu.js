@@ -165,11 +165,11 @@ router.post('/pesan/:id', async function (req, res, next) {
     try {
         const id = req.params.id;
         const id_users = req.session.userId;
-        let {kategori_pedas, jumlah} = req.body;
+        let {kategori_pesanan, jumlah} = req.body;
         let Data = {
             id_menu: id,
             id_users: id_users,
-            kategori_pedas,
+            kategori_pesanan,
             status_pemesanan: 'order',
             jumlah,
         }
