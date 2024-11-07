@@ -2,12 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Model_Pembayaran = require('../Model/Model_Pembayaran.js');
 const Model_Menu = require("../Model/Model_Menu.js");
+const Model_Users = require("../Model/Model_Users.js");
 
 router.get('/', async (req, res, next) => {
     try {
+        let id = req.session.userId;
         let rows = await Model_Pembayaran.getAll();
+        let rows2 = await Model_Users.getId(id);
         res.render('pembayaran/index', {
-            data: rows
+            data2: rows,
+            data: rows2
+            
         });
     } catch (error) {
         next(error);
@@ -59,7 +64,7 @@ router.get("/edit/:id", async (req, res, next) => {
         let rows2 = await Model_Menu.getAll();
         let rows3 = await Model_Users.getAll();
         if (rows.length > 0) {
-            res.render("menu/edit", {
+            res.render("pembayaran/edit", {
                 id: id,
                 data: rows[0],
                 data_menu: rows2,
@@ -74,19 +79,19 @@ router.get("/edit/:id", async (req, res, next) => {
 router.post("/update/:id", async (req, res, next) => {
     try {
         const id = req.params.id;
-        let {status_pembayaran, jumlah, id_menu, id_users} = req.body;
+        let {status_pemesanan, jumlah, id_menu, id_users} = req.body;
 
         let Data = {
-            status_pembayaran,
+            status_pemesanan,
             jumlah,
             id_menu,
             id_users,
         }
         console.log(req.body);
         console.log(Data);
-        await Model_Keahlian.Update(id, Data);
-        req.flash("success", "Berhasil mengupdate data dokter");
-        res.redirect("/keahlian");
+        await Model_Pembayaran.Update(id, Data);
+        req.flash("success", "Berhasil mengupdate data pembayaran");
+        res.redirect("/pembayaran");
     } catch (error) {
         console.log(error);
     }
@@ -97,7 +102,7 @@ router.get('/delete/:id', async (req, res, next) => {
         const id = req.params.id;
         await Model_Pembayaran.Delete(id);
         req.flash('success', 'Berhasil menghapus data pembayaran');
-        res.redirect('/catering/keranjang');
+        res.redirect('/pembayaran');
     } catch (error) {
         req.flash("error", "Gagal menghapus data pembayaran");
         res.redirect("/pembayaran");
