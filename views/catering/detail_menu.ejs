@@ -99,6 +99,7 @@
 
                     <form action="/menu/pesan/<%= data.id_menu %>" method="POST" style="display: inline-block;">
 
+                        <% if(data.nama_kategori=="makanan"){ %>
                         <!-- Opsi Pedas -->
                         <div class="mb-3">
                             <span class="me-2"><small>Tipe: </small></span>
@@ -112,6 +113,27 @@
                                 <label class="btn btn-outline-success" for="tidak-pedas">Tidak Pedas</label>
                             </div>
                         </div>
+                        <% } %>
+
+                        <% if(data.nama_kategori=="minuman"){ %>
+                        <!-- Opsi Minuman -->
+                        <div class="mb-3">
+                            <span class="me-2"><small>Tipe: </small></span>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <input type="radio" class="btn-check" name="kategori_pesanan" id="dingin" value="dingin"
+                                    checked>
+                                <label class="btn btn-outline-success" for="dingin">Dingin</label>
+
+                                <input type="radio" class="btn-check" name="kategori_pesanan" id="normal"
+                                    value="normal">
+                                <label class="btn btn-outline-success" for="normal">Normal</label>
+
+                                <input type="radio" class="btn-check" name="kategori_pesanan" id="hangat"
+                                    value="hangat">
+                                <label class="btn btn-outline-success" for="hangat">Hangat</label>
+                            </div>
+                        </div>
+                        <% } %>
 
                         <!-- Kuantitas -->
                         <div class="mb-3">

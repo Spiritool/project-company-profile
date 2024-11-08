@@ -102,10 +102,10 @@ router.get('/delete/:id', async (req, res, next) => {
         const id = req.params.id;
         await Model_Pembayaran.Delete(id);
         req.flash('success', 'Berhasil menghapus data pembayaran');
-        res.redirect('/pembayaran');
+        res.redirect('/catering/keranjang');
     } catch (error) {
         req.flash("error", "Gagal menghapus data pembayaran");
-        res.redirect("/pembayaran");
+        res.redirect("/catering/keranjang");
         console.log(error)
     }
 });
