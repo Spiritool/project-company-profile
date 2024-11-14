@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Model_Berita = require('../model/Model_Berita.js');
+const Model_Users = require('../model/Model_Users.js');
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
@@ -21,9 +22,12 @@ const upload = multer({
 
 router.get('/', async (req, res, next) => {
     try {
+        let id = req.session.userId;
+        let Data = await Model_Users.getId(id);
         let rows = await Model_Berita.getAll();
         res.render('berita/index', {
-            data: rows
+            data: rows,
+            data2: Data,
         });
     } catch (error) {
         next(error);
