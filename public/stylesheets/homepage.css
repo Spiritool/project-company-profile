@@ -73,35 +73,46 @@ p{
     margin-left: auto;
     margin-right: auto;
     padding-right: 30px;
+    flex-direction: row; /* Tetap horizontal pada layar besar */
+}
+
+.nav-link {
+    display: inline-block; /* Membuat ukuran background mengikuti konten teks */
+    padding: 0.5rem 1rem; /* Atur padding sesuai kebutuhan */
+    width: auto; /* Lebar sesuai dengan konten teks */
+    text-align: center; /* Teks berada di tengah */
 }
 
 .nav-link.active {
     background-color: #025589; /* Primary color */
     color: white !important;
     border-radius: 1rem;
-  }
+    width: auto; /* Pastikan hanya mengikuti teks */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
 .navbar-nav .nav-item {
     margin: 0 15px; /* Memberikan jarak antar item navigasi */
-    
 }
 
 .navbar-brand img {
     height: 40px; /* Atur tinggi logo sesuai kebutuhan */
-    
 }
 
 .container-fluid {
+    display: flex;
+    justify-content: space-between; /* Secara default, elemen berada di kedua sisi */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
     padding-left: 0;
     padding-right: 0;
 }
 
 .navbar-brand {
-    margin-left: 0; /* Menghilangkan margin kiri */
-    padding-left: 0; /* Menghilangkan padding kiri */
+    margin: 0 auto;
 }
 
-.d-flex{
+.d-flex {
     padding-right: 50px;
 }
 
@@ -110,6 +121,40 @@ p{
     color: white;
     border-radius: 0.5rem;
 }
+
+/* Tambahkan perbaikan untuk tampilan layar kecil */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column; /* Elemen ditumpuk ke bawah */
+        align-items: flex-start; /* Menyelaraskan elemen di tengah */
+        margin: 0 auto;
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Jarak antar item navigasi */
+    }
+
+    .nav-link {
+        width: auto; /* Background hanya mengikuti ukuran teks */
+        padding-top: 3px;
+    padding-bottom: 3px;
+    }
+    .btn-daftar {
+        margin-left: 20px;
+    }
+    .container-fluid {
+        justify-content: center; /* Memindahkan navbar-brand ke tengah */
+        position: relative; /* Memastikan elemen lain tidak mengganggu */
+    }
+
+    .navbar-toggler {
+        position: absolute; /* Agar toggle tetap terlihat */
+        right: 10px; /* Pastikan toggle tetap di kanan */
+        top: 50%; /* Selaraskan vertikal dengan navbar-brand */
+        transform: translateY(-50%);
+    }
+}
+
 
 
 
@@ -243,8 +288,7 @@ p{
 
 .card-layanan {
     width: 90%; /* Mengubah lebar gambar menjadi 100% untuk menyesuaikan dengan kolom */
-    margin-left: 50px;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto; /* Otomatis di tengah secara horizontal */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -288,8 +332,10 @@ p{
     }
 
     .col-md-6 {
-        max-width: 100%; /* Memastikan kolom mengisi seluruh lebar layar pada layar kecil */
-        flex: 0 0 100%;
+        display: flex; /* Tambahkan flexbox untuk tata letak vertikal */
+        flex-direction: column; /* Elemen diatur vertikal */
+        align-items: center; /* Menyelaraskan konten ke tengah */
+        text-align: center; /* Menyelaraskan teks ke tengah jika perlu */
     }
 }
 

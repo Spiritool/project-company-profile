@@ -79,46 +79,90 @@ h1{
     }
     
     .navbar-nav {
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 30px;
-    }
-    
-    .nav-link.active {
-        background-color: #025589; /* Primary color */
-        color: white!important;
-        border-radius: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 30px;
+      flex-direction: row; /* Tetap horizontal pada layar besar */
+  }
+  
+  .nav-link {
+      display: inline-block; /* Membuat ukuran background mengikuti konten teks */
+      padding: 0.5rem 1rem; /* Atur padding sesuai kebutuhan */
+      width: auto; /* Lebar sesuai dengan konten teks */
+      text-align: center; /* Teks berada di tengah */
+  }
+  
+  .nav-link.active {
+      background-color: #025589; /* Primary color */
+      color: white !important;
+      border-radius: 1rem;
+      width: auto; /* Pastikan hanya mengikuti teks */
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+  
+  .navbar-nav .nav-item {
+      margin: 0 15px; /* Memberikan jarak antar item navigasi */
+  }
+  
+  .navbar-brand img {
+      height: 40px; /* Atur tinggi logo sesuai kebutuhan */
+  }
+  
+  .container-fluid {
+      display: flex;
+      justify-content: space-between; /* Secara default, elemen berada di kedua sisi */
+      align-items: center; /* Menyelaraskan elemen secara vertikal */
+      padding-left: 0;
+      padding-right: 0;
+  }
+  
+  .navbar-brand {
+      margin: 0 auto;
+  }
+  
+  .d-flex {
+      padding-right: 50px;
+  }
+  
+  .btn-daftar {
+      background-color: #025589;
+      color: white;
+      border-radius: 0.5rem;
+  }
+  
+  /* Tambahkan perbaikan untuk tampilan layar kecil */
+  @media (max-width: 992px) {
+      .navbar-nav {
+          flex-direction: column; /* Elemen ditumpuk ke bawah */
+          align-items: flex-start; /* Menyelaraskan elemen di tengah */
+          margin: 0 auto;
       }
-    
-    .navbar-nav .nav-item {
-    margin: 0 15px; /* Memberikan jarak antar item navigasi */
-    
-    }
-    
-    .navbar-brand img {
-    height: 40px; /* Atur tinggi logo sesuai kebutuhan */
-    
-    }
-    
-    .container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-    }
-    
-    .navbar-brand {
-    margin-left: 0; /* Menghilangkan margin kiri */
-    padding-left: 0; /* Menghilangkan padding kiri */
-    }
-    
-    .d-flex{
-    padding-right: 50px;
-    }
-    
-    .btn-daftar {
-    background-color: #025589;
-    color: white;
-    border-radius: 0.5rem;
-    }
+  
+      .nav-item {
+          margin: 5px 0; /* Jarak antar item navigasi */
+      }
+  
+      .nav-link {
+          width: auto; /* Background hanya mengikuti ukuran teks */
+          padding-top: 3px;
+      padding-bottom: 3px;
+      }
+      .btn-daftar {
+          margin-left: 20px;
+      }
+      .container-fluid {
+          justify-content: center; /* Memindahkan navbar-brand ke tengah */
+          position: relative; /* Memastikan elemen lain tidak mengganggu */
+      }
+  
+      .navbar-toggler {
+          position: absolute; /* Agar toggle tetap terlihat */
+          right: 10px; /* Pastikan toggle tetap di kanan */
+          top: 50%; /* Selaraskan vertikal dengan navbar-brand */
+          transform: translateY(-50%);
+      }
+  }
     
     .awalan{
         padding-top: 50px;
@@ -126,6 +170,12 @@ h1{
         padding-left: 50px;
         padding-right: 50px;
     }
+
+    @media (max-width: 768px) {
+      .card-text-desc {
+          display: none;
+      }
+  }
 
     .card-img-overlay{
       padding: 5%;
