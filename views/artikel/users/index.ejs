@@ -105,7 +105,7 @@
                                 <% } %>
                                     <div class="card border" style="width: 18rem;">
                                         <div class="garis-vertical">
-                                            <h5 class="card-title-library"><%= data_buku[i].nama_buku %></h5>
+                                            <p class="card-title-library"><%= data_buku[i].nama_buku %></p>
                                         </div>
                                         <img src="../../images/buku/<%= data_buku[i].gambar_buku %>" class="card-img-library" alt="...">
                                         <div class="card-body">
@@ -127,6 +127,7 @@
             </div>
         </div>
 
+        <!-- Berita -->
         <div class="container mt-5 position-relative">
             <h2 class="berita">Daftar Berita</h2>
             <div class="garis-horizontal"></div>
@@ -217,8 +218,8 @@
                         height="150">
                     <div class="overlay-full"></div>
                     <div class="overlay-half">
-                        <h4><%= data_album[i].nama_album %></h4>
-                        <p><%= data_album[i].deskripsi_album %></p>
+                        <p><b><%= data_album[i].nama_album %></b></p>
+                        <p><small><%= data_album[i].deskripsi_album %></small></p>
                     </div>
                 </div>
                 <% } %>

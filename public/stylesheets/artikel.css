@@ -209,6 +209,40 @@ p {
     margin-bottom: 15px;
     flex-grow: 1; /* Menjaga teks agar memenuhi ruang yang tersedia */
 }
+/* Atur card dalam 4 kolom pada layar besar */
+.carousel-item .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.carousel-item .col-lg-3,
+.carousel-item .col-md-4,
+.carousel-item .col-sm-6 {
+    flex: 1 0 25%; /* 4 kolom pada layar besar */
+    max-width: 25%;
+}
+
+/* Atur card menjadi 2 kolom pada layar kecil */
+@media (max-width: 768px) {
+    .carousel-item .col-lg-3,
+    .carousel-item .col-md-4,
+    .carousel-item .col-sm-6 {
+        flex: 1 0 50%; /* 2 kolom pada layar kecil */
+        max-width: 50%;
+    }
+
+    .card-berita img {
+        height: 120px; /* Sesuaikan tinggi gambar pada layar kecil */
+    }
+
+    .card-berita .card-title {
+        font-size: 1em; /* Perkecil ukuran teks pada layar kecil */
+    }
+
+    .card-berita .card-text {
+        font-size: 0.85em; /* Perkecil ukuran teks deskripsi pada layar kecil */
+    }
+}
 
 
 
@@ -239,7 +273,7 @@ p {
 
 .card-title-library {
     font-weight: bold;
-    font-size: larger;
+
     padding-left: 10px;
 }
 
@@ -309,7 +343,7 @@ p {
   }
   .gallery img {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   .photo:hover .overlay-half {
     transform: translateY(0);
@@ -365,6 +399,18 @@ p {
     padding-left: 8%;
     padding-right: 8%;
   }
+
+  @media (max-width: 768px) {
+    .overlay-half p, .overlay-half b {
+        font-size: 10px; /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-half p, .overlay-half b {
+        font-size: 8px; /* Even smaller font size for extra small screens */
+    }
+}
 
   .float {
     position: fixed;
