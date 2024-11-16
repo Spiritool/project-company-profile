@@ -26,9 +26,12 @@ const upload = multer({
 
 router.get('/', async (req, res, next) => {
     try {
+        let id = req.session.userId;
+        let Data = await Model_Users.getId(id);
         let rows = await Model_Dokter.getAll();
         res.render('dokter/index', {
-            data: rows
+            data: rows,
+            data2: Data,
         });
     } catch (error) {
         next(error);
@@ -39,6 +42,7 @@ router.get('/users', async function (req, res, next) {
     try {
         let rows = await Model_Jadwal.getAll();
         let rows2 = await Model_Keahlian.getAll();
+        console.log(rows);
         res.render('dokter/users/index', {
             data: rows,
             data_keahlian: rows2

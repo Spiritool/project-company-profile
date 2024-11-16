@@ -173,10 +173,10 @@
     <div id="dokter" class="dokter">
       <!-- Menambahkan kelas responsif Bootstrap untuk tampilan mobile -->
       <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5 px-5">
-        <% data.forEach(function(dokter) { %>
+        <% data.slice(0, 4).forEach(function(dokter) { %>
         <div class="col d-flex">
           <div class="card-dokter flex-fill">
-            <h5 class="card-title">Dokter Spesialis</h5>
+            <h5 class="card-title"><%= dokter.keahlian %></h5>
             <img src="../../images/dokter/<%= dokter.gambar_dokter %>" class="card-img-top dokter-img" alt="<%= dokter.nama_dokter %>">
             <div class="card-body">
               <p class="card-text-dokter"><%= dokter.nama_dokter %></p>

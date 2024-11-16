@@ -26,10 +26,10 @@ const upload = multer({
 router.get('/', async (req, res, next) => {
     try {
         let rows = await Model_Menu.getAll();
-        let rows2 = await Model_Kategori.getAll();
+        let Data = await Model_Users.getAll();
         res.render('menu/index', {
             data: rows,
-            data2: rows2,
+            data2: Data,
         });
     } catch (error) {
         next(error);

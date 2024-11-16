@@ -2,12 +2,16 @@ var express = require('express');
 var router = express.Router();
 
 var Model_Jadwal = require('../Model/Model_Jadwal.js');
+var Model_Users = require('../Model/Model_Users.js');
 var Model_Dokter = require('../Model/Model_Dokter.js');
 
 router.get('/', async function (req, res, next) {
+    let id = req.session.userId;
+    let Data = await Model_Users.getId(id);
     let rows = await Model_Jadwal.getAll();
     res.render('jadwal/index', {
         data: rows,
+        data2: Data,
     })
 });
 

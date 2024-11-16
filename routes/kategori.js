@@ -1,15 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const Model_Kategori = require('../Model/Model_Kategori.js');
+const Model_Users = require('../Model/Model_Users.js');
 
 
 
 
 router.get('/', async (req, res, next) => {
     try {
+        let id = req.session.userId;
+        let Data = await Model_Users.getId(id);
         let rows = await Model_Kategori.getAll();
         res.render('kategori/index', {
-            data: rows
+            data: rows,
+            data2: Data,
         });
     } catch (error) {
         next(error);

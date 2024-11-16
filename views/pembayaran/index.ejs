@@ -24,16 +24,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <% for(var i=0; i < data2.length; i++){ %>
+                                            <% for(var i=0; i < data.length; i++){ %>
                                             <tr>
                                                 <th scope="row"><%= (i+1) %></th>
-                                                <td><%= data2[i].status_pemesanan %></td>
-                                                <td><%= data2[i].jumlah %></td>
-                                                <td><%= data2[i].nama_menu %></td>
-                                                <td><%= data2[i].nama_users %></td>
+                                                <td><%= data[i].status_pemesanan %></td>
+                                                <td><%= data[i].jumlah %></td>
+                                                <td><%= data[i].nama_menu %></td>
+                                                <td><%= data[i].nama_users %></td>
                                                 <td>
-                                                    <a href="/pembayaran/edit/<%= data2[i].id_pembayaran %>" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="/pembayaran/delete/<%= data2[i].id_pembayaran %>" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="/pembayaran/edit/<%= data[i].id_pembayaran %>" class="btn btn-sm btn-warning">Edit</a>
+                                                    <a href="/pembayaran/delete/<%= data[i].id_pembayaran %>" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <% } %>

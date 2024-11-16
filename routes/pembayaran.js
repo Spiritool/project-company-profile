@@ -10,8 +10,8 @@ router.get('/', async (req, res, next) => {
         let rows = await Model_Pembayaran.getAll();
         let rows2 = await Model_Users.getId(id);
         res.render('pembayaran/index', {
-            data2: rows,
-            data: rows2
+            data: rows,
+            data2: rows2
             
         });
     } catch (error) {
