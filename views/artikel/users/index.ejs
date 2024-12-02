@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="swiper-container p-2">
-                        <div class="swiper-wrapper ">
+                        <div class="swiper-wrapper">
                             <% for(var i = 0; i < data_buku.length; i++) { 
                                 // Open a new swiper-slide every 3 items
                                 if (i % 3 === 0) { %>
@@ -111,18 +111,21 @@
                                         <div class="card-body">
                                             <p class="card-text"><%= data_buku[i].deskripsi_buku %></p>
                                             <div class="d-grid d-md-flex justify-content-md-end">
-                                                <button class="btn btn-primary" type="button">Read More</button>
+                                                <a 
+                                                    class="btn btn-primary" 
+                                                    href="../../files/buku/<%= data_buku[i].file_buku %>" 
+                                                    download="<%= data_buku[i].file_buku %>">
+                                                    Download
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 <% if ((i + 1) % 3 === 0 || i === data_buku.length - 1) { %>
                                     </div>
                                 <% } } %>
-                            
-                            <!-- Tambahkan slide lainnya sesuai kebutuhan -->
                         </div>
-                        <!-- Add Pagination -->
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -231,7 +234,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script>
-            $(document).ready(function () {
+            $(  ).ready(function () {
                 // Filter functionality
                 $('.nav-link-album').click(function () {
                     var filterValue = $(this).attr('data-filter');
