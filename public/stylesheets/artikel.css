@@ -87,37 +87,43 @@ p {
     margin-left: auto;
     margin-right: auto;
     padding-right: 30px;
+    flex-direction: row; /* Tetap horizontal pada layar besar */
+}
+
+.nav-link {
+    display: inline-block; /* Membuat ukuran background mengikuti konten teks */
+    padding: 0.5rem 1rem; /* Atur padding sesuai kebutuhan */
+    width: auto; /* Lebar sesuai dengan konten teks */
+    text-align: center; /* Teks berada di tengah */
 }
 
 .nav-link.active {
-    background-color: #025589;
-    /* Primary color */
+    background-color: #025589; /* Primary color */
     color: white !important;
     border-radius: 1rem;
+    width: auto; /* Pastikan hanya mengikuti teks */
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .navbar-nav .nav-item {
-    margin: 0 15px;
-    /* Memberikan jarak antar item navigasi */
-
+    margin: 0 15px; /* Memberikan jarak antar item navigasi */
 }
 
 .navbar-brand img {
-    height: 40px;
-    /* Atur tinggi logo sesuai kebutuhan */
-
+    height: 40px; /* Atur tinggi logo sesuai kebutuhan */
 }
 
 .container-fluid {
+    display: flex;
+    justify-content: space-between; /* Secara default, elemen berada di kedua sisi */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
     padding-left: 0;
     padding-right: 0;
 }
 
 .navbar-brand {
-    margin-left: 0;
-    /* Menghilangkan margin kiri */
-    padding-left: 0;
-    /* Menghilangkan padding kiri */
+    margin: 0 auto;
 }
 
 .d-flex {
@@ -128,6 +134,39 @@ p {
     background-color: #025589;
     color: white;
     border-radius: 0.5rem;
+}
+
+/* Tambahkan perbaikan untuk tampilan layar kecil */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column; /* Elemen ditumpuk ke bawah */
+        align-items: flex-start; /* Menyelaraskan elemen di tengah */
+        margin: 0 auto;
+    }
+
+    .nav-item {
+        margin: 5px 0; /* Jarak antar item navigasi */
+    }
+
+    .nav-link {
+        width: auto; /* Background hanya mengikuti ukuran teks */
+        padding-top: 3px;
+    padding-bottom: 3px;
+    }
+    .btn-daftar {
+        margin-left: 20px;
+    }
+    .container-fluid {
+        justify-content: center; /* Memindahkan navbar-brand ke tengah */
+        position: relative; /* Memastikan elemen lain tidak mengganggu */
+    }
+
+    .navbar-toggler {
+        position: absolute; /* Agar toggle tetap terlihat */
+        right: 10px; /* Pastikan toggle tetap di kanan */
+        top: 50%; /* Selaraskan vertikal dengan navbar-brand */
+        transform: translateY(-50%);
+    }
 }
 
 .awalan{
@@ -209,6 +248,40 @@ p {
     margin-bottom: 15px;
     flex-grow: 1; /* Menjaga teks agar memenuhi ruang yang tersedia */
 }
+/* Atur card dalam 4 kolom pada layar besar */
+.carousel-item .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.carousel-item .col-lg-3,
+.carousel-item .col-md-4,
+.carousel-item .col-sm-6 {
+    flex: 1 0 25%; /* 4 kolom pada layar besar */
+    max-width: 25%;
+}
+
+/* Atur card menjadi 2 kolom pada layar kecil */
+@media (max-width: 768px) {
+    .carousel-item .col-lg-3,
+    .carousel-item .col-md-4,
+    .carousel-item .col-sm-6 {
+        flex: 1 0 50%; /* 2 kolom pada layar kecil */
+        max-width: 50%;
+    }
+
+    .card-berita img {
+        height: 120px; /* Sesuaikan tinggi gambar pada layar kecil */
+    }
+
+    .card-berita .card-title {
+        font-size: 1em; /* Perkecil ukuran teks pada layar kecil */
+    }
+
+    .card-berita .card-text {
+        font-size: 0.85em; /* Perkecil ukuran teks deskripsi pada layar kecil */
+    }
+}
 
 
 
@@ -239,7 +312,7 @@ p {
 
 .card-title-library {
     font-weight: bold;
-    font-size: larger;
+
     padding-left: 10px;
 }
 
@@ -280,6 +353,8 @@ p {
     transition: all 0.3s ease;
     border-radius: 5px; /* Default border-radius */
     padding: 5px 10px; /* Default padding */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    opacity: 1
   }
   
   .nav-pills .nav-link-album.active {
@@ -309,7 +384,7 @@ p {
   }
   .gallery img {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   .photo:hover .overlay-half {
     transform: translateY(0);
@@ -365,6 +440,18 @@ p {
     padding-left: 8%;
     padding-right: 8%;
   }
+
+  @media (max-width: 768px) {
+    .overlay-half p, .overlay-half b {
+        font-size: 10px; /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-half p, .overlay-half b {
+        font-size: 8px; /* Even smaller font size for extra small screens */
+    }
+}
 
   .float {
     position: fixed;

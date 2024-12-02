@@ -3,6 +3,7 @@ const router = express.Router();
 const Model_Pembayaran = require('../Model/Model_Pembayaran.js');
 const Model_Menu = require("../Model/Model_Menu.js");
 const Model_Users_Kantin = require("../model/Model_Users_Kantin.js");
+const connection = require('../config/database');
 
 router.get('/', async (req, res, next) => {
     try {
@@ -33,13 +34,23 @@ router.get('/keranjang', async (req, res, next) => {
     }
 });
 
-router.get('/checkout', async (req, res, next) => {
+router.post('/checkout', async (req, res) => {
     try {
-        res.render('catering/checkout', {
-            
-        });
+        const { items } = req.body; 
+        res.render('catering/checkout', { items }); 
     } catch (error) {
-        console.log(error)
+        console.error(error);
+        res.status(500).send('Terjadi kesalahan pada server');
+    }
+});
+
+router.get('/checkout', async (req, res) => {
+    try {
+        console.log("get")
+        res.render('catering/checkout', { items: [] }); 
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Terjadi kesalahan pada server');
     }
 });
 
@@ -88,6 +99,21 @@ router.get('/riwayat', async (req, res, next) => {
     } catch (error) {
         res.redirect('/loginkantin');
         console.log(error);
+    }
+});
+
+router.post('/update-quantity', async (req, res) => {
+    const { id, jumlah } = req.body;
+
+    try {
+        // Update database sesuai kebutuhan
+        const query = `UPDATE pembayaran SET jumlah = ? WHERE id_pembayaran = ?`;
+        await connection.query(query, [jumlah, id]);
+
+        res.json({ success: true, message: 'Quantity updated successfully' });
+    } catch (error) {
+        console.error('Error updating quantity:', error);
+        res.status(500).json({ success: false, message: 'Failed to update quantity' });
     }
 });
 
