@@ -99,9 +99,14 @@
                             <% for(var i=0; i < data.length; i++){ %>
                             <th scope="row" class="align-middle">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault"></label>
+                                    <input class="form-check-input item-checkbox" style="border: 2px solid #025589;"
+                                        type="checkbox" value="<%= JSON.stringify(data[i]) %>"
+                                        id="flexCheckDefault-<%= i %>"
+                                        data-price="<%= data[i].harga_menu * data[i].jumlah %>"
+                                        id="flexCheckDefault-<%= i %>">
+                                    <label class="form  -check-label" for="flexCheckDefault-<%= i %>"></label>
                                 </div>
+
                             </th>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center align-items-center">
@@ -111,6 +116,7 @@
                                         <small class="nama text-primary"><%= data[i].nama_menu %></small>
                                         <small class="opsi text-success"><%= data[i].kategori_pesanan %></small>
                                         <small class="harga text-danger"><%= data[i].harga_menu %></small>
+
                                     </div>
                                 </div>
                             </td>
@@ -118,18 +124,23 @@
                                 <div class="d-flex justify-content-center align-items-center">
                                     <div class="input-group input-group-sm d-flex justify-content-center"
                                         style="width: 130px;">
+                                        <h1 id="id" name="id" class="id text-danger" hidden><%= data[i].id_pembayaran %>
+                                        </h1>
                                         <button class="btn btn-outline-secondary btn-sm btn-minus" type="button"
                                             style="width: 30px;">-</button>
-                                        <input type="text" class="form-control text-center quantity-input"
-                                            value="<%= data[i].jumlah %>" style="width: 50px;">
+                                        <input type="number" class="form-control text-center quantity-input"
+                                            name="jumlah" data-id="<%= data[i].id %>" value="<%= data[i].jumlah %>"
+                                            style="width: 50px;" min="1">
                                         <button class="btn btn-outline-secondary btn-sm btn-plus" type="button"
                                             style="width: 30px;">+</button>
+
                                     </div>
                                 </div>
                             </td>
                             <td class="align-middle text-danger total-harga">Rp. </td>
                             <td class="align-middle">
-                                <a href="/pembayaran/delete/<%= data[i].id_pembayaran %>" class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
+                                <a href="/pembayaran/delete/<%= data[i].id_pembayaran %>"
+                                    class="text-primary px-3 link-offset-2 link-underline link-underline-opacity-0"><small>Hapus</small></a>
                             </td>
 
                         </tr>
@@ -162,79 +173,193 @@
 
                     <!-- Right column -->
                     <div class="col-md-6 text-end">
-                        <p>Subtotal <span class="float-end">Rp. 72.000</span></p>
+                        <p>Subtotal <span id="subtotal" class="float-end">Rp. 0</span></p>
                         <p class="promo-discount">Promo Jum'at Berkah <span class="float-end">-20%</span></p>
                         <hr>
-                        <p class="promo-total">Total <span class="float-end">Rp. 57.600</span></p>
-                        <a class="btn btn-custom mt-3" href="checkout">Checkout</a>
+                        <p class="promo-total">Total <span id="total" class="float-end">Rp. 0</span></p>
+                        <a class="btn btn-custom mt-3 checkout-button" href="#">Checkout</a>
                     </div>
                 </div>
             </div>
 
         </div>
 
+        <script>
+            // Attach event listeners for quantity input
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function () {
+                    const id = this.closest('.input-group').querySelector('.id').textContent.trim();
+                    const jumlah = this.value; // Get the updated quantity value
 
-
+                    // Send AJAX request to update the database
+                    fetch('/catering/update-quantity', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id,
+                                jumlah
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Quantity updated successfully');
+                            } else {
+                                console.error('Failed to update quantity');
+                            }
+                        })
+                        .catch(err => console.error('Error:', err));
+                });
+            });
+        </script>
 
         <script>
-            // Function to update total price
-            function updateTotalPrice() {
-                // Select all rows containing the cart items
-                const cartItems = document.querySelectorAll('.total-harga');
-                
-                cartItems.forEach((item, index) => {
-                    const priceElement = document.querySelectorAll('.harga')[index]; // Get the price element
-                    const quantityElement = document.querySelectorAll('.quantity-input')[index]; // Get the quantity input
-                    
-                    // Remove formatting for calculation
-                    const price = parseInt(priceElement.textContent.replace('Rp.', '').replace(/\./g, '').trim()); 
-                    const quantity = parseInt(quantityElement.value);
-                    
-                    if (!isNaN(price) && !isNaN(quantity)) {
-                        // Calculate total
-                        const totalPrice = price * quantity;
-                        
-                        // Display the formatted total price in the 'total-harga' element
-                        item.textContent = `Rp.${totalPrice.toLocaleString('id-ID')}`;
-                    } else {
-                        console.log("Error: Price or quantity is not a number");
+            document.querySelector('.checkout-button').addEventListener('click', async function (e) {
+                e.preventDefault();
+
+                // Ambil semua checkbox yang dicentang
+                const checkedItems = Array.from(document.querySelectorAll('.item-checkbox:checked')).map(
+                    checkbox => {
+                        return JSON.parse(checkbox.value);
+                    });
+
+                if (checkedItems.length === 0) {
+                    alert('Pilih setidaknya satu item untuk melanjutkan checkout.');
+                    return;
+                }
+
+                // Kirim data ke server menggunakan fetch
+                const response = await fetch('/catering/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        items: checkedItems
+                    }),
+                });
+
+                if (response.ok) {
+                    // Jika berhasil, tampilkan data yang dikirim atau bisa redirect jika diperlukan
+                    const data = await response.text(); // Ambil respons server (biasanya HTML)
+
+                    // Jika Anda ingin me-render halaman checkout secara dinamis
+                    document.body.innerHTML = data; // Menyisipkan HTML respons ke dalam body halaman
+
+                    // Atau bisa menggunakan window.location.href untuk redirect ke halaman lain jika diinginkan
+                    // window.location.href = '/checkout';
+                } else {
+                    const errorText = await response.text();
+                    alert(`Terjadi kesalahan: ${errorText}`);
+                }
+            });
+        </script>
+
+        <script>
+            document.querySelectorAll('.item-quantity').forEach(input => {
+                input.addEventListener('change', function () {
+                    const itemId = this.dataset.itemId; // Ambil ID item dari atribut data
+                    const checkbox = document.querySelector(`.item-checkbox[data-item-id="${itemId}"]`);
+
+                    if (checkbox) {
+                        // Ambil data lama dari checkbox
+                        let itemData = JSON.parse(checkbox.value);
+
+                        // Perbarui jumlah dalam data
+                        itemData.quantity = parseInt(this.value, 10) || 0;
+
+                        // Simpan kembali data yang diperbarui ke checkbox
+                        checkbox.value = JSON.stringify(itemData);
                     }
                 });
+            });
+        </script>
+
+        <script>
+            const checkboxes = document.querySelectorAll('.item-checkbox');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            const discountRate = 0.20;
+
+            function updateTotal() {
+                let subtotal = 0;
+
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const priceElement = checkbox.closest('tr').querySelector('.total-harga');
+                        const price = parseFloat(priceElement.textContent.replace('Rp.', '').replace(/\./g, '')
+                            .trim());
+                        subtotal += price;
+                    }
+                });
+
+                const discount = subtotal * discountRate;
+                const total = subtotal - discount;
+
+                subtotalElement.textContent = `Rp. ${subtotal.toLocaleString('id-ID')}`;
+                totalElement.textContent = `Rp. ${total.toLocaleString('id-ID')}`;
             }
-        
-            // Attach event listeners to the plus and minus buttons
-            document.querySelectorAll('.btn-minus').forEach((btn, index) => {
-                btn.addEventListener('click', function() {
-                    const quantityInput = document.querySelectorAll('.quantity-input')[index];
-                    let currentQuantity = parseInt(quantityInput.value);
-                    
-                    if (currentQuantity > 1) {
-                        quantityInput.value = currentQuantity - 1;
-                        updateTotalPrice(); // Update price when quantity is changed
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateTotal);
+            });
+        </script>
+
+        <script>
+            // Fungsi untuk memperbarui total harga per item
+            function updateTotalPrice() {
+                const cartItems = document.querySelectorAll('.total-harga');
+
+                cartItems.forEach((item, index) => {
+                    const priceElement = document.querySelectorAll('.harga')[index];
+                    const quantityElement = document.querySelectorAll('.quantity-input')[index];
+
+                    const price = parseInt(priceElement.textContent.replace('Rp.', '').replace(/\./g, '')
+                    .trim());
+                    const quantity = parseInt(quantityElement.value);
+
+                    if (!isNaN(price) && !isNaN(quantity)) {
+                        const totalPrice = price * quantity;
+                        item.textContent = `Rp. ${totalPrice.toLocaleString('id-ID')}`;
                     }
                 });
-            });
-        
-            document.querySelectorAll('.btn-plus').forEach((btn, index) => {
-                btn.addEventListener('click', function() {
-                    const quantityInput = document.querySelectorAll('.quantity-input')[index];
-                    let currentQuantity = parseInt(quantityInput.value);
-                    quantityInput.value = currentQuantity + 1;
-                    updateTotalPrice(); // Update price when quantity is changed
+
+                updateTotal(); // Memperbarui subtotal atau total keseluruhan jika diperlukan
+            }
+
+            // Menambah event listener ke tombol plus dan minus
+            document.querySelectorAll('.btn-plus, .btn-minus').forEach(button => {
+                button.addEventListener('click', function () {
+                    const input = this.parentElement.querySelector('.quantity-input');
+                    const isPlus = this.classList.contains('btn-plus');
+                    let currentQuantity = parseInt(input.value);
+
+                    if (isPlus) {
+                        input.value = currentQuantity + 1;
+                    } else if (currentQuantity > 1) {
+                        input.value = currentQuantity - 1;
+                    }
+
+                    input.dispatchEvent(new Event(
+                    'change')); // Memicu event 'change' agar updateTotalPrice terpanggil
                 });
             });
-        
-            // Attach input event listeners to update price on typing
+
+            // Menambah event listener untuk input jumlah secara manual
             document.querySelectorAll('.quantity-input').forEach(input => {
                 input.addEventListener('input', updateTotalPrice);
+                input.addEventListener('change',
+                updateTotalPrice); // Untuk memastikan harga diperbarui saat tombol +/- ditekan
             });
-        
-            // Initial call to update total prices when the page loads
-            window.onload = function() {
+
+            // Memperbarui total harga saat halaman dimuat
+            window.onload = function () {
                 updateTotalPrice();
             };
         </script>
-        
+
 
 
 

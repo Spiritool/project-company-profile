@@ -173,63 +173,27 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% items.forEach(item => { %>
                         <tr>
                             <td class="text-start">
                                 <div class="d-flex justify-content-start align-items-center">
                                     <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
                                         style="width: 5rem; height: 5rem;">
                                     <div class="d-flex flex-column ms-3">
-                                        <small class="nama text-primary">Healty Nasi Goreng</small>
-                                        <small class="opsi text-success">Tidak Pedas</small>
-                                        <small class="harga text-danger">Rp.12.000</small>
+                                        <small class="nama text-primary"><%= item.nama_menu %></small>
+                                        <small class="opsi text-success"><%= item.kategori_pesanan %></small>
+                                        <small class="harga text-danger"><%= item.harga_menu %></small>
                                     </div>
                                 </div>
                             </td>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center align-items-center text-primary">
-                                    10
+                                    <%= item.jumlah %>
                                 </div>
                             </td>
-                            <td class="align-middle text-danger">Rp.240.000</td>
+                            <td class="align-middle text-danger">Rp. <%= item.harga_menu * item.jumlah %></td>
                         </tr>
-                        <tr>
-                            <td class="text-start">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
-                                        style="width: 5rem; height: 5rem;">
-                                    <div class="d-flex flex-column ms-3">
-                                        <small class="nama text-primary">Healty Nasi Goreng</small>
-                                        <small class="opsi text-success">Tidak Pedas</small>
-                                        <small class="harga text-danger">Rp.12.000</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center align-items-center text-primary">
-                                    10
-                                </div>
-                            </td>
-                            <td class="align-middle text-danger">Rp.240.000</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start">
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
-                                        style="width: 5rem; height: 5rem;">
-                                    <div class="d-flex flex-column ms-3">
-                                        <small class="nama text-primary">Healty Nasi Goreng</small>
-                                        <small class="opsi text-success">Tidak Pedas</small>
-                                        <small class="harga text-danger">Rp.12.000</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center align-items-center text-primary">
-                                    10
-                                </div>
-                            </td>
-                            <td class="align-middle text-danger">Rp.240.000</td>
-                        </tr>
+                        <% }); %>
                         <!-- Ulangi struktur ini untuk pesanan lain -->
                     </tbody>
                 </table>
@@ -318,3 +282,5 @@
 </body>
 
 </html>
+
+
