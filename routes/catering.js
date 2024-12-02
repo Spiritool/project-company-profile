@@ -69,6 +69,21 @@ router.get('/profil', async (req, res, next) => {
         console.log(error);
     }
 });
+router.get('/alamat', async (req, res, next) => {
+    try {
+        let id = req.session.userId;
+        let rows = await Model_Menu.getAll();
+        let rows2 = await Model_Users_Kantin.getId(id);
+        res.render('catering/alamat', {
+            id: id,
+            data: rows,
+            data2: rows2,
+        });
+    } catch (error) {
+        res.redirect('/loginkantin');
+        console.log(error);
+    }
+});
 
 router.get('/pesanan', async (req, res, next) => {
     try {

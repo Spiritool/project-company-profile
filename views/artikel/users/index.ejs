@@ -137,14 +137,14 @@
                 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <% let chunkedData = []; 
-                      for (let i = 0; i < data.length; i += 4) {
-                          chunkedData.push(data.slice(i, i + 4)); 
-                      } %>
-
+                          for (let i = 0; i < data.length; i += 4) {
+                              chunkedData.push(data.slice(i, i + 4)); 
+                          } %>
+        
                         <% chunkedData.forEach((chunk, chunkIndex) => { %>
                         <div class="carousel-item <%= chunkIndex === 0 ? 'active' : '' %>">
                             <div class="row">
-                                <% chunk.forEach((item) => { %>
+                                <% chunk.forEach((item, index) => { %>
                                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                     <div class="card-berita" style="width: 95%;">
                                         <img src="/images/berita/<%= item.gambar_berita %>" class="card-img-top"
@@ -152,10 +152,17 @@
                                         <div class="card-body">
                                             <small class="fw-light">Upload by: Admin, <%= item.tanggal_upload %></small>
                                             <h5 class="card-title"><b><%= item.nama_berita %></b></h5>
-                                            <p class="card-text fs-7"><%= item.deskripsi_berita.substring(0, 100) %>...
+                                            <p class="card-text fs-7"><small><%= item.deskripsi_berita.substring(0, 80) %>...</small>
                                             </p>
-                                            <a href="/berita/<%= item.id_berita %>" class="btn btn-primary">Read
-                                                More</a>
+                                            <!-- Button to trigger modal -->
+                                            <button class="btn btn-primary" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#modalBerita" 
+                                                    data-judul="<%= item.nama_berita %>" 
+                                                    data-gambar="/images/berita/<%= item.gambar_berita %>" 
+                                                    data-deskripsi="<%= item.deskripsi_berita %>">
+                                                Read More
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +171,7 @@
                         </div>
                         <% }) %>
                     </div>
-
+        
                     <!-- Carousel Controls -->
                     <div class="carousel-control-container">
                         <button class="btn btn-light border" type="button" data-bs-target="#carouselExample"
@@ -173,7 +180,7 @@
                                     viewBox="0 0 16 16">
                                     <path fill="#025589"
                                         d="M1.777 9.313a1.5 1.5 0 0 1 0-2.629l9.999-5.5A1.5 1.5 0 0 1 13.999 2.5v10.999a1.5 1.5 0 0 1-2.223 1.314z" />
-                                    </svg></span>
+                                </svg></span>
                         </button>
                         <button class="btn btn-light border" type="button" data-bs-target="#carouselExample"
                             data-bs-slide="next">
@@ -181,15 +188,56 @@
                                     viewBox="0 0 16 16">
                                     <path fill="#025589"
                                         d="M14.222 6.687a1.5 1.5 0 0 1 0 2.629l-10 5.499A1.5 1.5 0 0 1 2 13.5V2.502a1.5 1.5 0 0 1 2.223-1.314z" />
-                                    </svg></span>
+                                </svg></span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Modal Berita -->
+        <div class="modal fade" id="modalBerita" tabindex="-1" aria-labelledby="modalBeritaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalBeritaLabel">Berita</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-5">
+                        <div class="d-flex justify-content-center">
+                            <img id="modalImage" src="" alt="Gambar Berita" class="img-fluid mb-3" 
+                                 style="max-width: 100%; max-height: 100%; object-fit: cover;">
+                        </div>
+                        <h4 ><b id="modalJudul"></b></h4>
+                        <p id="modalDeskripsi"style="text-align: justify;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Event listener for the modal
+            const modalBerita = document.getElementById('modalBerita');
+            modalBerita.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget; // Button that triggered the modal
+                const judul = button.getAttribute('data-judul');
+                const gambar = button.getAttribute('data-gambar');
+                const deskripsi = button.getAttribute('data-deskripsi');
+        
+                // Update modal content
+                const modalTitle = modalBerita.querySelector('#modalJudul');
+                const modalImage = modalBerita.querySelector('#modalImage');
+                const modalDescription = modalBerita.querySelector('#modalDeskripsi');
+        
+                modalTitle.textContent = judul;
+                modalImage.src = gambar;
+                modalDescription.textContent = deskripsi;
+            });
+        </script>
+        
 
         <!-- Album -->
-        <div class="container-fluid container-bg text-center px-4">
+        <div class="container-bg text-center px-4">
             <h2>ALBUM RSI GARAM KALIANGET</h2>
             <p class="deskripsi mt-4 mb-5">Di sini, Anda akan menemukan berbagai artikel informatif dan edukatif yang
                 dirancang untuk membantu Anda memahami lebih baik tentang kesehatan.</p>
