@@ -19,6 +19,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Gambar</th>
+                                                <th>File</th>
                                                 <th>Nama Buku</th>
                                                 <th>Deskripsi Buku</th>
                                                 <th colspan="2">Aksi</th>
@@ -31,8 +32,12 @@
                                                 <td class="py-1">
                                                     <img src="/images/buku/<%= data[i].gambar_buku %>" height="100" width="150" alt="Gambar buku"/>
                                                 </td>
+                                                <td class="py-1">
+                                                    <%= data[i].file_buku %>
+                                                </td>
                                                 <td><%= data[i].nama_buku %></td>
-                                                <td><%= data[i].deskripsi_buku.length > 100 ? data[i].deskripsi_buku.substring(0, 100) + '...' : data[i].deskripsi_buku %></td>
+                                                <td><%= data[i].deskripsi_buku.length > 20 ? data[i].deskripsi_buku.substring(0, 20) + '...' : data[i].deskripsi_buku %></td>
+
                                                 <td>
                                                     <a href="/buku/edit/<%= data[i].id_buku %>" class="btn btn-sm btn-warning">Edit</a>
                                                     <a href="/buku/delete/<%= data[i].id_buku %>" class="btn btn-sm btn-danger">Delete</a>
