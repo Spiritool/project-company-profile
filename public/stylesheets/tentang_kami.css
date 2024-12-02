@@ -178,6 +178,40 @@ margin-left: auto; /* Menempatkan teks di paling kanan */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+/* CSS umum */
+.card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Responsivitas untuk layar kecil */
+  @media (max-width: 576px) {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .col-sm-6 {
+      flex: 1 1 50%; /* Memastikan tetap dua kolom */
+      max-width: 50%;
+    }
+  
+    .card {
+      height: 100%; /* Tinggi fleksibel */
+    }
+  
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Agar konten tersebar merata */
+    }
+  
+    .row .card {
+      min-height: 250px; /* Set panjang minimum untuk memastikan konsistensi */
+    }
+  }
+  
+
 .card-img{
     height: 50%;
 }
