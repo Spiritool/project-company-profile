@@ -36,7 +36,7 @@ class Model_Alamat {
             connection.query(`SELECT a.*, u.nama_users, u.nama_panggilan_users, u.no_telp_users 
                 FROM alamat AS a
                 left JOIN userskantin AS u ON a.id_users = u.id_users
-                WHERE a.id_alamat = ` + id, (err, rows) => {
+                WHERE a.id_users = ` + id, (err, rows) => {
                 if (err) {
                     reject(err);
                 } else {

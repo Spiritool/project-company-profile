@@ -94,13 +94,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for(var i=0; i < data.length; i++) { %>
                         <tr>
-
                             <td class="align-middle">
-                                <b><small>Aldy Hari Putra (082332749088)</small></b>
+                                <b><small><%= data[i].nama_penerima %> <%= data[i].no_telp_penerima %></small></b>
                             </td>
                             <td class="align-middle">
-                                <small>Jalan Masjid Jamik No.2 Dusun Masjid, Talango Sumenep</small>
+                                <small>(<%= data[i].pengantaran %>) <%= data[i].nama_alamat %></small>
                             </td>
 
                             <td class="align-middle text-danger  ">
@@ -113,44 +113,7 @@
                                 <a href="#" class="btn btn-outline-secondary btn-sm">Hapus</a>
                             </td>
                         </tr>
-                        <tr>
-
-                            <td class="align-middle">
-                                <b><small>Aldy Hari Putra (082332749088)</small></b>
-                            </td>
-                            <td class="align-middle">
-                                <small>Jalan Masjid Jamik No.2 Dusun Masjid, Talango Sumenep</small>
-                            </td>
-
-                            <td class="align-middle text-danger  ">
-                                <input type="checkbox" class="btn-check btn-sm" id="btn-check-3-outlined" checked
-                                    autocomplete="off">
-                                <label class="btn btn-outline-secondary" for="btn-check-3-outlined"
-                                    id="btn-label">Gunakan</label>
-                            </td>
-                            <td class="align-middle">
-                                <a href="#" class="btn btn-outline-secondary btn-sm">Hapus</a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td class="align-middle">
-                                <b><small>Aldy Hari Putra (082332749088)</small></b>
-                            </td>
-                            <td class="align-middle">
-                                <small>Jalan Masjid Jamik No.2 Dusun Masjid, Talango Sumenep</small>
-                            </td>
-
-                            <td class="align-middle text-danger  ">
-                                <input type="checkbox" class="btn-check btn-sm" id="btn-check-4-outlined" checked
-                                    autocomplete="off">
-                                <label class="btn btn-outline-secondary" for="btn-check-4-outlined"
-                                    id="btn-label">Gunakan</label>
-                            </td>
-                            <td class="align-middle">
-                                <a href="#" class="btn btn-outline-secondary btn-sm">Hapus</a>
-                            </td>
-                        </tr>
+                        <% } %>
                     </tbody>
                 </table>
                 <div class="text-center mt-3 mb-3">
@@ -182,7 +145,7 @@
                         <tr>
                             <td class="text-start">
                                 <div class="d-flex justify-content-start align-items-center">
-                                    <img src="../images/menu.jpg" class="img-cart rounded" alt="Healthy Fried Rice"
+                                    <img src="../images/menu/<%= item.gambar_menu %>" class="img-cart rounded" alt="Healthy Fried Rice"
                                         style="width: 5rem; height: 5rem;">
                                     <div class="d-flex flex-column ms-3">
                                         <small class="nama text-primary"><%= item.nama_menu %></small>
@@ -287,5 +250,16 @@
 </body>
 
 </html>
+
+<div class="checkout-items">
+    <% items.forEach(item => { %>
+        <div class="item">
+            <h3><%= item.nama_menu %></h3>
+            <p>Harga: <%= item.harga_menu %></p>
+            <p>Jumlah: <%= item.jumlah %></p>
+            <p>Total Harga: <%= item.harga_menu * item.jumlah %></p>
+        </div>
+    <% }) %>
+</div>
 
 

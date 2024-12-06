@@ -42,7 +42,8 @@ const Model_Users = require('../model/Model_Users.js');
 
 router.post('/store', async function (req, res, next) {
     try {
-        let { pengantaran, nama_alamat, no_telp_penerima, nama_penerima, id_users } = req.body;
+        let id_users = req.session.userId;
+        let { pengantaran, nama_alamat, no_telp_penerima, nama_penerima} = req.body;
         
         let Data = {
             pengantaran, nama_alamat, no_telp_penerima, nama_penerima, id_users, 
