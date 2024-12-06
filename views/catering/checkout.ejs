@@ -94,30 +94,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for(var i=0; i < data.length; i++) { %>
-                        <tr>
-                            <td class="align-middle">
-                                <b><small><%= data[i].nama_penerima %> <%= data[i].no_telp_penerima %></small></b>
-                            </td>
-                            <td class="align-middle">
-                                <small>(<%= data[i].pengantaran %>) <%= data[i].nama_alamat %></small>
-                            </td>
-
-                            <td class="align-middle text-danger  ">
-                                <input type="checkbox" class="btn-check btn-sm" id="btn-check-2-outlined" checked
-                                    autocomplete="off">
-                                <label class="btn btn-outline-secondary" for="btn-check-2-outlined"
-                                    id="btn-label">Gunakan</label>
-                            </td>
-                            <td class="align-middle">
-                                <a href="#" class="btn btn-outline-secondary btn-sm">Hapus</a>
-                            </td>
-                        </tr>
-                        <% } %>
+                        <% for (var i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td class="align-middle">
+                                    <b><small><%= data[i].nama_penerima %> <%= data[i].no_telp_penerima %></small></b>
+                                </td>
+                                <td class="align-middle">
+                                    <small>(<%= data[i].pengantaran %>) <%= data[i].nama_alamat %></small>
+                                </td>
+                            
+                                <td class="align-middle text-danger">
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <!-- Semua tombol radio berbagi nama yang sama -->
+                                        <input type="radio" class="btn-check" 
+                                               name="selectedAddress" 
+                                               id="btnradio_<%= i %>" 
+                                               autocomplete="off" 
+                                               value="<%= data[i].id_alamat %>" 
+                                               <%= data[i].selected ? 'checked' : '' %>>
+                                        <label class="btn btn-outline-success" for="btnradio_<%= i %>">Gunakan</label>
+                                    </div>
+                                </td>
+                                <td class="align-middle">
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Hapus</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                            
                     </tbody>
                 </table>
                 <div class="text-center mt-3 mb-3">
-                    <a href="profil" class="btn btn-outline-secondary btn-sm">
+                    <a href="alamat" class="btn btn-outline-secondary btn-sm">
                         + Tambah Alamat
                     </a>
                 </div>
