@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Model_Pembayaran = require('../Model/Model_Pembayaran.js');
 const Model_Menu = require("../Model/Model_Menu.js");
+const Model_Alamat = require("../model/Model_Alamat.js");
 const Model_Users_Kantin = require("../model/Model_Users_Kantin.js");
+
 const connection = require('../config/database');
 
 router.get('/', async (req, res, next) => {
@@ -72,7 +74,7 @@ router.get('/profil', async (req, res, next) => {
 router.get('/alamat', async (req, res, next) => {
     try {
         let id = req.session.userId;
-        let rows = await Model_Menu.getAll();
+        let rows = await Model_Alamat.getAll();
         let rows2 = await Model_Users_Kantin.getId(id);
         res.render('catering/alamat', {
             id: id,
