@@ -42,8 +42,9 @@ router.get('/keranjang', async (req, res, next) => {
 
 router.post('/checkout', async (req, res) => {
     try {
+        let id = req.session.userId;
         let rows = await Model_Alamat.getId(id);
-
+        console.log("rows: ",rows )
         const {
             itemIds
         } = req.body; // Ambil array ID item dari body request
