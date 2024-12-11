@@ -21,11 +21,7 @@ var artikelRouter = require('./routes/artikel');
 var beritaRouter = require('./routes/berita'); 
 var bukuRouter = require('./routes/buku'); 
 var albumRouter = require('./routes/album');
-var cateringRouter = require('./routes/catering');
-var kategoriRouter = require('./routes/kategori');
-var menuRouter = require('./routes/menu');
-var pembayaranRouter = require('./routes/pembayaran');
-var alamatRouter = require('./routes/alamat');
+
 
 
 
@@ -71,14 +67,6 @@ app.use('/artikel', artikelRouter);
 app.use('/berita', beritaRouter);
 app.use('/buku', bukuRouter);
 app.use('/album', albumRouter);
-app.use('/catering', cateringRouter);
-app.use('/kategori', kategoriRouter);
-app.use('/menu', menuRouter);
-app.use('/pembayaran', pembayaranRouter);
-app.use('/alamat', alamatRouter);
-
-
-
 
 
 // catch 404 and forward to error handler
