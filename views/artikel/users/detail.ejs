@@ -96,7 +96,9 @@
                         <h5 class="mb-4">Berita Lainnya</h5>
                         <% beritaLain.forEach(item => { %>
                             <div class="berita-lain mb-4">
+                                <a href="/artikel/detail/<%= item.id_berita %>">
                                 <img src="/images/berita/<%= item.gambar_berita %>" alt="<%= item.nama_berita %>">
+                            </a>
                                 <h6><%= item.nama_berita %></h6>
                                 <a href="/artikel/detail/<%= item.id_berita %>" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
                             </div>

@@ -147,8 +147,10 @@
                                 <% chunk.forEach((item, index) => { %>
                                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                     <div class="card-berita" style="width: 95%;">
+                                        <a href="/artikel/detail/<%= item.id_berita %>">
                                         <img src="/images/berita/<%= item.gambar_berita %>" class="card-img-top"
                                             alt="gambar berita">
+                                        </a>
                                         <div class="card-body">
                                             <small class="fw-light">Upload by: Admin, <%= item.tanggal_upload %></small>
                                             <h5 class="card-title"><b><%= item.nama_berita %></b></h5>
