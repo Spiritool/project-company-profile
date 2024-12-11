@@ -249,7 +249,71 @@
         </script>
 
 
+        <script>
+            document.querySelector('.checkout-button').addEventListener('click', async function (e) {
+                e.preventDefault();
 
+                console.log("button diklik  ")
+
+                // Ambil semua checkbox yang dicentang
+                const checkedItems = Array.from(document.querySelectorAll('.item-checkbox:checked')).map(
+                    checkbox => {
+                        console.log('Checkbox yang tercentang:',
+                            checkbox); // Debugging: periksa checkbox yang tercentang
+                        console.log('Value Checkbox:', checkbox
+                            .value); // Debugging: periksa value dari checkbox
+
+                        // Parsing nilai JSON dari checkbox
+                        let itemData = JSON.parse(checkbox.value);
+                        console.log('Item yang diambil:',
+                            itemData); // Debugging: tampilkan data item yang diambil
+
+                        // Mengambil ID pembayaran dari elemen <small class="id text-danger">
+                        const itemElement = checkbox.closest('.item');
+                        if (itemElement) {
+                            const idElement = itemElement.querySelector('.id');
+                            if (idElement) {
+                                itemData.id_pembayaran = idElement
+                                    .textContent; // Menambahkan id_pembayaran ke data item
+                                console.log('ID Pembayaran yang diambil:', itemData
+                                    .id_pembayaran); // Debugging: periksa ID
+                            } else {
+                                console.warn('ID pembayaran tidak ditemukan untuk item', itemData);
+                            }
+                        }
+
+                        return itemData.id_pembayaran; // Kirim ID pembayaran (id_pembayaran) saja
+                    });
+
+                console.log('Item yang akan dikirim ke server:',
+                    checkedItems); // Debugging: tampilkan array item yang akan dikirim
+
+                // Periksa apakah ada item yang dicentang
+                if (checkedItems.length === 0) {
+                    alert('Pilih setidaknya satu item untuk melanjutkan checkout.');
+                    return;
+                }
+
+                // Kirim data ke server menggunakan fetch
+                const response = await fetch('/catering/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        itemIds: checkedItems // Hanya kirim ID pembayaran
+                    }),
+                });
+
+                if (response.ok) {
+                    const data = await response.text();
+                    document.body.innerHTML = data; // Menyisipkan HTML respons ke dalam body
+                } else {
+                    const errorText = await response.text();
+                    alert(`Terjadi kesalahan: ${errorText}`);
+                }
+            });
+        </script>
 
 
 

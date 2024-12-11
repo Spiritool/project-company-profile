@@ -44,40 +44,54 @@ router.post('/checkout', async (req, res) => {
     try {
         let id = req.session.userId;
         let rows = await Model_Alamat.getId(id);
-        console.log("rows: ",rows )
+
         const {
             itemIds
-        } = req.body; // Ambil array ID item dari body request
-
-        console.log("id:", itemIds);
+        } = req.body;
 
         if (!itemIds || itemIds.length === 0) {
             return res.status(400).send('Tidak ada item yang dipilih');
         }
 
-        // Mengambil data lengkap untuk setiap item berdasarkan ID
         const query = `
             SELECT a.*, b.* FROM pembayaran as a
-            left join menu as b on a.id_menu=b.id_menu  
+            LEFT JOIN menu as b ON a.id_menu = b.id_menu  
             WHERE id_pembayaran IN (${itemIds.join(', ')});
         `;
+
         connection.query(query, (err, results) => {
             if (err) {
                 console.error('Database error:', err);
                 return res.status(500).send('Error querying database');
             }
 
-            // Kirim hasil query ke halaman checkout
+            // Menghitung subtotal di sisi server
+            let subtotal = 0;
+            results.forEach(item => {
+                subtotal += item.harga_menu * item.jumlah;
+            });
+
+            const discountRate = 0;
+            const discount = subtotal * discountRate;
+            const total = subtotal - discount;
+
+            console.log('Subtotal:', subtotal, 'Diskon:', discount, 'Total:', total);
+
+            // Mengirim hasil subtotal dan total ke view
             res.render('catering/checkout', {
                 items: results,
-                data: rows
+                data: rows,
+                subtotal,
+                discount,
+                total
             });
         });
     } catch (error) {
-        console.error(error);
+        console.error('Terjadi error:', error);
         res.status(500).send('Terjadi kesalahan pada server');
     }
 });
+
 
 router.get('/checkout', async (req, res) => {
     try {
@@ -174,6 +188,44 @@ router.post('/update-quantity', async (req, res) => {
         res.status(500).json({
             success: false,
             message: 'Failed to update quantity'
+        });
+    }
+});
+
+router.post('/checkout/pesanan', async (req, res) => {
+    const {
+        items,
+        total_harga,
+        id_alamat
+    } = req.body;
+
+    try {
+        // Insert data checkout ke tabel checkout
+        const [checkoutResult] = await db.query(
+            `INSERT INTO checkout (total_harga, tanggal_checkout) VALUES (?, NOW())`,
+            [total_harga]
+        );
+        const id_checkout = checkoutResult.insertId;
+
+        // Update tabel pembayaran dengan id_checkout, id_alamat, dan status_pemesanan=dimasak
+        await db.query(
+            `UPDATE pembayaran 
+             SET id_checkout = ?, id_alamat = ?, status_pemesanan = 'dimasak' 
+             WHERE id_pembayaran = (
+                SELECT id_pembayaran FROM pembayaran WHERE id_checkout IS NULL LIMIT 1
+             )`,
+            [id_checkout, id_alamat]
+        );
+
+        res.status(200).json({
+            message: 'Checkout berhasil dan pembayaran diperbarui',
+            id_checkout
+        });
+    } catch (error) {
+        console.error('Kesalahan checkout:', error);
+        res.status(500).json({
+            message: 'Terjadi kesalahan saat checkout',
+            error
         });
     }
 });
