@@ -21,4 +21,24 @@ router.get('/users', async function (req, res, next) {
     }
 });
 
+router.get('/detail/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id; // ID berita utama dari URL
+        const beritaUtama = await Model_Berita.getId(id); // Mendapatkan data berita utama
+        const beritaLain = await Model_Berita.getLimited(3, id); // Mendapatkan 3 berita lainnya (kecuali berita utama)
+
+        res.render('artikel/users/detail', {
+            data: beritaUtama[0],  // Data berita utama
+            beritaLain: beritaLain // Data berita lainnya
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+
+
+
+
 module.exports = router;

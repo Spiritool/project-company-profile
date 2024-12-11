@@ -155,14 +155,10 @@
                                             <p class="card-text fs-7"><small><%= item.deskripsi_berita.substring(0, 80) %>...</small>
                                             </p>
                                             <!-- Button to trigger modal -->
-                                            <button class="btn btn-primary" 
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#modalBerita" 
-                                                    data-judul="<%= item.nama_berita %>" 
-                                                    data-gambar="/images/berita/<%= item.gambar_berita %>" 
-                                                    data-deskripsi="<%= item.deskripsi_berita %>">
-                                                Read More
-                                            </button>
+                                            <a class="btn btn-primary" 
+                                                    href="/artikel/detail/<%= item.id_berita %>">
+                                                Baca Selengkapnya
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

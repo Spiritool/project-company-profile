@@ -63,7 +63,23 @@ class Model_Berita {
         });
     }
 
+    static async getLimited(limit, excludeId) {
+        return new Promise((resolve, reject) => {
+            const query = "SELECT * FROM berita WHERE id_berita != ? ORDER BY tanggal_upload DESC LIMIT ?";
+            connection.query(query, [excludeId, limit], (err, rows) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(rows);
+            });
+        });
+    }
+    
+    
 }
+
+
+
 
 
 module.exports = Model_Berita;
